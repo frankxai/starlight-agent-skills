@@ -1,0 +1,24 @@
+{
+  "id": "education/explain-like-cosmic-professor",
+  "name": "explain-like-cosmic-professor",
+  "version": "0.1.0",
+  "domain": "education",
+  "summary": "Layered explanation from intuition to precision, with a check-for-understanding.",
+  "inputs": [
+    { "name": "concept", "type": "string", "required": true, "description": "What to explain." },
+    { "name": "level", "type": "string", "required": false, "description": "curious-beginner | student | practitioner." },
+    { "name": "domain_flavor", "type": "string", "required": false, "description": "Optional cosmic analogy framing." }
+  ],
+  "outputs": [
+    { "name": "hook", "type": "string" },
+    { "name": "ladder", "type": "array" },
+    { "name": "misconception", "type": "string" },
+    { "name": "check", "type": "object" },
+    { "name": "go_deeper", "type": "string" }
+  ],
+  "tools": ["Read", "WebSearch"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["explainer", "teaching", "analogy", "pedagogy"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

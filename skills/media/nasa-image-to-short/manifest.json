@@ -1,0 +1,25 @@
+{
+  "id": "media/nasa-image-to-short",
+  "name": "nasa-image-to-short",
+  "version": "0.1.0",
+  "domain": "media",
+  "summary": "Any NASA/ESA still image into a vertical short package.",
+  "inputs": [
+    { "name": "image", "type": "string", "required": true, "description": "Image URL/page with caption + credit." },
+    { "name": "length", "type": "number", "required": false, "description": "Target seconds, default 40." },
+    { "name": "voice", "type": "string", "required": false, "description": "starlight | arcanea | frankx." }
+  ],
+  "outputs": [
+    { "name": "hook", "type": "string" },
+    { "name": "script", "type": "string" },
+    { "name": "captions", "type": "array" },
+    { "name": "shot_list", "type": "array" },
+    { "name": "rights_line", "type": "string" },
+    { "name": "duration_sec", "type": "number" }
+  ],
+  "tools": ["WebFetch", "Read"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["nasa", "image", "short", "video", "social"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

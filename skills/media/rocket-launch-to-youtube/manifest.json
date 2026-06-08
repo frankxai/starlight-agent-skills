@@ -1,0 +1,25 @@
+{
+  "id": "media/rocket-launch-to-youtube",
+  "name": "rocket-launch-to-youtube",
+  "version": "0.1.0",
+  "domain": "media",
+  "summary": "A rocket launch into a full long-form YouTube package.",
+  "inputs": [
+    { "name": "mission", "type": "string", "required": true, "description": "Vehicle, payload, provider, date, outcome (+ source)." },
+    { "name": "footage", "type": "string", "required": false, "description": "Notes on available clips for chapters." },
+    { "name": "length", "type": "number", "required": false, "description": "Target minutes, default 8." }
+  ],
+  "outputs": [
+    { "name": "titles", "type": "array" },
+    { "name": "script", "type": "string" },
+    { "name": "chapters", "type": "array" },
+    { "name": "description", "type": "string" },
+    { "name": "tags", "type": "array" },
+    { "name": "rights_line", "type": "string" }
+  ],
+  "tools": ["WebSearch", "WebFetch", "Read"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["rocket", "launch", "youtube", "longform", "script"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

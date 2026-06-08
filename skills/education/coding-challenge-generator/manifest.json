@@ -1,0 +1,22 @@
+{
+  "id": "education/coding-challenge-generator",
+  "name": "coding-challenge-generator",
+  "version": "0.1.0",
+  "domain": "education",
+  "summary": "A graded ladder of auto-checkable coding challenges around a topic.",
+  "inputs": [
+    { "name": "topic", "type": "string", "required": true, "description": "Skill/concept the set trains." },
+    { "name": "language", "type": "string", "required": false, "description": "python | javascript." },
+    { "name": "count", "type": "number", "required": false, "description": "Number of challenges, default 5." },
+    { "name": "range", "type": "string", "required": false, "description": "Difficulty span, default intro→advanced." }
+  ],
+  "outputs": [
+    { "name": "topic", "type": "string" },
+    { "name": "challenges", "type": "array" }
+  ],
+  "tools": ["Write", "Bash"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["coding", "challenges", "problem-set", "curriculum", "assessment"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

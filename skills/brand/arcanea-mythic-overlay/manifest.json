@@ -1,0 +1,22 @@
+{
+  "id": "brand/arcanea-mythic-overlay",
+  "name": "arcanea-mythic-overlay",
+  "version": "0.1.0",
+  "domain": "brand",
+  "summary": "Layer an Arcanea mythic framing over factual content, kept separable from the facts.",
+  "inputs": [
+    { "name": "content", "type": "string", "required": true, "description": "The factual base." },
+    { "name": "intensity", "type": "string", "required": false, "description": "light | medium | full." }
+  ],
+  "outputs": [
+    { "name": "factual_layer", "type": "string" },
+    { "name": "mythic_overlay", "type": "string" },
+    { "name": "combined", "type": "string" },
+    { "name": "canon_attribution", "type": "string" }
+  ],
+  "tools": ["Read"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["arcanea", "mythic", "canon", "narrative", "framing"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

@@ -1,0 +1,21 @@
+{
+  "id": "brand/starlight-voice",
+  "name": "starlight-voice",
+  "version": "0.1.0",
+  "domain": "brand",
+  "summary": "Apply the Starlight brand register to any text; strip off-voice failure modes.",
+  "inputs": [
+    { "name": "text", "type": "string", "required": true, "description": "Draft to voice." },
+    { "name": "mode", "type": "string", "required": false, "description": "rewrite | review." }
+  ],
+  "outputs": [
+    { "name": "mode", "type": "string" },
+    { "name": "result", "type": "string" },
+    { "name": "flags", "type": "array" }
+  ],
+  "tools": ["Read"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["brand", "voice", "starlight", "tone", "editing"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

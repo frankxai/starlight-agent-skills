@@ -1,0 +1,26 @@
+{
+  "id": "research/arxiv-paper-to-brief",
+  "name": "arxiv-paper-to-brief",
+  "version": "0.1.0",
+  "domain": "research",
+  "summary": "Research paper into a structured, citation-faithful brief.",
+  "inputs": [
+    { "name": "paper", "type": "string", "required": true, "description": "arXiv URL/ID, PDF, or text." },
+    { "name": "audience", "type": "string", "required": false, "description": "expert | practitioner | general." },
+    { "name": "depth", "type": "string", "required": false, "description": "tldr | standard | deep." }
+  ],
+  "outputs": [
+    { "name": "metadata", "type": "object" },
+    { "name": "problem", "type": "string" },
+    { "name": "method", "type": "string" },
+    { "name": "results", "type": "array" },
+    { "name": "limitations", "type": "array" },
+    { "name": "why_it_matters", "type": "string" },
+    { "name": "citations", "type": "array" }
+  ],
+  "tools": ["WebFetch", "Read"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["arxiv", "research", "summary", "brief", "literature"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

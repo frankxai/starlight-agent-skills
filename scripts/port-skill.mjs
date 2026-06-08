@@ -21,7 +21,7 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { dirname, join, relative } from "node:path";
+import { dirname, join, relative, resolve, isAbsolute, sep } from "node:path";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = join(HERE, "..");
@@ -45,7 +45,19 @@ if (!target) {
   process.exit(2);
 }
 
-const [domain, name] = skillId.split("/");
+const parts = skillId.split("/");
+const [domain, name] = parts;
+const SEG_RE = /^[a-z0-9][a-z0-9-]*$/;
+// Reject malformed or traversal-laden ids (e.g. "cosmos/../../etc").
+if (parts.length !== 2 || !SEG_RE.test(domain) || !SEG_RE.test(name)) {
+  console.error(`Error: invalid skill id ${JSON.stringify(skillId)} — expected "<domain>/<skill>" in kebab-case.`);
+  process.exit(2);
+}
+// `dest` must be a relative subpath with no traversal segments.
+if (isAbsolute(dest) || dest.split(/[\\/]/).some((s) => s === ".." )) {
+  console.error(`Error: --dest must be a relative path without ".." segments (got ${JSON.stringify(dest)}).`);
+  process.exit(2);
+}
 const src = join(REPO, "skills", domain, name);
 const skillMd = join(src, "SKILL.md");
 if (!existsSync(skillMd)) {
@@ -61,6 +73,13 @@ if (!md.includes("Built on SIP")) {
 }
 
 const destRoot = join(target, dest, domain, name);
+// Defense in depth: confirm the resolved destination stays inside --target.
+const targetBase = resolve(target);
+const destResolved = resolve(destRoot);
+if (destResolved !== targetBase && !destResolved.startsWith(targetBase + sep)) {
+  console.error(`Error: refusing to write outside --target (${targetBase}). Computed ${destResolved}.`);
+  process.exit(2);
+}
 
 function walk(dir) {
   const out = [];
@@ -85,7 +104,9 @@ for (const f of files) {
   // (../../<otherdomain>/...) so they resolve under the destination layout.
   // The destination keeps the same <domain>/<name> nesting, so sibling-domain
   // references remain valid; we only normalize doc links back to the library.
-  body = body.replace(/\]\((\.\.\/){3,}[^)]*\)/g, (m) =>
+  // `[^)\n]*` keeps the match within a single markdown link (no cross-line
+  // backtracking / ReDoS, and no swallowing past the intended link).
+  body = body.replace(/\]\((\.\.\/){3,}[^)\n]*\)/g, (m) =>
     m.replace(/\((\.\.\/)+/, "(https://github.com/frankxai/starlight-agent-skills/blob/main/")
   );
   if (dryRun) {

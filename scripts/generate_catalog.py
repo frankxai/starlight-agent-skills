@@ -49,7 +49,7 @@ def collect() -> dict[str, tuple[str, str, str, str]]:
     skills: dict[str, tuple[str, str, str, str]] = {}
     for dirpath, _dirs, files in os.walk(ROOT):
         for fn in files:
-            if fn.lower() != "skill.md":
+            if fn != "SKILL.md":
                 continue
             p = os.path.join(dirpath, fn)
             fm = parse_frontmatter(p)

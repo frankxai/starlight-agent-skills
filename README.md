@@ -26,10 +26,10 @@ rich-portable package. Browse the full [**Catalog**](docs/CATALOG.md).
 | 💻 coding | 1 | `cosmic-code-lab` |
 | ✨ brand | 3 | `starlight-voice`, `arcanea-mythic-overlay`, `frankx-authority-post` |
 
-The **Cosmos Pack v0.1** is the working proof: `apod-to-short`,
-`nasa-image-to-atlas-page`, `arxiv-paper-to-brief`, `rights-check-nasa-esa`,
-`social-repurposer`, and `cosmic-code-lab` ship with worked `examples/` and golden
-`tests/`.
+**Every** skill ships a worked `examples/` and a golden `tests/` contract — not
+just the flagship pack. Frontmatter, the `Built on SIP` footer, and each
+`manifest.json` are cross-checked against the folder and `SKILL.md` in CI, so the
+library can't silently drift.
 
 ## The ecosystem
 
@@ -77,13 +77,16 @@ skill. Full contract: [`docs/SKILL_SPEC.md`](docs/SKILL_SPEC.md).
 ## Develop
 
 ```bash
-python3 scripts/validate_skills.py     # frontmatter + attestation spec
+python3 scripts/validate_skills.py     # frontmatter + attestation + manifest↔folder↔SKILL.md
 python3 scripts/generate_catalog.py    # regenerate docs/CATALOG.md
-node    scripts/check-rules.mjs         # every rule resolves to a skill
+node    scripts/check-rules.mjs         # every rule resolves to a skill; no name collisions
 node    scripts/port-skill.mjs <domain/skill> --target=<repo> [--dry-run]
 ```
 
-CI runs the first three on every push. See [`CONTRIBUTING.md`](CONTRIBUTING.md).
+CI runs the first three on every push under least-privilege permissions
+(`contents: read`). The port script is path-traversal-safe and refuses to write
+outside `--target` or to port an un-attested skill. See
+[`CONTRIBUTING.md`](CONTRIBUTING.md) and [`SECURITY.md`](SECURITY.md).
 
 ## Built on SIP
 

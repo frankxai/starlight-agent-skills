@@ -5,6 +5,10 @@ on:
     branches: ["**"]
   pull_request:
 
+# Least privilege: this workflow only reads the repo and runs validators.
+permissions:
+  contents: read
+
 jobs:
   skills:
     runs-on: ubuntu-latest
@@ -27,8 +31,5 @@ jobs:
             exit 1
           fi
 
-      - name: Validate skill-rules.json
-        run: node -e "const r=require('./skill-rules.json');if(!Array.isArray(r.activation_rules))throw new Error('activation_rules missing');console.log('skill-rules.json OK:',r.activation_rules.length,'rules')"
-
-      - name: Verify every rule resolves to a skill
+      - name: Validate skill-rules.json and rule/skill coverage
         run: node scripts/check-rules.mjs

@@ -34,6 +34,10 @@ for (const domain of readdirSync(SKILLS)) {
 }
 
 const rules = JSON.parse(readFileSync(join(REPO, "skill-rules.json"), "utf8"));
+if (!Array.isArray(rules.activation_rules)) {
+  console.error("FAIL: skill-rules.json must contain an 'activation_rules' array.");
+  process.exit(1);
+}
 const ruleSkills = new Set(rules.activation_rules.map((r) => r.skill));
 
 const errors = [];

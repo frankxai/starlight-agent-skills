@@ -47,7 +47,8 @@ def main() -> int:
                 continue
             count += 1
             path = os.path.relpath(os.path.join(dirpath, fn), os.path.join(ROOT, ".."))
-            text = open(os.path.join(dirpath, fn), encoding="latin-1").read()
+            with open(os.path.join(dirpath, fn), encoding="utf-8") as f:
+                text = f.read()
             if not text.strip():
                 errors.append(f"{path}: file is empty")
                 continue

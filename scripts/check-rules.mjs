@@ -19,7 +19,17 @@ for (const domain of readdirSync(SKILLS)) {
   if (!statSync(dpath).isDirectory()) continue;
   for (const name of readdirSync(dpath)) {
     const spath = join(dpath, name, "SKILL.md");
-    if (existsSync(spath)) found.set(name, `${domain}/${name}`);
+    if (existsSync(spath)) {
+      // Skill `name` is the cross-domain identifier in skill-rules.json; a
+      // collision across domains would silently overwrite one skill's rules.
+      if (found.has(name)) {
+        console.error(
+          `FAIL: duplicate skill name "${name}" in both "${found.get(name)}" and "${domain}/${name}"`
+        );
+        process.exit(1);
+      }
+      found.set(name, `${domain}/${name}`);
+    }
   }
 }
 

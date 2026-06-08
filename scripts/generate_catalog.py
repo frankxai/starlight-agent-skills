@@ -33,7 +33,8 @@ DOMAIN_ORDER = [
 
 
 def parse_frontmatter(path: str) -> dict:
-    text = open(path, encoding="latin-1").read()
+    with open(path, encoding="utf-8") as f:
+        text = f.read()
     m = FM_RE.match(text)
     fm: dict[str, str] = {}
     if m:

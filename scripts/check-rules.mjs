@@ -59,9 +59,34 @@ for (const [name, id] of found) {
   if (!ruleSkills.has(name)) errors.push(`skill ${id} has no activation rule`);
 }
 
+// Reference orchestrators (agents/*/AGENT.md) may only compose skills that exist.
+const AGENTS = join(REPO, "agents");
+let agentCount = 0;
+if (existsSync(AGENTS)) {
+  for (const a of readdirSync(AGENTS)) {
+    const apath = join(AGENTS, a, "AGENT.md");
+    if (!existsSync(apath)) continue;
+    agentCount++;
+    const text = readFileSync(apath, "utf8");
+    if (!text.includes("Built on SIP")) {
+      errors.push(`agent ${a}: missing 'Built on SIP' attestation footer`);
+    }
+    const m = text.match(/^composes:\s*\[([^\]]*)\]/m);
+    const composed = m ? m[1].split(",").map((s) => s.trim()).filter(Boolean) : [];
+    if (composed.length === 0) {
+      errors.push(`agent ${a}: 'composes' must list at least one skill`);
+    }
+    for (const skill of composed) {
+      if (!found.has(skill)) errors.push(`agent ${a}: composes unknown skill "${skill}"`);
+    }
+  }
+}
+
 if (errors.length) {
   console.error(`FAIL: ${errors.length} issue(s):`);
   for (const e of errors) console.error(`  - ${e}`);
   process.exit(1);
 }
-console.log(`OK: ${found.size} skills, ${rules.activation_rules.length} rules, all resolve.`);
+console.log(
+  `OK: ${found.size} skills, ${rules.activation_rules.length} rules, ${agentCount} orchestrators, all resolve.`
+);

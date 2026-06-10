@@ -74,6 +74,14 @@ skills/<domain>/<skill-name>/
 Cross-runtime guidance lives once in [`adapters/`](adapters/), never duplicated per
 skill. Full contract: [`docs/SKILL_SPEC.md`](docs/SKILL_SPEC.md).
 
+## Orchestrators
+
+Skills are the moves; [`agents/`](agents/) holds short **reference orchestrators**
+that chain them into end-to-end plays — e.g. `cosmos-content-producer`
+(`apod-to-short` → `rights-check-nasa-esa` → `space-social-repurposer` →
+`thumbnail-concept`). CI verifies each orchestrator only composes skills that
+exist. Where it's headed next: [`docs/ROADMAP.md`](docs/ROADMAP.md).
+
 ## Develop
 
 ```bash

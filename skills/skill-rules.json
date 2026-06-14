@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "description": "starlight-agent-skills - Substrate Skill Auto-Activation Rules. Mirrors the schema used by Starlight-Intelligence-System/skills/skill-rules.json so SIS can consume these rules directly.",
+  "rules": [
+    {
+      "id": "agentic-income",
+      "skill": "agentic-income",
+      "triggers": {
+        "keywords": ["build an income system", "make money with agents", "scale my content network", "what should i build next", "passive income", "monetize this site", "agentic income", "income stream", "recurring affiliate", "income thesis"],
+        "agents": ["starlight-orchestrator", "starlight-business", "starlight-navigator"],
+        "intents": ["monetize", "income-strategy", "what-to-build"]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "id": "affiliate-audit",
+      "skill": "affiliate-audit",
+      "triggers": {
+        "keywords": ["affiliate audit", "affiliate link", "affiliate program", "monetization gap", "link coverage", "which programs to join", "missing affiliate links", "audit my content", "program catalog"],
+        "agents": ["starlight-business", "starlight-sentinel"],
+        "intents": ["audit", "monetize", "gap-analysis"]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "id": "payments-mandate",
+      "skill": "payments-mandate",
+      "triggers": {
+        "keywords": ["handle a payment", "authorize a charge", "verify a mandate", "settle money", "ap2", "ap2 mandate", "signed mandate", "spend cap", "can the agent pay", "autonomous payment", "payment authorization", "fail closed", "settlement"],
+        "agents": ["starlight-sentinel", "starlight-business", "starlight-orchestrator"],
+        "intents": ["payment", "authorize", "settle", "verify-mandate"]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "id": "swarm-queen-coordination",
+      "skill": "swarm-queen-coordination",
+      "triggers": {
+        "keywords": ["coordinate the swarm", "stream queen", "worker swarm", "escalation contract", "what can the agent decide", "queen and workers", "founder agent", "agent autonomy", "queen coordination", "multi-agent income", "no autonomous money"],
+        "agents": ["starlight-orchestrator", "starlight-navigator", "starlight-sentinel"],
+        "intents": ["orchestrate", "coordinate", "escalation", "agent-governance"]
+      },
+      "priority": "high",
+      "load_level": "core"
+    }
+  ],
+  "defaults": {
+    "starlight-orchestrator": ["swarm-queen-coordination", "agentic-income"],
+    "starlight-business": ["agentic-income", "affiliate-audit"],
+    "starlight-navigator": ["agentic-income", "swarm-queen-coordination"],
+    "starlight-sentinel": ["payments-mandate", "swarm-queen-coordination"]
+  }
+}

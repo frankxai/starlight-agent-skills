@@ -71,7 +71,7 @@ the shared vault. Workers never call payment tools directly; they report a findi
 |---|---|---|
 | Worker task within stream (draft, audit, research) | Worker → Queen | Queen review |
 | Bind a link, schedule a post, build a page | Queen | brand / claims gate |
-| Any payment / settlement | Payments Queen | **mandate verified + spend-cap check + audit entry** (verify-only tools, fail-closed) |
+| Any payment / settlement | Payments Queen | **mandate verified + spend-cap check + audit entry** (verify-only tools, fail-closed) + **human gate** |
 | Spend **above cap**, new rail, new vendor | Founder | pressure-test + **human approval** |
 | Irreversible (delete, rename live URL, rotate key, send blast, move funds) | Founder | **human approval, always** |
 

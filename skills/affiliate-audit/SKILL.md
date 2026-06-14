@@ -1,6 +1,6 @@
 ---
 name: affiliate-audit
-description: Map which content mentions paying tools but lacks affiliate links, and which programs to join first. Use when monetizing tool-comparison content, choosing affiliate programs, or auditing a passive-income site's link coverage. Portable and brand-neutral.
+description: Map which content mentions paying tools but lacks affiliate links, and which programs to join first. Use when monetizing tool-comparison content, choosing affiliate programs, or auditing a passive-income site's link coverage. Portable and brand-neutral. Trigger phrases: affiliate audit, affiliate link, affiliate program, monetization gap, link coverage, which programs to join, missing affiliate links, audit my content, program catalog.
 type: agent-orchestration
 ---
 
@@ -15,7 +15,7 @@ The monetization loop's engine: **catalog × content × traffic → ranked gaps.
 node scripts/affiliate-audit.mjs --content=<site>/content --traffic=<traffic.json> --write
 ```
 
-Reads the program catalog (`data/programs.json` or operator equivalent) + the content dir +
+Reads the program catalog (`data/programs.json` or operator equivalent, expecting fields like `status` and `disclosure`) + the content dir +
 optional traffic → ranks (1) programs to join first, (2) posts to add links to. Writes `AUDIT.md`.
 
 If no runtime is wired, the audit can also be run as a reasoning pass: read the catalog, scan the

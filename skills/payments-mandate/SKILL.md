@@ -42,10 +42,10 @@ to prove that a human authorized a specific charge. The mandate is the proof of 
 
 ## Verify a mandate (first failure rejects, in order)
 
-1. **Signed?** No signature, or signature does not verify against the issuer key → **REJECT**.
-2. **Unexpired?** No expiry, or expiry ≤ now → **REJECT**. A *missing* expiry is a reject, not a pass.
-3. **Amount-matched?** Charge amount ≠ mandate amount, or currency mismatch → **REJECT**.
-4. **Well-formed?** Missing mandate id / subject, or malformed payload → **REJECT**.
+1. **Well-formed?** Missing mandate id / subject, or malformed payload → **REJECT**.
+2. **Signed?** No signature, or signature does not verify against the issuer key → **REJECT**.
+3. **Unexpired?** No expiry, or expiry ≤ now → **REJECT**. A *missing* expiry is a reject, not a pass.
+4. **Amount-matched?** Charge amount ≠ mandate amount, or currency mismatch → **REJECT**.
 
 Only a mandate that clears all four is `verified`. Everything else rejects with a one-line reason.
 

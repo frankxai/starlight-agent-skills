@@ -50,6 +50,7 @@
   "defaults": {
     "starlight-orchestrator": ["swarm-queen-coordination", "agentic-income"],
     "starlight-business": ["agentic-income", "affiliate-audit"],
+    "starlight-navigator": ["agentic-income", "swarm-queen-coordination"],
     "starlight-sentinel": ["payments-mandate", "swarm-queen-coordination"]
   }
 }

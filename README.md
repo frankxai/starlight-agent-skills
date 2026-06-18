@@ -8,12 +8,12 @@
 > income systems safely — the substrate-level twin of `arcanea-agent-skills`. Feeds
 > `Starlight-Intelligence-System`; consumed by cosmos-engine runtimes and ACOS.
 
-[![Skills](https://img.shields.io/badge/skills-4-7fffd4?style=for-the-badge&labelColor=0d1117)](#-skill-index)
-[![Tier](https://img.shields.io/badge/tier-substrate-c084fc?style=for-the-badge&labelColor=0d1117)](#-scope)
+![Skills](https://img.shields.io/badge/skills-4-7fffd4?style=for-the-badge&labelColor=0d1117)
+![Tier](https://img.shields.io/badge/tier-substrate-c084fc?style=for-the-badge&labelColor=0d1117)
 [![Built on SIP](https://img.shields.io/badge/Built_on-SIP-78a6ff?style=for-the-badge&labelColor=0d1117)](https://github.com/frankxai/Starlight-Intelligence-System)
 [![License: MIT](https://img.shields.io/badge/license-MIT-white?style=for-the-badge&labelColor=0d1117)](https://opensource.org/licenses/MIT)
 
-[**🗂️ Skill index**](#-skill-index) · [**🔌 How SIS consumes these**](#-how-sis-consumes-these) · [**🎯 Scope**](#-scope)
+[**🗂️ Skill index**](#skill-index) · [**🔌 How SIS consumes these**](#how-sis-consumes-these) · [**🎯 Scope**](#scope)
 
 </div>
 
@@ -26,6 +26,8 @@
 
 ---
 
+<a id="scope"></a>
+
 ## 🎯 Scope
 
 - Portable, substrate-level skills (not brand-specific)
@@ -36,6 +38,8 @@ Each skill is a directory with a single `SKILL.md` (YAML frontmatter: `name` / `
 `type`, with trigger phrases in the description).
 
 ---
+
+<a id="skill-index"></a>
 
 ## 🗂️ Skill index
 
@@ -51,6 +55,8 @@ agents, and intents in the same schema as `Starlight-Intelligence-System/skills/
 
 ---
 
+<a id="how-sis-consumes-these"></a>
+
 ## 🔌 How SIS consumes these
 
 `Starlight-Intelligence-System` loads these as substrate skills behind its income/payments work.
@@ -61,8 +67,8 @@ flowchart TD
     AI["agentic-income<br/><i>income thesis + 4 loops</i>"] --> AA["affiliate-audit<br/><i>monetization loop</i>"]
     AI --> SQ["swarm-queen-coordination<br/><i>founder→queen→worker contract</i>"]
     SQ --> PM["payments-mandate<br/><i>verify-only · fail-closed · human-gated</i>"]
-    AA -.composes.-> AI
-    PM -.composes.-> SQ
+    AA -. composes .-> AI
+    PM -. composes .-> SQ
 
     SIS["Starlight-Intelligence-System<br/>Wealth IS · Payments stream"] -->|auto-activates on<br/>keyword/agent/intent| AI
 
@@ -80,9 +86,9 @@ Each skill's `SKILL.md` ends with a "How SIS consumes this" section. SIS can ing
 Outputs are SIP-attested; the no-autonomous-money-movement and human-gate invariants are non-waivable.
 
 The queen/worker/founder model and the escalation contract are sourced from
-[`agentic-ops-hub/docs/AGENT-STACK.md`](../agentic-ops-hub/docs/AGENT-STACK.md). For where this repo
+[`agentic-ops-hub/docs/AGENT-STACK.md`](https://github.com/frankxai/agentic-ops-hub/blob/main/docs/AGENT-STACK.md). For where this repo
 sits in the wider stack (L1 Capability, substrate slice), see
-[`agentic-ops-hub/ECOSYSTEM.md`](../agentic-ops-hub/ECOSYSTEM.md).
+[`agentic-ops-hub/ECOSYSTEM.md`](https://github.com/frankxai/agentic-ops-hub/blob/main/ECOSYSTEM.md).
 
 ---
 

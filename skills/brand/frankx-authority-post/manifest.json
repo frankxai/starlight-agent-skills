@@ -1,0 +1,24 @@
+{
+  "id": "brand/frankx-authority-post",
+  "name": "frankx-authority-post",
+  "version": "0.1.0",
+  "domain": "brand",
+  "summary": "An AI-Architect-voiced FrankX authority post that leads with a result and stays humble.",
+  "inputs": [
+    { "name": "seed", "type": "string", "required": true, "description": "The result/insight/build to post about." },
+    { "name": "platform", "type": "string", "required": false, "description": "linkedin | x." },
+    { "name": "cta", "type": "string", "required": false, "description": "Optional soft call-to-action." }
+  ],
+  "outputs": [
+    { "name": "platform", "type": "string" },
+    { "name": "post", "type": "string" },
+    { "name": "hook", "type": "string" },
+    { "name": "lesson", "type": "string" },
+    { "name": "claims_checked", "type": "array" }
+  ],
+  "tools": ["Read"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["frankx", "authority", "linkedin", "thought-leadership", "ai-architect"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

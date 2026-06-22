@@ -1,6 +1,6 @@
 <!-- GITHUB_VISUALS_START -->
 <p align="center">
-  <img src="assets/github/header.svg" alt="Starlight Agent Skills - Portable substrate skills for Starlight work." width="100%">
+  <img src="assets/github/header.svg" alt="Starlight Agent Skills - portable skills for the Starlight ecosystem." width="100%">
 </p>
 
 <details open>
@@ -21,108 +21,118 @@
 
 <div align="center">
 
-# 🧩 Starlight Agent Skills
+# 🛰️ Starlight Agent Skills
 
-### Canonical substrate-level agent skills for the Starlight ecosystem
+### Portable capability library for AI agents
 
-> Portable, brand-neutral `SKILL.md` capabilities that teach any agent how to build
-> income systems safely — the substrate-level twin of `arcanea-agent-skills`. Feeds
-> `Starlight-Intelligence-System`; consumed by cosmos-engine runtimes and ACOS.
+> Reusable `SKILL.md` capabilities — prompts, manifests, examples, tests, and adapters —
+> for Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System.
 
-![Skills](https://img.shields.io/badge/skills-4-7fffd4?style=for-the-badge&labelColor=0d1117)
-![Tier](https://img.shields.io/badge/tier-substrate-c084fc?style=for-the-badge&labelColor=0d1117)
+![Skills](https://img.shields.io/badge/skills-26-7fffd4?style=for-the-badge&labelColor=0d1117)
+![Domains](https://img.shields.io/badge/domains-7-c084fc?style=for-the-badge&labelColor=0d1117)
 [![Built on SIP](https://img.shields.io/badge/Built_on-SIP-78a6ff?style=for-the-badge&labelColor=0d1117)](https://github.com/frankxai/Starlight-Intelligence-System)
 [![License: MIT](https://img.shields.io/badge/license-MIT-white?style=for-the-badge&labelColor=0d1117)](https://opensource.org/licenses/MIT)
+[![validate](https://github.com/frankxai/starlight-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/frankxai/starlight-agent-skills/actions/workflows/validate.yml)
 
-[**🗂️ Skill index**](#skill-index) · [**🔌 How SIS consumes these**](#how-sis-consumes-these) · [**🎯 Scope**](#scope)
+[**🗂️ Catalog**](docs/CATALOG.md) · [**🧩 Architecture**](docs/ARCHITECTURE.md) · [**🗺️ Roadmap**](docs/ROADMAP.md)
 
 </div>
 
----
-
-> [!NOTE]
-> Part of the **Cosmos layer**. These are *substrate* skills —
-> kept deliberately distinct from `arcanea-agent-skills` (product/brand skills) and
-> `claude-skills-library` (OSS distribution). Skills **compose** each other rather than duplicate.
+> **SIS remembers. MCP connects. Skills execute. Engines produce.**
+> This repo is the *execute* layer — a sibling to the Starlight Intelligence System, not a folder inside it.
 
 ---
 
-<a id="scope"></a>
+## What's inside
 
-## 🎯 Scope
+**26 production-grade skills across 7 domains**, each a self-contained, rich-portable package.
+Browse the full [**Catalog**](docs/CATALOG.md).
 
-- Portable, substrate-level skills (not brand-specific)
-- Consumed by cosmos-engine runtimes and ACOS
-- Kept distinct from `arcanea-agent-skills` (product/brand skills) and `claude-skills-library` (OSS distribution)
+| Domain | Skills | Examples |
+|--------|:------:|----------|
+| 🧩 **substrate** | 4 | `agentic-income`, `affiliate-audit`, `payments-mandate`, `swarm-queen-coordination` |
+| 🌌 **cosmos** (flagship) | 7 | `apod-to-short`, `nasa-image-to-atlas-page`, `rights-check-nasa-esa` |
+| 🔬 research | 3 | `arxiv-paper-to-brief`, `mission-page-to-summary`, `claim-verification` |
+| 🎬 media | 5 | `social-repurposer`, `thumbnail-concept`, `caption-and-hashtag` |
+| 🎓 education | 3 | `explain-like-cosmic-professor`, `simulation-lab-builder` |
+| 💻 coding | 1 | `cosmic-code-lab` |
+| ✨ brand | 3 | `starlight-voice`, `arcanea-mythic-overlay`, `frankx-authority-post` |
 
-Each skill is a directory with a single `SKILL.md` (YAML frontmatter: `name` / `description` /
-`type`, with trigger phrases in the description).
+The **substrate** domain holds brand-neutral operating skills (income systems, affiliate
+monetization, AP2 payment safety, swarm coordination) that feed the Starlight Intelligence
+System directly. The creative domains ship worked `examples/` and golden `tests/`. Frontmatter,
+the `Built on SIP` footer, and each `manifest.json` are cross-checked against the folder and
+`SKILL.md` in CI, so the library can't silently drift.
 
----
+## The ecosystem
 
-<a id="skill-index"></a>
+| Layer | Repo | Role |
+|-------|------|------|
+| Substrate / memory | [`Starlight-Intelligence-System`](https://github.com/frankxai/Starlight-Intelligence-System) | Vaults, retrieval, the SIP protocol |
+| **Skills** | **`starlight-agent-skills`** (this repo) | **Portable capability packs** |
+| Connectors | `starlight-mcp` | External tool/data senses + hands |
+| Domain engine | [`starlight-cosmos-engine`](https://github.com/frankxai/starlight-cosmos-engine) | Consumes `skills/cosmos/*` |
+| Operation | [`agentic-creator-os`](https://github.com/frankxai/agentic-creator-os) | Creator productivity OS |
 
-## 🗂️ Skill index
+Why separate? SIS is the operating substrate; it shouldn't become a junk drawer for every skill
+pack. Keeping skills sovereign lets any consumer pull exactly what it needs, version it
+independently, and compose it under SIP attestation. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
-| Skill | What it does |
-|---|---|
-| [`agentic-income`](skills/agentic-income/SKILL.md) | The operating brain for building income systems with AI agents. One thesis, five non-negotiable principles (honest pick wins · recurring > one-time · own the audience · build once, fork many · compounding > spikes), four self-improving loops (monetization · content · authority · learning), and the "what to build next" decision. Composes `affiliate-audit` and hands the money step to `payments-mandate`. |
-| [`affiliate-audit`](skills/affiliate-audit/SKILL.md) | The monetization-loop engine: catalog × content × traffic → ranked gaps. Finds which content mentions paying tools without a link and which programs to join first. Composes `agentic-income`. |
-| [`payments-mandate`](skills/payments-mandate/SKILL.md) | How an agent safely handles a payment mandate — verify AP2 signed-mandate authorization before any settlement, hold the spend cap, fail closed on doubt, keep a human on every money decision. AP2 proves authorization; it does not move money. Composes `swarm-queen-coordination`. |
-| [`swarm-queen-coordination`](skills/swarm-queen-coordination/SKILL.md) | How a stream queen coordinates a worker swarm and runs the escalation contract (worker → queen → founder → human). Queen-led per stream, mesh within a stream; no autonomous money movement. Composes `payments-mandate` + `agentic-income`. |
+## Quickstart
 
-Activation rules: [`skills/skill-rules.json`](skills/skill-rules.json) — maps each skill to keywords,
-agents, and intents in the same schema as `Starlight-Intelligence-System/skills/skill-rules.json`.
+```bash
+# Claude Code — install one skill
+cp -r skills/cosmos/apod-to-short ~/.claude/skills/apod-to-short
 
----
-
-<a id="how-sis-consumes-these"></a>
-
-## 🔌 How SIS consumes these
-
-`Starlight-Intelligence-System` loads these as substrate skills behind its income/payments work.
-They compose into one self-improving income loop:
-
-```mermaid
-flowchart TD
-    AI["agentic-income<br/><i>income thesis + 4 loops</i>"] --> AA["affiliate-audit<br/><i>monetization loop</i>"]
-    AI --> SQ["swarm-queen-coordination<br/><i>founder→queen→worker contract</i>"]
-    SQ --> PM["payments-mandate<br/><i>verify-only · fail-closed · human-gated</i>"]
-    AA -. composes .-> AI
-    PM -. composes .-> SQ
-
-    SIS["Starlight-Intelligence-System<br/>Wealth IS · Payments stream"] -->|auto-activates on<br/>keyword/agent/intent| AI
-
-    classDef gate fill:#241B0F,stroke:#f59e0b,color:#fff;
-    class PM gate;
+# Other runtimes — see adapters/
+#   adapters/claude.md  codex.md  cursor.md  gemini.md  opencode.md  sis.md
 ```
 
-- **`agentic-income`** sits behind the Wealth IS income thesis — a stream queen runs its four loops on a cadence.
-- **`affiliate-audit`** is the affiliate stream queen's weekly monetization loop.
-- **`payments-mandate`** is the Payments stream's gate — verify-only tools, fail-closed, human-gated cap raises.
-- **`swarm-queen-coordination`** maps the founder → queens → workers tiers and enforces the escalation contract.
+Then, in your agent: *"Turn today's APOD into a 45-second short."* The skill auto-activates from
+its `description` (and from [`skill-rules.json`](skill-rules.json) in SIS/ACOS).
 
-Each skill's `SKILL.md` ends with a "How SIS consumes this" section. SIS can ingest
-`skills/skill-rules.json` directly (matching schema) to auto-activate these on keyword/agent/intent.
-Outputs are SIP-attested; the no-autonomous-money-movement and human-gate invariants are non-waivable.
+## Skill format (rich-portable)
 
-The queen/worker/founder model and the escalation contract are sourced from
-[`agentic-ops-hub/docs/AGENT-STACK.md`](https://github.com/frankxai/agentic-ops-hub/blob/main/docs/AGENT-STACK.md). For where this repo
-sits in the wider stack (L1 Capability, substrate slice), see
-[`agentic-ops-hub/ECOSYSTEM.md`](https://github.com/frankxai/agentic-ops-hub/blob/main/ECOSYSTEM.md).
+```
+skills/<domain>/<skill-name>/
+├── SKILL.md        # REQUIRED — canonical instructions + frontmatter
+├── manifest.json   # machine-readable I/O + MCP-dependency contract
+├── examples/       # worked input → output
+└── tests/          # golden-checklist asserting the output contract
+```
 
----
+`SKILL.md` is the **single source of truth** — authored once, runs everywhere. Cross-runtime
+guidance lives once in [`adapters/`](adapters/), never duplicated per skill. Full contract:
+[`docs/SKILL_SPEC.md`](docs/SKILL_SPEC.md).
 
-## 🔗 Related
+## Orchestrators
 
-`Starlight-Intelligence-System` · `agentic-creator-os` · `claude-skills-library` · `payment-intelligence-system`
+Skills are the moves; [`agents/`](agents/) holds short **reference orchestrators** that chain
+them into end-to-end plays — e.g. `cosmos-content-producer` (`apod-to-short` →
+`rights-check-nasa-esa` → `space-social-repurposer` → `thumbnail-concept`). CI verifies each
+orchestrator only composes skills that exist.
 
-> Created 2026-06-07. Seeded with 4 substrate skills 2026-06-14.
+## Develop
 
----
+```bash
+make check                              # validate + catalog drift + rules (what CI runs)
+python3 scripts/validate_skills.py      # frontmatter + attestation + manifest↔folder↔SKILL.md
+python3 scripts/generate_catalog.py     # regenerate docs/CATALOG.md
+node    scripts/check-rules.mjs          # every rule/orchestrator resolves; no name collisions
+node    scripts/port-skill.mjs <domain/skill> --target=<repo> [--dry-run]
+```
 
-<div align="center">
+CI runs the validators on every push under least-privilege permissions (`contents: read`). The
+port script is path-traversal-safe and refuses to write outside `--target` or to port an
+un-attested skill. See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`SECURITY.md`](SECURITY.md).
 
-**Built on SIP** · Starlight Intelligence Protocol · MIT · _Substrate skills, not brand skills._
+## Built on SIP
 
-</div>
+Every skill carries a **Built on SIP** attestation — the protocol-level attribution that lets it
+compose across the Starlight ecosystem. [`scripts/port-skill.mjs`](scripts/port-skill.mjs)
+refuses to port any skill whose footer is missing. Ledger: [`ATTESTATION.md`](ATTESTATION.md).
+
+## License
+
+[MIT](LICENSE). Arcanea canon, where invoked inside the two mythic-overlay skills, is attributed
+CC-BY-NC.

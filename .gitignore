@@ -1,3 +1,24 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node
+node_modules/
+npm-debug.log*
+
+# Local env / secrets
+.env
+.env.local
+*.key
 
 # Starlight/ACOS temporary files
 .agent/
@@ -7,7 +28,5 @@
 temp-*.json
 link-checker-report.json
 link-checker-report.txt
-
-# Starlight/ACOS temporary files
 .starlight/
 .gemini/

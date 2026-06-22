@@ -1,0 +1,35 @@
+name: validate
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+# Least privilege: this workflow only reads the repo and runs validators.
+permissions:
+  contents: read
+
+jobs:
+  skills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Validate skill frontmatter
+        run: python3 scripts/validate_skills.py
+
+      - name: Check catalog is up to date
+        run: |
+          python3 scripts/generate_catalog.py
+          if ! git diff --exit-code docs/CATALOG.md; then
+            echo "::error::docs/CATALOG.md is stale. Run 'python3 scripts/generate_catalog.py' and commit."
+            exit 1
+          fi
+
+      - name: Validate skill-rules.json and rule/skill coverage
+        run: node scripts/check-rules.mjs

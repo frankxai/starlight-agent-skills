@@ -1,0 +1,22 @@
+{
+  "id": "media/caption-and-hashtag",
+  "name": "caption-and-hashtag",
+  "version": "0.1.0",
+  "domain": "media",
+  "summary": "Platform-tuned caption plus a tiered, non-spammy hashtag set.",
+  "inputs": [
+    { "name": "subject", "type": "string", "required": true, "description": "What the post is about (+ link/credit)." },
+    { "name": "platform", "type": "string", "required": true, "description": "instagram | tiktok | x | linkedin." },
+    { "name": "voice", "type": "string", "required": false, "description": "starlight | arcanea | frankx." }
+  ],
+  "outputs": [
+    { "name": "caption", "type": "string" },
+    { "name": "hashtags", "type": "object" },
+    { "name": "platform", "type": "string" }
+  ],
+  "tools": ["Read", "WebSearch"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["caption", "hashtags", "social", "instagram", "reach"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

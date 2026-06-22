@@ -1,0 +1,18 @@
+{
+  "id": "domain/skill-name-here",
+  "name": "skill-name-here",
+  "version": "0.1.0",
+  "domain": "research",
+  "summary": "One-line machine-readable summary.",
+  "inputs": [
+    { "name": "source", "type": "string", "required": true, "description": "What the user supplies." }
+  ],
+  "outputs": [
+    { "name": "result", "type": "object", "description": "What the skill produces." }
+  ],
+  "tools": ["Read", "WebFetch"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["tag-one", "tag-two"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

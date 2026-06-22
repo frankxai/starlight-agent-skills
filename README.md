@@ -41,7 +41,7 @@
 ---
 
 > [!NOTE]
-> Part of the **Cosmos layer** (see `STARLIGHT-COSMOS.md`). These are *substrate* skills —
+> Part of the **Cosmos layer**. These are *substrate* skills —
 > kept deliberately distinct from `arcanea-agent-skills` (product/brand skills) and
 > `claude-skills-library` (OSS distribution). Skills **compose** each other rather than duplicate.
 

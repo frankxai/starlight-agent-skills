@@ -16,8 +16,8 @@ strictness: standard
   "confidence": "high",
   "evidence": [
     {
-      "quote": "Webb orbits the Sun at the second Lagrange point (L2), about 1.5 million km from Earth.",
-      "source": "NASA JWST mission pages (webbtelescope.org / nasa.gov)"
+      "quote": "Webb will orbit the Sun 1.5 million kilometers (1 million miles) away from the Earth at what is called the second Lagrange point or L2.",
+      "source": "https://webb.nasa.gov/content/about/orbit.html (NASA — 'Webb's Orbit')"
     }
   ],
   "rationale": "JWST is not in Earth orbit; it orbits the Sun–Earth L2 point ~1.5 million km from Earth, keeping the Sun, Earth, and Moon on the same side of its sunshield.",

@@ -6,200 +6,572 @@
     {
       "skill": "apod-to-short",
       "triggers": {
-        "keywords": ["apod", "astronomy picture of the day", "daily space short", "nasa image short", "space reel"],
-        "file_patterns": ["apod.json", "apod-*.md"],
-        "commands": ["/apod-to-short"]
+        "keywords": [
+          "apod",
+          "astronomy picture of the day",
+          "daily space short",
+          "nasa image short",
+          "space reel"
+        ],
+        "file_patterns": [
+          "apod.json",
+          "apod-*.md"
+        ],
+        "commands": [
+          "/apod-to-short"
+        ]
       },
       "priority": "high"
     },
     {
       "skill": "nasa-image-to-atlas-page",
       "triggers": {
-        "keywords": ["atlas page", "cosmic atlas", "object page", "gallery entry", "catalog entry", "nasa image page"],
-        "file_patterns": ["content/atlas/**", "*.atlas.mdx"],
-        "commands": ["/nasa-image-to-atlas-page"]
+        "keywords": [
+          "atlas page",
+          "cosmic atlas",
+          "object page",
+          "gallery entry",
+          "catalog entry",
+          "nasa image page"
+        ],
+        "file_patterns": [
+          "content/atlas/**",
+          "*.atlas.mdx"
+        ],
+        "commands": [
+          "/nasa-image-to-atlas-page"
+        ]
       },
       "priority": "high"
     },
     {
       "skill": "arxiv-space-paper-to-brief",
       "triggers": {
-        "keywords": ["astro-ph", "astrophysics paper", "space paper", "observation paper", "mission result"],
-        "file_patterns": ["papers/astro/**", "*.pdf"],
-        "commands": ["/arxiv-space-paper-to-brief"]
+        "keywords": [
+          "astro-ph",
+          "astrophysics paper",
+          "space paper",
+          "observation paper",
+          "mission result"
+        ],
+        "file_patterns": [
+          "papers/astro/**",
+          "*.pdf"
+        ],
+        "commands": [
+          "/arxiv-space-paper-to-brief"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "rocket-launch-to-reel",
       "triggers": {
-        "keywords": ["launch reel", "rocket short", "launch recap short", "reel from launch"],
-        "file_patterns": ["reels/**"],
-        "commands": ["/rocket-launch-to-reel"]
+        "keywords": [
+          "launch reel",
+          "rocket short",
+          "launch recap short",
+          "reel from launch"
+        ],
+        "file_patterns": [
+          "reels/**"
+        ],
+        "commands": [
+          "/rocket-launch-to-reel"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "rights-check-nasa-esa",
       "triggers": {
-        "keywords": ["rights", "usage rights", "can i use this image", "credit", "attribution", "license", "copyright", "public domain"],
-        "file_patterns": ["rights.json", "credits.md"],
-        "commands": ["/rights-check", "/rights-check-nasa-esa"]
+        "keywords": [
+          "rights",
+          "usage rights",
+          "can i use this image",
+          "credit",
+          "attribution",
+          "license",
+          "copyright",
+          "public domain"
+        ],
+        "file_patterns": [
+          "rights.json",
+          "credits.md"
+        ],
+        "commands": [
+          "/rights-check",
+          "/rights-check-nasa-esa"
+        ]
       },
       "priority": "high"
     },
     {
       "skill": "space-social-repurposer",
       "triggers": {
-        "keywords": ["repurpose space", "space social pack", "distribute space content", "cross-post nasa"],
-        "file_patterns": ["content/space/**"],
-        "commands": ["/space-social-repurposer"]
+        "keywords": [
+          "repurpose space",
+          "space social pack",
+          "distribute space content",
+          "cross-post nasa"
+        ],
+        "file_patterns": [
+          "content/space/**"
+        ],
+        "commands": [
+          "/space-social-repurposer"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "cosmic-mythic-overlay",
       "triggers": {
-        "keywords": ["cosmic myth", "mythic space", "arcanea cosmos", "myth this nebula", "universe framing space"],
-        "file_patterns": ["arcanea/cosmos/**"],
-        "commands": ["/cosmic-mythic-overlay"]
+        "keywords": [
+          "cosmic myth",
+          "mythic space",
+          "arcanea cosmos",
+          "myth this nebula",
+          "universe framing space"
+        ],
+        "file_patterns": [
+          "arcanea/cosmos/**"
+        ],
+        "commands": [
+          "/cosmic-mythic-overlay"
+        ]
       },
       "priority": "low"
     },
     {
       "skill": "arxiv-paper-to-brief",
       "triggers": {
-        "keywords": ["arxiv", "paper", "summarize this paper", "tl;dr", "literature", "research brief"],
-        "file_patterns": ["*.pdf", "papers/**", "*.bib"],
-        "commands": ["/arxiv-paper-to-brief"]
+        "keywords": [
+          "arxiv",
+          "paper",
+          "summarize this paper",
+          "tl;dr",
+          "literature",
+          "research brief"
+        ],
+        "file_patterns": [
+          "*.pdf",
+          "papers/**",
+          "*.bib"
+        ],
+        "commands": [
+          "/arxiv-paper-to-brief"
+        ]
       },
       "priority": "high"
     },
     {
       "skill": "mission-page-to-summary",
       "triggers": {
-        "keywords": ["mission", "spacecraft", "mission summary", "mission card", "nasa mission", "esa mission"],
-        "file_patterns": ["content/missions/**", "*.mission.md"],
-        "commands": ["/mission-page-to-summary"]
+        "keywords": [
+          "mission",
+          "spacecraft",
+          "mission summary",
+          "mission card",
+          "nasa mission",
+          "esa mission"
+        ],
+        "file_patterns": [
+          "content/missions/**",
+          "*.mission.md"
+        ],
+        "commands": [
+          "/mission-page-to-summary"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "claim-verification",
       "triggers": {
-        "keywords": ["verify", "fact-check", "is this true", "confirm", "source check", "debunk"],
-        "file_patterns": ["claims.md", "fact-check/**"],
-        "commands": ["/claim-verification"]
+        "keywords": [
+          "verify",
+          "fact-check",
+          "is this true",
+          "confirm",
+          "source check",
+          "debunk"
+        ],
+        "file_patterns": [
+          "claims.md",
+          "fact-check/**"
+        ],
+        "commands": [
+          "/claim-verification"
+        ]
       },
       "priority": "high"
     },
     {
       "skill": "nasa-image-to-short",
       "triggers": {
-        "keywords": ["image short", "space short", "reel from this image", "nasa photo short"],
-        "file_patterns": ["images/**", "*.jpg", "*.png"],
-        "commands": ["/nasa-image-to-short"]
+        "keywords": [
+          "image short",
+          "space short",
+          "reel from this image",
+          "nasa photo short"
+        ],
+        "file_patterns": [
+          "images/**",
+          "*.jpg",
+          "*.png"
+        ],
+        "commands": [
+          "/nasa-image-to-short"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "rocket-launch-to-youtube",
       "triggers": {
-        "keywords": ["rocket launch", "youtube video", "launch recap", "mission video", "long-form script"],
-        "file_patterns": ["videos/**", "*.script.md"],
-        "commands": ["/rocket-launch-to-youtube"]
+        "keywords": [
+          "rocket launch",
+          "youtube video",
+          "launch recap",
+          "mission video",
+          "long-form script"
+        ],
+        "file_patterns": [
+          "videos/**",
+          "*.script.md"
+        ],
+        "commands": [
+          "/rocket-launch-to-youtube"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "thumbnail-concept",
       "triggers": {
-        "keywords": ["thumbnail", "cover art", "thumbnail ideas", "ctr", "video cover"],
-        "file_patterns": ["thumbnails/**"],
-        "commands": ["/thumbnail-concept"]
+        "keywords": [
+          "thumbnail",
+          "cover art",
+          "thumbnail ideas",
+          "ctr",
+          "video cover"
+        ],
+        "file_patterns": [
+          "thumbnails/**"
+        ],
+        "commands": [
+          "/thumbnail-concept"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "caption-and-hashtag",
       "triggers": {
-        "keywords": ["caption", "hashtags", "caption and hashtags", "tags for post"],
-        "file_patterns": ["posts/**"],
-        "commands": ["/caption-and-hashtag"]
+        "keywords": [
+          "caption",
+          "hashtags",
+          "caption and hashtags",
+          "tags for post"
+        ],
+        "file_patterns": [
+          "posts/**"
+        ],
+        "commands": [
+          "/caption-and-hashtag"
+        ]
       },
       "priority": "low"
     },
     {
       "skill": "social-repurposer",
       "triggers": {
-        "keywords": ["repurpose", "turn this into posts", "social pack", "cross-post", "distribute", "make threads"],
-        "file_patterns": ["content/**", "*.mdx", "*.md"],
-        "commands": ["/social-repurposer", "/generate-social"]
+        "keywords": [
+          "repurpose",
+          "turn this into posts",
+          "social pack",
+          "cross-post",
+          "distribute",
+          "make threads"
+        ],
+        "file_patterns": [
+          "content/**",
+          "*.mdx",
+          "*.md"
+        ],
+        "commands": [
+          "/social-repurposer",
+          "/generate-social"
+        ]
       },
       "priority": "high"
     },
     {
       "skill": "explain-like-cosmic-professor",
       "triggers": {
-        "keywords": ["explain", "eli5", "teach me", "make this simple", "intuition for"],
-        "file_patterns": ["lessons/**", "*.lesson.md"],
-        "commands": ["/explain-like-cosmic-professor"]
+        "keywords": [
+          "explain",
+          "eli5",
+          "teach me",
+          "make this simple",
+          "intuition for"
+        ],
+        "file_patterns": [
+          "lessons/**",
+          "*.lesson.md"
+        ],
+        "commands": [
+          "/explain-like-cosmic-professor"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "coding-challenge-generator",
       "triggers": {
-        "keywords": ["coding challenges", "problem set", "exercises", "challenge ladder", "interview prep"],
-        "file_patterns": ["challenges/**", "problems/**"],
-        "commands": ["/coding-challenge-generator"]
+        "keywords": [
+          "coding challenges",
+          "problem set",
+          "exercises",
+          "challenge ladder",
+          "interview prep"
+        ],
+        "file_patterns": [
+          "challenges/**",
+          "problems/**"
+        ],
+        "commands": [
+          "/coding-challenge-generator"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "simulation-lab-builder",
       "triggers": {
-        "keywords": ["simulation", "interactive lab", "sandbox", "interactive demo", "visualize this"],
-        "file_patterns": ["sims/**", "*.sim.html"],
-        "commands": ["/simulation-lab-builder"]
+        "keywords": [
+          "simulation",
+          "interactive lab",
+          "sandbox",
+          "interactive demo",
+          "visualize this"
+        ],
+        "file_patterns": [
+          "sims/**",
+          "*.sim.html"
+        ],
+        "commands": [
+          "/simulation-lab-builder"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "cosmic-code-lab",
       "triggers": {
-        "keywords": ["code lab", "coding challenge", "exercise", "kata", "tutorial", "cosmic code"],
-        "file_patterns": ["labs/**", "*.lab.md", "test_*.py", "*.test.js"],
-        "commands": ["/cosmic-code-lab"]
+        "keywords": [
+          "code lab",
+          "coding challenge",
+          "exercise",
+          "kata",
+          "tutorial",
+          "cosmic code"
+        ],
+        "file_patterns": [
+          "labs/**",
+          "*.lab.md",
+          "test_*.py",
+          "*.test.js"
+        ],
+        "commands": [
+          "/cosmic-code-lab"
+        ]
       },
       "priority": "medium"
     },
     {
       "skill": "starlight-voice",
       "triggers": {
-        "keywords": ["starlight voice", "brand voice", "make this sound like starlight", "on-brand", "rewrite in voice"],
-        "file_patterns": ["content/**", "*.mdx", "*.md"],
-        "commands": ["/starlight-voice"]
+        "keywords": [
+          "starlight voice",
+          "brand voice",
+          "make this sound like starlight",
+          "on-brand",
+          "rewrite in voice"
+        ],
+        "file_patterns": [
+          "content/**",
+          "*.mdx",
+          "*.md"
+        ],
+        "commands": [
+          "/starlight-voice"
+        ]
       },
       "priority": "high"
     },
     {
       "skill": "arcanea-mythic-overlay",
       "triggers": {
-        "keywords": ["arcanea", "mythic", "mythic overlay", "guardian framing", "universe framing"],
-        "file_patterns": ["arcanea/**", "*.myth.md"],
-        "commands": ["/arcanea-mythic-overlay"]
+        "keywords": [
+          "arcanea",
+          "mythic",
+          "mythic overlay",
+          "guardian framing",
+          "universe framing"
+        ],
+        "file_patterns": [
+          "arcanea/**",
+          "*.myth.md"
+        ],
+        "commands": [
+          "/arcanea-mythic-overlay"
+        ]
       },
       "priority": "low"
     },
     {
       "skill": "frankx-authority-post",
       "triggers": {
-        "keywords": ["authority post", "frankx post", "thought leadership", "linkedin post", "share this insight"],
-        "file_patterns": ["posts/**"],
-        "commands": ["/frankx-authority-post"]
+        "keywords": [
+          "authority post",
+          "frankx post",
+          "thought leadership",
+          "linkedin post",
+          "share this insight"
+        ],
+        "file_patterns": [
+          "posts/**"
+        ],
+        "commands": [
+          "/frankx-authority-post"
+        ]
       },
       "priority": "medium"
+    },
+    {
+      "skill": "agentic-income",
+      "triggers": {
+        "keywords": [
+          "build an income system",
+          "make money with agents",
+          "scale my content network",
+          "what should i build next",
+          "passive income",
+          "monetize this site",
+          "agentic income",
+          "income stream",
+          "recurring affiliate",
+          "income thesis"
+        ],
+        "file_patterns": [],
+        "commands": [],
+        "agents": [
+          "starlight-orchestrator",
+          "starlight-business",
+          "starlight-navigator"
+        ],
+        "intents": [
+          "monetize",
+          "income-strategy",
+          "what-to-build"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "skill": "affiliate-audit",
+      "triggers": {
+        "keywords": [
+          "affiliate audit",
+          "affiliate link",
+          "affiliate program",
+          "monetization gap",
+          "link coverage",
+          "which programs to join",
+          "missing affiliate links",
+          "audit my content",
+          "program catalog"
+        ],
+        "file_patterns": [],
+        "commands": [],
+        "agents": [
+          "starlight-business",
+          "starlight-sentinel"
+        ],
+        "intents": [
+          "audit",
+          "monetize",
+          "gap-analysis"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "skill": "payments-mandate",
+      "triggers": {
+        "keywords": [
+          "handle a payment",
+          "authorize a charge",
+          "verify a mandate",
+          "settle money",
+          "ap2",
+          "ap2 mandate",
+          "signed mandate",
+          "spend cap",
+          "can the agent pay",
+          "autonomous payment",
+          "payment authorization",
+          "fail closed",
+          "settlement"
+        ],
+        "file_patterns": [],
+        "commands": [],
+        "agents": [
+          "starlight-sentinel",
+          "starlight-business",
+          "starlight-orchestrator"
+        ],
+        "intents": [
+          "payment",
+          "authorize",
+          "settle",
+          "verify-mandate"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "skill": "swarm-queen-coordination",
+      "triggers": {
+        "keywords": [
+          "coordinate the swarm",
+          "stream queen",
+          "worker swarm",
+          "escalation contract",
+          "what can the agent decide",
+          "queen and workers",
+          "founder agent",
+          "agent autonomy limits"
+        ],
+        "file_patterns": [],
+        "commands": [],
+        "agents": [
+          "starlight-orchestrator",
+          "starlight-navigator"
+        ],
+        "intents": [
+          "coordinate",
+          "escalation",
+          "autonomy"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
     }
   ]
 }

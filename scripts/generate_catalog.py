@@ -23,6 +23,7 @@ FM_RE = re.compile("^﻿?---\\s*\n(.*?)\n?---", re.S)
 
 # Canonical domain order + human label.
 DOMAIN_ORDER = [
+    ("substrate", "🧩 Substrate (income · payments · swarm)"),
     ("cosmos", "🌌 Cosmos (flagship pack)"),
     ("research", "🔬 Research"),
     ("media", "🎬 Media"),
@@ -95,7 +96,8 @@ def main() -> None:
             d = desc.replace("|", "\\|")
             if len(d) > 160:
                 d = d[:157].rstrip() + "..."
-            folder = rel.rsplit("/", 1)[0]
+            # CATALOG.md lives in docs/, so prefix ../ to reach repo-root skills/.
+            folder = "../" + rel.rsplit("/", 1)[0]
             lines.append(f"| [`{name}`]({folder}) | {ver} | {d} |\n")
 
     os.makedirs(os.path.dirname(OUT), exist_ok=True)

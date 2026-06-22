@@ -25,7 +25,7 @@ import sys
 ROOT = os.path.join(os.path.dirname(__file__), "..", "skills")
 NAME_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
-DOMAINS = {"research", "media", "education", "coding", "brand", "cosmos"}
+DOMAINS = {"substrate", "research", "media", "education", "coding", "brand", "cosmos"}
 # Frontmatter block: tolerant of a BOM and of the closing `---` having no trailing newline.
 FM_RE = re.compile("^﻿?---\\s*\n(.*?)\n?---", re.S)
 

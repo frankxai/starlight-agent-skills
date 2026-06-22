@@ -8,8 +8,12 @@ The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 ## [0.1.0]
 
 ### Added
-- 22 skills across 6 domains (cosmos, research, media, education, coding, brand),
-  each with worked `examples/` and golden `tests/`.
+- 26 skills across 7 domains. The creative domains (cosmos, research, media,
+  education, coding, brand — 22 skills) each ship worked `examples/` and golden
+  `tests/`; the `substrate` domain (4 brand-neutral operating skills:
+  `agentic-income`, `affiliate-audit`, `payments-mandate`,
+  `swarm-queen-coordination`) feeds the Starlight Intelligence System directly.
+- Premium GitHub visual suite (`assets/github/`) and unified ecosystem README.
 - Rich-portable skill contract (`SKILL.md` + `manifest.json` + `examples/` + `tests/`)
   and `templates/skill-template/`.
 - Two reference orchestrators (`agents/`) that chain skills into pipelines, with

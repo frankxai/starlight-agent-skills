@@ -11,8 +11,10 @@
  *
  * Behavior:
  *   - Copies skills/<domain>/<name>/ into <target>/<dest>/<domain>/<name>/.
- *   - Rewrites self-referential relative links (../../<domain>/...) to the
- *     destination's layout so cross-skill references keep resolving.
+ *   - Rewrites only deep relative links that escape the skill (3+ "../" segments,
+ *     e.g. cross-domain ../../<domain>/<name>/... or repo-doc links) into absolute
+ *     GitHub URLs so they still resolve from the destination repo. Same-skill
+ *     links (fewer than 3 "../") are left untouched.
  *   - Verifies the SKILL.md carries the "Built on SIP" attestation footer; refuses
  *     to port without it (silent composition is a protocol breach).
  *   - --dry-run prints the plan and the attestation check without writing.
@@ -100,10 +102,10 @@ for (const f of files) {
   const rel = relative(src, f);
   const out = join(destRoot, rel);
   let body = readFileSync(f, "utf8");
-  // Rewrite cross-skill references that point up out of this skill
-  // (../../<otherdomain>/...) so they resolve under the destination layout.
-  // The destination keeps the same <domain>/<name> nesting, so sibling-domain
-  // references remain valid; we only normalize doc links back to the library.
+  // Rewrite only markdown links that escape the skill via 3+ "../" segments
+  // (cross-domain or repo-doc links) into absolute GitHub URLs. Links with fewer
+  // than 3 "../" stay within the ported skill and are left as-is. `[^)\n]*` keeps
+  // each match inside a single markdown link (no cross-line backtracking / ReDoS).
   // `[^)\n]*` keeps the match within a single markdown link (no cross-line
   // backtracking / ReDoS, and no swallowing past the intended link).
   body = body.replace(/\]\((\.\.\/){3,}[^)\n]*\)/g, (m) =>

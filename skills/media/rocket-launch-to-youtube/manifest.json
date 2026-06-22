@@ -5,21 +5,72 @@
   "domain": "media",
   "summary": "A rocket launch into a full long-form YouTube package.",
   "inputs": [
-    { "name": "mission", "type": "string", "required": true, "description": "Vehicle, payload, provider, date, outcome (+ source)." },
-    { "name": "footage", "type": "string", "required": false, "description": "Notes on available clips for chapters." },
-    { "name": "length", "type": "number", "required": false, "description": "Target minutes, default 8." }
+    {
+      "name": "mission",
+      "type": "string",
+      "required": true,
+      "description": "Vehicle, payload, provider, date, outcome (+ source)."
+    },
+    {
+      "name": "footage",
+      "type": "string",
+      "required": false,
+      "description": "Notes on available clips for chapters."
+    },
+    {
+      "name": "length",
+      "type": "number",
+      "required": false,
+      "description": "Target minutes, default 8."
+    }
   ],
   "outputs": [
-    { "name": "titles", "type": "array" },
-    { "name": "script", "type": "string" },
-    { "name": "chapters", "type": "array" },
-    { "name": "description", "type": "string" },
-    { "name": "tags", "type": "array" },
-    { "name": "rights_line", "type": "string" }
+    {
+      "name": "titles",
+      "type": "array"
+    },
+    {
+      "name": "script",
+      "type": "string"
+    },
+    {
+      "name": "chapters",
+      "type": "array"
+    },
+    {
+      "name": "description",
+      "type": "string"
+    },
+    {
+      "name": "tags",
+      "type": "array"
+    },
+    {
+      "name": "rights_line",
+      "type": "string",
+      "nullable": true
+    }
   ],
-  "tools": ["WebSearch", "WebFetch", "Read"],
+  "tools": [
+    "WebSearch",
+    "WebFetch",
+    "Read"
+  ],
   "mcp_dependencies": [],
-  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
-  "tags": ["rocket", "launch", "youtube", "longform", "script"],
+  "runtimes": [
+    "claude",
+    "codex",
+    "cursor",
+    "gemini",
+    "opencode",
+    "sis"
+  ],
+  "tags": [
+    "rocket",
+    "launch",
+    "youtube",
+    "longform",
+    "script"
+  ],
   "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
 }

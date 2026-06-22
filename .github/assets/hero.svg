@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 300" width="1200" height="300">
+<defs>
+  <radialGradient id="bg-sas" cx="50%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#001a0f"/>
+    <stop offset="100%" stop-color="#0a0a0b"/>
+  </radialGradient>
+  <linearGradient id="node-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <stop offset="0%" stop-color="#10b981"/>
+    <stop offset="100%" stop-color="#06b6d4"/>
+  </linearGradient>
+  <filter id="glow-sas">
+    <feGaussianBlur stdDeviation="4" result="blur"/>
+    <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+</defs>
+<rect width="1200" height="300" fill="url(#bg-sas)"/>
+
+<!-- Constellation connection lines -->
+<g stroke="#06b6d4" stroke-width="1" opacity="0.25" fill="none">
+  <!-- center to cosmos -->
+  <line x1="600" y1="110" x2="500" y2="75">
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.2s" repeatCount="indefinite"/>
+  </line>
+  <!-- center to research -->
+  <line x1="600" y1="110" x2="680" y2="65">
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="1.8s" repeatCount="indefinite"/>
+  </line>
+  <!-- center to media -->
+  <line x1="600" y1="110" x2="730" y2="115">
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.4s" repeatCount="indefinite"/>
+  </line>
+  <!-- center to education -->
+  <line x1="600" y1="110" x2="660" y2="165">
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="1.9s" repeatCount="indefinite"/>
+  </line>
+  <!-- center to coding -->
+  <line x1="600" y1="110" x2="540" y2="160">
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.1s" repeatCount="indefinite"/>
+  </line>
+  <!-- center to brand -->
+  <line x1="600" y1="110" x2="470" y2="130">
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.6s" repeatCount="indefinite"/>
+  </line>
+  <!-- center to substrate -->
+  <line x1="600" y1="110" x2="600" y2="50">
+    <animate attributeName="opacity" values="0.15;0.4;0.15" dur="2.0s" repeatCount="indefinite"/>
+  </line>
+</g>
+
+<!-- Center node (substrate - larger, primary) -->
+<circle cx="600" cy="110" r="28" fill="url(#node-grad)" opacity="0.9" filter="url(#glow-sas)">
+  <animate attributeName="r" values="26;30;26" dur="2.5s" repeatCount="indefinite"/>
+</circle>
+<text x="600" y="114" fill="#0a0a0b" font-family="ui-monospace,monospace" font-size="9" font-weight="700" text-anchor="middle">substrate</text>
+
+<!-- cosmos node -->
+<circle cx="500" cy="75" r="20" fill="#10b981" opacity="0.8"/>
+<text x="500" y="79" fill="#0a0a0b" font-family="ui-monospace,monospace" font-size="8" font-weight="700" text-anchor="middle">cosmos</text>
+
+<!-- research node -->
+<circle cx="680" cy="65" r="20" fill="#06b6d4" opacity="0.8"/>
+<text x="680" y="69" fill="#0a0a0b" font-family="ui-monospace,monospace" font-size="8" font-weight="700" text-anchor="middle">research</text>
+
+<!-- media node -->
+<circle cx="730" cy="115" r="20" fill="#10b981" opacity="0.8"/>
+<text x="730" y="119" fill="#0a0a0b" font-family="ui-monospace,monospace" font-size="8" font-weight="700" text-anchor="middle">media</text>
+
+<!-- education node -->
+<circle cx="660" cy="165" r="20" fill="#06b6d4" opacity="0.8"/>
+<text x="660" y="169" fill="#0a0a0b" font-family="ui-monospace,monospace" font-size="8" font-weight="700" text-anchor="middle">education</text>
+
+<!-- coding node -->
+<circle cx="540" cy="160" r="20" fill="#10b981" opacity="0.8"/>
+<text x="540" y="164" fill="#0a0a0b" font-family="ui-monospace,monospace" font-size="8" font-weight="700" text-anchor="middle">coding</text>
+
+<!-- brand node -->
+<circle cx="470" cy="130" r="20" fill="#06b6d4" opacity="0.8"/>
+<text x="470" y="134" fill="#0a0a0b" font-family="ui-monospace,monospace" font-size="8" font-weight="700" text-anchor="middle">brand</text>
+
+<!-- Pulse propagation from center -->
+<circle cx="600" cy="110" r="30" fill="none" stroke="#10b981" stroke-width="1.5" opacity="0">
+  <animate attributeName="r" values="30;100;160" dur="3.5s" repeatCount="indefinite"/>
+  <animate attributeName="opacity" values="0.6;0.15;0" dur="3.5s" repeatCount="indefinite"/>
+</circle>
+
+<!-- Title -->
+<text x="600" y="233" fill="#10b981" font-family="ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace" font-size="30" font-weight="700" text-anchor="middle" letter-spacing="3">STARLIGHT AGENT SKILLS</text>
+<text x="600" y="258" fill="#94a3b8" font-family="ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace" font-size="13" text-anchor="middle">26 portable capabilities · 7 domains · Every AI runtime</text>
+
+<!-- Built on SIP -->
+<text x="24" y="283" fill="#f59e0b" font-family="ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace" font-size="11" opacity="0.8">Built on SIP</text>
+
+<!-- Decorative right line -->
+<line x1="900" y1="283" x2="1176" y2="283" stroke="#10b981" stroke-width="0.5" opacity="0.3"/>
+</svg>

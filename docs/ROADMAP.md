@@ -6,10 +6,13 @@ lenses; this is the "right place" the work is heading.
 
 ## v0.1 — Foundation (shipped)
 
-- 22 skills across 6 domains, each with `examples/` + `tests/`.
-- Rich-portable contract; runtime adapters; `skill-rules.json`; SIP attestation.
-- Two reference orchestrators showing skill composition.
-- Self-checking tooling + least-privilege CI; security-hardened porting.
+- **26 skills across 7 domains** — cosmos (7, flagship), substrate (4), research (3),
+  media (5), education (3), coding (1), brand (3).
+- Rich-portable contract; runtime adapters; `skill-rules.json`; SIP attestation on every skill.
+- Reference orchestrators showing skill composition (`cosmos-content-producer`, `research-digest`).
+- Self-checking tooling (`make check`) + least-privilege CI; security-hardened porting script.
+- **First downstream consumption**: Cosmos Pack mirrored into `agentic-creator-os` — 7 skills,
+  7 activation rules, version-pinned at `v0.1.0 / ff4efe5`.
 
 ## v0.2 — Consumption proof
 
@@ -18,8 +21,8 @@ lenses; this is the "right place" the work is heading.
   real downstream consumer and validates the contract end-to-end.
 - **`starlight-mcp` hooks**: where skills declare `mcp_dependencies`, point them at
   the NASA/ESA media connectors so fetching is real, not described.
-- Port the Cosmos Pack into SIS + ACOS via `port-skill.mjs` and confirm
-  auto-activation through `skill-rules.json`.
+- Port the remaining creator-content domains (`media`, `brand`, `education`, `research`,
+  `coding` — 15 skills) into `agentic-creator-os` via `port-skill.mjs`.
 
 ## v0.3 — Depth and breadth
 

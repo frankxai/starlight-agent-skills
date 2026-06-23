@@ -23,7 +23,7 @@
  */
 import { readFileSync, writeFileSync, mkdirSync, readdirSync, statSync, existsSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { dirname, join, relative, resolve, isAbsolute, sep } from "node:path";
+import { dirname, join, relative, resolve, isAbsolute } from "node:path";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const REPO = join(HERE, "..");

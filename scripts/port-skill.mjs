@@ -78,7 +78,8 @@ const destRoot = join(target, dest, domain, name);
 // Defense in depth: confirm the resolved destination stays inside --target.
 const targetBase = resolve(target);
 const destResolved = resolve(destRoot);
-if (destResolved !== targetBase && !destResolved.startsWith(targetBase + sep)) {
+const relToTarget = relative(targetBase, destResolved);
+if (!relToTarget || relToTarget.startsWith("..") || isAbsolute(relToTarget)) {
   console.error(`Error: refusing to write outside --target (${targetBase}). Computed ${destResolved}.`);
   process.exit(2);
 }
@@ -102,12 +103,10 @@ for (const f of files) {
   const rel = relative(src, f);
   const out = join(destRoot, rel);
   let body = readFileSync(f, "utf8");
-  // Rewrite only markdown links that escape the skill via 3+ "../" segments
-  // (cross-domain or repo-doc links) into absolute GitHub URLs. Links with fewer
-  // than 3 "../" stay within the ported skill and are left as-is. `[^)\n]*` keeps
-  // each match inside a single markdown link (no cross-line backtracking / ReDoS).
-  // `[^)\n]*` keeps the match within a single markdown link (no cross-line
-  // backtracking / ReDoS, and no swallowing past the intended link).
+  // Rewrite only markdown links that escape the skills directory via 3+ "../" segments
+  // (such as repo-doc links) into absolute GitHub URLs. Cross-domain links with exactly
+  // 2 "../" segments (e.g., ../../<domain>/<name>/...) stay relative and are left as-is.
+  // [^)\n]* keeps each match inside a single markdown link (no cross-line backtracking / ReDoS).
   body = body.replace(/\]\((\.\.\/){3,}[^)\n]*\)/g, (m) =>
     m.replace(/\((\.\.\/)+/, "(https://github.com/frankxai/starlight-agent-skills/blob/main/")
   );

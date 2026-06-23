@@ -40,9 +40,12 @@ def parse_frontmatter(path: str) -> dict:
     fm: dict[str, str] = {}
     if m:
         for line in m.group(1).splitlines():
-            kv = re.match(r"^([A-Za-z_]+):\s*(.*)$", line)
+            kv = re.match(r"^([A-Za-z0-9_-]+):\s*(.*)$", line)
             if kv:
-                fm[kv.group(1)] = kv.group(2).strip().strip('"')
+                key, val = kv.group(1), kv.group(2).strip()
+                if len(val) >= 2 and val[0] == val[-1] and val[0] in ("'", '"'):
+                    val = val[1:-1]
+                fm[key] = val
     return fm
 
 

@@ -9,7 +9,7 @@ Starlight ecosystem.
 Every skill MUST:
 
 - Live at `skills/<domain>/<skill-name>/SKILL.md` where `<domain>` is one of
-  `research`, `media`, `education`, `coding`, `brand`, `cosmos`.
+  `substrate`, `research`, `media`, `education`, `coding`, `brand`, `cosmos`.
 - Start with YAML frontmatter: `name`, `description`, `version`, `domain`
   (`tags` optional). See [`docs/SKILL_SPEC.md`](docs/SKILL_SPEC.md).
 - Use a `name` that is lowercase, kebab-case, ≤64 chars (`^[a-z0-9][a-z0-9-]*$`).

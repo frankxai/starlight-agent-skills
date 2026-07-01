@@ -38,6 +38,15 @@ ROOT = os.path.join(os.path.dirname(__file__), "..", "skills")
 # additionally shows a non-JSON block (e.g. an ```mdx block) before the JSON.
 JSON_FENCE_RE = re.compile(r"```json\s*\n(.*?)```", re.S)
 
+SLUG_RE = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+
+# Lightweight JSX tag matcher — NOT a real parser. Captures (is_close, tag_name,
+# is_self_closing) for capitalized component tags like <FactTable .../> or
+# <AtlasHero>...</AtlasHero>. The attribute segment is matched non-greedily so
+# a trailing `/` (self-closing marker) is left for the third group instead of
+# being swallowed as "just another attribute character".
+JSX_TAG_RE = re.compile(r"<(/?)([A-Z][A-Za-z0-9]*)[^<>]*?(/)?>")
+
 JSON_TYPE_CHECKS = {
     "string": lambda v: isinstance(v, str),
     "number": lambda v: isinstance(v, (int, float)) and not isinstance(v, bool),
@@ -92,6 +101,25 @@ def check_outputs_match_manifest(
             )
 
 
+def _jsx_tag_balance(mdx: str) -> list[tuple[str, int, int]]:
+    """Return (tag, open_count, close_count) for each capitalized JSX-like tag
+    referenced in `mdx`. Self-closing tags (`<Foo ... />`) count as neither an
+    open nor a close needing a match. This is a lightweight heuristic, not a
+    real parser — good enough to catch a stray unmatched <Foo> in an example.
+    """
+    opens: dict[str, int] = {}
+    closes: dict[str, int] = {}
+    for is_close, name, is_self_closing in JSX_TAG_RE.findall(mdx):
+        if is_self_closing:
+            continue
+        if is_close:
+            closes[name] = closes.get(name, 0) + 1
+        else:
+            opens[name] = opens.get(name, 0) + 1
+    tags = set(opens) | set(closes)
+    return [(t, opens.get(t, 0), closes.get(t, 0)) for t in sorted(tags)]
+
+
 # ---------------------------------------------------------------------------
 # Mechanical contract checks, keyed by "<domain>/<name>".
 #
@@ -131,6 +159,30 @@ def _check_apod_to_short(data: dict, path: str, errors: list[str]) -> None:
 
 
 def _check_nasa_image_to_atlas_page(data: dict, path: str, errors: list[str]) -> None:
+    # slug is kebab-case
+    slug = data.get("slug")
+    if isinstance(slug, str) and not SLUG_RE.match(slug):
+        errors.append(f"{path}: slug {slug!r} is not kebab-case")
+    # frontmatter includes title, object, and at least one catalog_id
+    frontmatter = data.get("frontmatter")
+    if isinstance(frontmatter, dict):
+        title = frontmatter.get("title")
+        if not (isinstance(title, str) and title.strip()):
+            errors.append(f"{path}: frontmatter.title is missing or empty")
+        obj = frontmatter.get("object")
+        if not (isinstance(obj, str) and obj.strip()):
+            errors.append(f"{path}: frontmatter.object is missing or empty")
+        catalog_ids = frontmatter.get("catalog_ids")
+        if not (isinstance(catalog_ids, list) and len(catalog_ids) >= 1):
+            errors.append(f"{path}: frontmatter.catalog_ids must include at least one catalog ID")
+    # mdx has balanced JSX-like components (heuristic, not a real parser)
+    mdx = data.get("mdx")
+    if isinstance(mdx, str):
+        for tag, opens, closes in _jsx_tag_balance(mdx):
+            if opens != closes:
+                errors.append(
+                    f"{path}: mdx has unbalanced <{tag}> components ({opens} opening, {closes} closing)"
+                )
     # every row in facts has a non-empty source
     facts = data.get("facts")
     if isinstance(facts, list):

@@ -66,6 +66,9 @@ def check_outputs_match_manifest(
         errors.append(f"{path}: example output JSON is a {type(data).__name__}, expected a JSON object")
         return
     for out in outputs:
+        if not isinstance(out, dict):
+            errors.append(f"{path}: manifest output entry is not a JSON object")
+            continue
         name = out.get("name")
         want_type = out.get("type")
         nullable = out.get("nullable", False)
@@ -214,13 +217,21 @@ def validate_skill(skill_dir: str, domain: str, name: str, errors: list[str]) ->
         errors.append(f"{rel}: manifest.json is not valid JSON ({e})")
         return False
 
+    if not isinstance(manifest, dict):
+        errors.append(f"{rel}: manifest.json is not a JSON object")
+        return False
+
     outputs = manifest.get("outputs", [])
     if not isinstance(outputs, list):
         errors.append(f"{rel}: manifest.json 'outputs' is not an array")
         return False
 
-    with open(example_path, encoding="utf-8") as f:
-        example_text = f.read()
+    try:
+        with open(example_path, encoding="utf-8") as f:
+            example_text = f.read()
+    except OSError as e:
+        errors.append(f"{rel}: could not read examples/example-01.md ({e})")
+        return False
 
     data, err = extract_output_json(example_text)
     if err is not None:

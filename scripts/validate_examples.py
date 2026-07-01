@@ -200,8 +200,11 @@ def _check_nasa_image_to_atlas_page(data: dict, path: str, errors: list[str]) ->
 def _check_rights_check_nasa_esa(data: dict, path: str, errors: list[str]) -> None:
     valid_verdicts = {"allowed-with-attribution", "check-license", "restricted", "do-not-publish-yet"}
     verdict = data.get("verdict")
-    if verdict is not None and verdict not in valid_verdicts:
-        errors.append(f"{path}: verdict {verdict!r} is not one of {sorted(valid_verdicts)}")
+    if isinstance(verdict, str):
+        if verdict not in valid_verdicts:
+            errors.append(f"{path}: verdict {verdict!r} is not one of {sorted(valid_verdicts)}")
+    elif verdict is not None:
+        errors.append(f"{path}: verdict must be a string, got {type(verdict).__name__}")
     attribution = data.get("attribution_line")
     if isinstance(attribution, str) and not attribution.strip():
         errors.append(f"{path}: attribution_line is empty")

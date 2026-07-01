@@ -23,6 +23,9 @@ jobs:
       - name: Validate skill frontmatter
         run: python3 scripts/validate_skills.py
 
+      - name: Validate example outputs against manifests
+        run: python3 scripts/validate_examples.py
+
       - name: Check catalog is up to date
         run: |
           python3 scripts/generate_catalog.py

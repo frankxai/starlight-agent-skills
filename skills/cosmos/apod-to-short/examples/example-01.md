@@ -17,7 +17,7 @@ voice: starlight
 {
   "title": "Pillars of Creation — JWST",
   "hook": "These columns are taller than our entire solar system is wide.",
-  "script": "In the Eagle Nebula, 6,500 light-years away, three towers of cold gas and dust rise into space. Webb's infrared eyes cut straight through the dust — and reveal what's hiding inside: brand-new stars, glowing red at the tips. The same ultraviolet light from nearby young stars that lights this scene is also slowly evaporating it. We are watching star formation and destruction happen in the same frame. By the time that light reached Webb, it had been traveling since before recorded human history.",
+  "script": "In the Eagle Nebula, 6,500 light-years away, three towers of cold gas and dust rise into space. Webb's infrared eyes cut straight through the dust — and reveal what's hiding inside: brand-new stars, glowing red at the tips, still wrapped in the material that's forming them. The same ultraviolet light from nearby young stars that lights this scene is also slowly eroding it, carving the pillars away little by little. We are watching star formation and slow destruction happen in the very same frame, two forces locked in a stellar tug-of-war. By the time that light reached Webb, it had been traveling since before recorded human history.",
   "captions": ["6,500 light-years away", "Cold gas + dust", "Webb sees through it", "New stars forming", "Lit and eroded at once", "Light older than history"],
   "shot_list": [
     "Slow vertical push up the pillars (Ken Burns), 0–8s",
@@ -34,4 +34,6 @@ voice: starlight
 
 Every claim (distance, infrared penetration, forming stars, UV erosion) is drawn
 straight from the explanation. The credit names ESA/CSA, so this routes through
-`rights-check-nasa-esa` — the rights line keeps the full multi-agency credit.
+`rights-check-nasa-esa` — the rights line keeps the full multi-agency credit. The
+script runs 107 words at duration_sec=45 (target ~112.5 ±15%, i.e. 95.6–129.4) —
+within the contract's tolerance.

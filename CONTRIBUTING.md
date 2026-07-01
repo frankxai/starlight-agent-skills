@@ -21,7 +21,11 @@ Every skill MUST:
 - Pass `python3 scripts/validate_skills.py`.
 
 Strongly recommended: a `manifest.json`, plus `examples/` and `tests/` for any
-skill people will actually run.
+skill people will actually run. If a skill ships both `manifest.json` and
+`examples/`, its worked example's output JSON must also pass
+`python3 scripts/validate_examples.py` — a deterministic, CI-enforced check that
+the example's output actually satisfies the manifest's declared contract (no LLM
+call involved; pure parsing and schema validation).
 
 ## Quality bar
 
@@ -44,6 +48,7 @@ cp -r templates/skill-template skills/<domain>/<skill-name>
 
 # 4. Validate + regenerate the catalog
 python3 scripts/validate_skills.py
+python3 scripts/validate_examples.py
 python3 scripts/generate_catalog.py
 node scripts/check-rules.mjs
 

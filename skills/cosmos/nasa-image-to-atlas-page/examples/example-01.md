@@ -11,6 +11,8 @@ object: M51
 
 ## Output
 
+Rendered MDX page (for readability):
+
 ```mdx
 ---
 title: "Whirlpool Galaxy (M51)"
@@ -34,14 +36,26 @@ structure is so sharply defined.
 - NASA/ESA Hubble image caption (credit above)
 ```
 
+The skill's actual output contract — the single JSON object matching
+`manifest.json`'s six declared outputs:
+
 ```json
 {
+  "slug": "whirlpool-galaxy-m51",
+  "frontmatter": {
+    "title": "Whirlpool Galaxy (M51)",
+    "object": "M51",
+    "catalog_ids": ["M51", "NGC 5194"],
+    "date": "2026-06-08"
+  },
+  "mdx": "<AtlasHero src=\"...\" alt=\"Whirlpool Galaxy\" credit=\"NASA, ESA, S. Beckwith (STScI), and the Hubble Heritage Team\" />\n\nThe Whirlpool is a grand-design spiral — the kind with two clear, sweeping arms. It sits about 31 million light-years away in the constellation Canes Venatici, and it's caught in a slow gravitational dance with its smaller companion, NGC 5195, tugging at the tip of one arm. That interaction is part of why its spiral structure is so sharply defined.\n\n<FactTable rows={facts} />\n\n## Sources\n- NASA/ESA Hubble image caption (credit above)",
   "facts": [
     { "key": "Type", "value": "Grand-design spiral galaxy", "source": "Hubble caption" },
     { "key": "Distance", "value": "~31 million light-years", "source": "Hubble caption" },
     { "key": "Constellation", "value": "Canes Venatici", "source": "Hubble caption" },
     { "key": "Companion", "value": "NGC 5195", "source": "Hubble caption" }
   ],
+  "sources": ["NASA/ESA Hubble image caption (credit above)"],
   "rights_line": "Credit: NASA, ESA, S. Beckwith (STScI), and the Hubble Heritage Team"
 }
 ```
@@ -50,4 +64,6 @@ structure is so sharply defined.
 
 Catalog IDs (M51 / NGC 5194) are canonical; every fact row cites the caption; the
 multi-party credit is preserved verbatim and would route through
-`rights-check-nasa-esa`.
+`rights-check-nasa-esa`. The JSON block above is the complete, manifest-matching
+output contract — `mdx` carries the same page body shown in the preview above, so
+the two representations never drift.

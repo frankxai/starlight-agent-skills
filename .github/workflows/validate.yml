@@ -13,7 +13,7 @@ jobs:
   skills:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Python
         uses: actions/setup-python@v6
@@ -22,6 +22,9 @@ jobs:
 
       - name: Validate skill frontmatter
         run: python3 scripts/validate_skills.py
+
+      - name: Validate example outputs against manifests
+        run: python3 scripts/validate_examples.py
 
       - name: Check catalog is up to date
         run: |

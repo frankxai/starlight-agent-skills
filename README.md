@@ -115,8 +115,9 @@ orchestrator only composes skills that exist.
 ## Develop
 
 ```bash
-make check                              # validate + catalog drift + rules (what CI runs)
+make check                              # validate + example↔manifest check + catalog drift + rules (what CI runs)
 python3 scripts/validate_skills.py      # frontmatter + attestation + manifest↔folder↔SKILL.md
+python3 scripts/validate_examples.py    # worked example output actually matches its manifest's contract
 python3 scripts/generate_catalog.py     # regenerate docs/CATALOG.md
 node    scripts/check-rules.mjs          # every rule/orchestrator resolves; no name collisions
 node    scripts/port-skill.mjs <domain/skill> --target=<repo> [--dry-run]

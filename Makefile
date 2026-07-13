@@ -1,11 +1,15 @@
-.PHONY: check validate catalog catalog-check rules
+.PHONY: check validate validate-examples catalog catalog-check rules
 
 # Run the full quality gate (what CI runs).
-check: validate catalog-check rules
+check: validate validate-examples catalog-check rules
 
 # Frontmatter + attestation + manifest↔SKILL.md↔folder integrity.
 validate:
 	python3 scripts/validate_skills.py
+
+# Worked examples' output JSON actually matches each skill's manifest contract.
+validate-examples:
+	python3 scripts/validate_examples.py
 
 # Regenerate the catalog from skill frontmatter.
 catalog:

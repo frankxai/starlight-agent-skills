@@ -45,12 +45,12 @@
 
 ## What's inside
 
-**26 production-grade skills across 7 domains**, each a self-contained, rich-portable package.
+**27 production-grade skills across 7 domains**, each a self-contained, rich-portable package.
 Browse the full [**Catalog**](docs/CATALOG.md).
 
 | Domain | Skills | Examples |
 |--------|:------:|----------|
-| 🧩 **substrate** | 4 | `agentic-income`, `affiliate-audit`, `payments-mandate`, `swarm-queen-coordination` |
+| 🧩 **substrate** | 5 | `agentic-income`, `affiliate-audit`, `payments-mandate`, `swarm-queen-coordination`, `notion-operating-system` |
 | 🌌 **cosmos** (flagship) | 7 | `apod-to-short`, `nasa-image-to-atlas-page`, `rights-check-nasa-esa` |
 | 🔬 research | 3 | `arxiv-paper-to-brief`, `mission-page-to-summary`, `claim-verification` |
 | 🎬 media | 5 | `social-repurposer`, `thumbnail-concept`, `caption-and-hashtag` |

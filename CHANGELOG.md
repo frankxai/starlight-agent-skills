@@ -5,6 +5,13 @@ carry their own semver `version` in frontmatter; this log tracks the library.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [Unreleased]
+
+### Added
+- `substrate/notion-operating-system` — private-first Notion estate audits, parallel
+  v2 rebuilds, template systems, and sanitized public mirrors (ported from the
+  pre-v0.1.0 local library; substrate domain grows to 5, library to 27 skills).
+
 ## [0.1.0]
 
 ### Added

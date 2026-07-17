@@ -572,6 +572,32 @@
       },
       "priority": "high",
       "load_level": "core"
+    },
+    {
+      "skill": "notion-operating-system",
+      "triggers": {
+        "keywords": [
+          "map my Notion",
+          "Notion estate audit",
+          "restructure Notion",
+          "Notion operating system",
+          "Notion dashboard",
+          "Notion template system",
+          "publish Notion docs"
+        ],
+        "file_patterns": [],
+        "commands": [],
+        "agents": [
+          "starlight-orchestrator"
+        ],
+        "intents": [
+          "audit",
+          "restructure",
+          "template"
+        ]
+      },
+      "priority": "medium",
+      "load_level": "extended"
     }
   ]
 }

@@ -1,17 +1,18 @@
 # 🛰️ Starlight Agent Skills — Catalog
 
-The complete index of all **26 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
+The complete index of all **27 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
 
 > This file is generated. After adding or renaming a skill, run `python3 scripts/generate_catalog.py` to regenerate it, then `python3 scripts/validate_skills.py` to verify compliance.
 
 ## 🧩 Substrate (income · payments · swarm)
 
-_4 skills_
+_5 skills_
 
 | Skill | Version | Description |
 |---|---|---|
 | [`affiliate-audit`](../skills/substrate/affiliate-audit) | 0.1.0 | Map which content mentions paying tools but lacks affiliate links, and which programs to join first. Use when monetizing tool-comparison content, choosing af... |
 | [`agentic-income`](../skills/substrate/agentic-income) | 0.1.0 | The substrate operating brain for building income systems with AI agents. Use when planning, building, or scaling an affiliate/content/product income network... |
+| [`notion-operating-system`](../skills/substrate/notion-operating-system) | 0.1.0 | Design safe, private-first Notion operating systems, estate audits, parallel rebuilds, template systems, and public mirrors. Use when asked to map a Notion w... |
 | [`payments-mandate`](../skills/substrate/payments-mandate) | 0.1.0 | How an agent safely handles a payment mandate — verify authorization before any settlement, hold the spend cap, fail closed on doubt, and keep a human on eve... |
 | [`swarm-queen-coordination`](../skills/substrate/swarm-queen-coordination) | 0.1.0 | How a stream queen coordinates a worker swarm and runs the escalation contract that keeps money safe — queens run streams, the founder owns capital, humans h... |
 

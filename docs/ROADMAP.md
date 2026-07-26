@@ -7,7 +7,8 @@ lenses; this is the "right place" the work is heading.
 ## v0.1 — Foundation (shipped)
 
 - **26 skills across 7 domains** — cosmos (7, flagship), substrate (4), research (3),
-  media (5), education (3), coding (1), brand (3).
+  media (5), education (3), coding (1), brand (3). *(Post-v0.1.0: substrate grew to 5
+  with `notion-operating-system`; library now 27 — see CHANGELOG Unreleased.)*
 - Rich-portable contract; runtime adapters; `skill-rules.json`; SIP attestation on every skill.
 - Reference orchestrators showing skill composition (`cosmos-content-producer`, `research-digest`).
 - Self-checking tooling (`make check`) + least-privilege CI; security-hardened porting script.

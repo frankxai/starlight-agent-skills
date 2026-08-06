@@ -78,6 +78,18 @@ Why separate? SIS is the operating substrate; it shouldn't become a junk drawer 
 pack. Keeping skills sovereign lets any consumer pull exactly what it needs, version it
 independently, and compose it under SIP attestation. See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).
 
+## Music & sound skills
+
+Music and sound skills live in their home repos rather than here. Verified 2026-08-05 — each
+entry describes what is in the repo on that date, not what is planned.
+
+| Repo | What's actually there |
+|------|-----------------------|
+| [`vibe-os`](https://github.com/frankxai/vibe-os/tree/main/skills) | `suno-ai-mastery.md`, `suno-prompt-architect.md`, `vibe-os-master.md` — flat single-file skills |
+| [`claude-skills-library`](https://github.com/frankxai/claude-skills-library/tree/main/free-skills) | `suno-ai-mastery`, `suno-prompt-architect` — OSS distribution, directory packages |
+| [`Starlight-Intelligence-System`](https://github.com/frankxai/Starlight-Intelligence-System/tree/main/verticals/sound-intelligence) | `verticals/sound-intelligence/` reference vertical; 30 `/sound-*` commands |
+| [`music-intelligence-systems`](https://github.com/frankxai/music-intelligence-systems) | Ecosystem hub — **README only today**. No cross-repo skills registry exists yet, so this table is the index until one does. |
+
 ## Quickstart
 
 ```bash

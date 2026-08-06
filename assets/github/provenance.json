@@ -1,0 +1,41 @@
+{
+  "repo": "starlight-agent-skills",
+  "title": "Starlight Agent Skills",
+  "layer": "L1",
+  "visualSystemVersion": "2026.06-premium",
+  "generatedAt": "2026-06-22",
+  "assetStrategy": "Imagegen provides text-free backplates; deterministic SVG overlays provide exact GitHub and website infographic text.",
+  "headerVisual": "ecosystem-north-star",
+  "howItWorksVisual": "repo-constellation",
+  "imagegen": {
+    "mode": "built-in image_gen",
+    "backplates": [
+      {
+        "slug": "ecosystem-north-star",
+        "title": "Ecosystem North Star",
+        "sourcePath": "C:/Users/frank/.codex/generated_images/019eee93-7525-7c43-bb1f-836e174dd5cb/ig_0f176f3eb23cee4f016a390d6c55d481938ea5635d4248a50f.png",
+        "promptFile": null
+      },
+      {
+        "slug": "repo-constellation",
+        "title": "Repo Constellation",
+        "sourcePath": "C:/Users/frank/.codex/generated_images/019eee93-7525-7c43-bb1f-836e174dd5cb/ig_0f176f3eb23cee4f016a390dae457081939df56d8f365316cd.png",
+        "promptFile": null
+      },
+      {
+        "slug": "build-deploy-verify",
+        "title": "Build / Deploy / Verify",
+        "sourcePath": "C:/Users/frank/.codex/generated_images/019eee93-7525-7c43-bb1f-836e174dd5cb/ig_0f176f3eb23cee4f016a390fc49668819383d2eb7e46e4969d.png",
+        "promptFile": null
+      }
+    ]
+  },
+  "deterministicText": {
+    "reason": "Exact labels and workflow copy are not rendered by the image model.",
+    "files": [
+      "assets/github/header.svg",
+      "assets/github/how-it-works.svg",
+      "assets/github/visual-suite.json"
+    ]
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "coding/cosmic-code-lab",
+  "name": "cosmic-code-lab",
+  "version": "0.1.0",
+  "domain": "coding",
+  "summary": "A runnable, space-themed coding lab: problem, starter, hidden tests, solution.",
+  "inputs": [
+    { "name": "objective", "type": "string", "required": true, "description": "Concept/skill to teach." },
+    { "name": "language", "type": "string", "required": false, "description": "python | javascript." },
+    { "name": "level", "type": "string", "required": false, "description": "intro | intermediate | advanced." }
+  ],
+  "outputs": [
+    { "name": "title", "type": "string" },
+    { "name": "language", "type": "string" },
+    { "name": "problem_statement", "type": "string" },
+    { "name": "starter_code", "type": "string" },
+    { "name": "tests", "type": "string" },
+    { "name": "solution", "type": "string" },
+    { "name": "science_note", "type": "string" }
+  ],
+  "tools": ["Write", "Bash"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["education", "coding", "exercise", "lab", "astronomy"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "research/mission-page-to-summary",
+  "name": "mission-page-to-summary",
+  "version": "0.1.0",
+  "domain": "research",
+  "summary": "Official mission page into a structured, sourced mission summary.",
+  "inputs": [
+    { "name": "page", "type": "string", "required": true, "description": "Official mission/instrument page URL or text." },
+    { "name": "format", "type": "string", "required": false, "description": "card | long." }
+  ],
+  "outputs": [
+    { "name": "name", "type": "string" },
+    { "name": "agency", "type": "string" },
+    { "name": "objective", "type": "string" },
+    { "name": "timeline", "type": "array" },
+    { "name": "instruments", "type": "array" },
+    { "name": "status", "type": "string" },
+    { "name": "key_results", "type": "array" },
+    { "name": "source", "type": "string" }
+  ],
+  "tools": ["WebFetch", "Read"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["mission", "nasa", "esa", "summary", "spacecraft"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

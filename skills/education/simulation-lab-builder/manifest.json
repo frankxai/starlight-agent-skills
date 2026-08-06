@@ -1,0 +1,24 @@
+{
+  "id": "education/simulation-lab-builder",
+  "name": "simulation-lab-builder",
+  "version": "0.1.0",
+  "domain": "education",
+  "summary": "A self-contained interactive simulation with tunable parameters and guided experiments.",
+  "inputs": [
+    { "name": "goal", "type": "string", "required": true, "description": "The insight the sim should produce." },
+    { "name": "params", "type": "array", "required": false, "description": "Variables to expose as controls." },
+    { "name": "stack", "type": "string", "required": false, "description": "p5js | vanilla." }
+  ],
+  "outputs": [
+    { "name": "goal", "type": "string" },
+    { "name": "model_notes", "type": "string" },
+    { "name": "code", "type": "string" },
+    { "name": "experiments", "type": "array" },
+    { "name": "stack", "type": "string" }
+  ],
+  "tools": ["Write", "Bash"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["simulation", "interactive", "lab", "physics", "p5js"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

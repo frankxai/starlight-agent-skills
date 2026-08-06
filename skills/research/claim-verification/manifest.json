@@ -1,0 +1,25 @@
+{
+  "id": "research/claim-verification",
+  "name": "claim-verification",
+  "version": "0.1.0",
+  "domain": "research",
+  "summary": "Fact-check a claim against sources; return verdict, evidence, and calibrated confidence.",
+  "inputs": [
+    { "name": "claim", "type": "string", "required": true, "description": "The exact statement to check." },
+    { "name": "sources", "type": "array", "required": false, "description": "Provided URLs/quotes." },
+    { "name": "strictness", "type": "string", "required": false, "description": "standard | high." }
+  ],
+  "outputs": [
+    { "name": "claim", "type": "string" },
+    { "name": "verdict", "type": "string" },
+    { "name": "confidence", "type": "string" },
+    { "name": "evidence", "type": "array" },
+    { "name": "rationale", "type": "string" },
+    { "name": "caveats", "type": "array" }
+  ],
+  "tools": ["WebSearch", "WebFetch", "Read"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["fact-check", "verification", "evidence", "sources"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

@@ -1,0 +1,20 @@
+{
+  "id": "media/thumbnail-concept",
+  "name": "thumbnail-concept",
+  "version": "0.1.0",
+  "domain": "media",
+  "summary": "High-CTR thumbnail concepts with layout, overlay text, and image-gen prompts.",
+  "inputs": [
+    { "name": "topic", "type": "string", "required": true, "description": "Video subject + promise." },
+    { "name": "subject", "type": "string", "required": false, "description": "Hero image/asset." },
+    { "name": "count", "type": "number", "required": false, "description": "Number of concepts, default 3." }
+  ],
+  "outputs": [
+    { "name": "concepts", "type": "array" }
+  ],
+  "tools": ["Read"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["thumbnail", "design", "youtube", "cover", "ctr"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

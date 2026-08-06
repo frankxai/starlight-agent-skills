@@ -1,0 +1,7 @@
+# Default review owner for the whole repo.
+*       @frankxai
+
+# Tooling and CI changes warrant extra scrutiny.
+/scripts/                 @frankxai
+/.github/                 @frankxai
+/skill-rules.json         @frankxai

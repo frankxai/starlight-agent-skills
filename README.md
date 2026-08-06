@@ -17,9 +17,10 @@ Created 2026-06-07. Definition in progress.
 
 ## Music & Sound Skills Index
 
-Music and sound skills live in their home repos; the canonical cross-repo index is `registry/skills.json` in [music-intelligence-systems](https://github.com/frankxai/music-intelligence-systems).
+Music and sound skills live in their home repos. Verified 2026-08-05 — each entry
+below describes what is actually in the repo on that date, not what is planned.
 
-- [claude-skills-library `free-skills/`](https://github.com/frankxai/claude-skills-library) — `suno-ai-mastery`, `suno-prompt-architect`, `vibe-os-master` (OSS distribution)
-- [vibe-os `skills/`](https://github.com/frankxai/vibe-os) — state-change music skills (`skills/<name>/SKILL.md`), 15-state library + frequency tools
-- [Starlight-Intelligence-System `verticals/sound-intelligence/`](https://github.com/frankxai/Starlight-Intelligence-System) — public reference vertical: 6 sub-systems, 30 `/sound-*` commands
-- [music-intelligence-systems `registry/skills.json`](https://github.com/frankxai/music-intelligence-systems) — canonical index of music agents + skills across the ecosystem
+- [vibe-os `skills/`](https://github.com/frankxai/vibe-os/tree/main/skills) — `suno-ai-mastery.md`, `suno-prompt-architect.md`, `vibe-os-master.md` (flat single-file skills)
+- [claude-skills-library `free-skills/`](https://github.com/frankxai/claude-skills-library/tree/main/free-skills) — `suno-ai-mastery`, `suno-prompt-architect` (OSS distribution, directory packages)
+- [Starlight-Intelligence-System `verticals/sound-intelligence/`](https://github.com/frankxai/Starlight-Intelligence-System/tree/main/verticals/sound-intelligence) — public reference vertical; 30 `/sound-*` commands
+- [music-intelligence-systems](https://github.com/frankxai/music-intelligence-systems) — ecosystem hub. **Currently a README only** — there is no cross-repo skills registry yet, so treat this list as the index until one exists.

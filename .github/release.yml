@@ -1,0 +1,36 @@
+changelog:
+  exclude:
+    labels:
+      - ignore-for-release
+      - internal-only
+  categories:
+    - title: Skills and orchestrators
+      labels:
+        - feature
+        - enhancement
+        - skill
+        - orchestrator
+    - title: Runtime portability
+      labels:
+        - adapter
+        - runtime
+        - compatibility
+    - title: Validation, safety, and governance
+      labels:
+        - validation
+        - security
+        - governance
+        - trust
+    - title: Documentation and visual proof
+      labels:
+        - documentation
+        - design
+        - visual
+    - title: Maintenance
+      labels:
+        - dependencies
+        - chore
+        - ci
+    - title: Other changes
+      labels:
+        - '*'

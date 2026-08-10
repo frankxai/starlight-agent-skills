@@ -1,7 +1,7 @@
-.PHONY: check validate validate-examples catalog catalog-check rules
+.PHONY: check validate validate-examples catalog catalog-check rules release-check
 
 # Run the full quality gate (what CI runs).
-check: validate validate-examples catalog-check rules
+check: validate validate-examples catalog-check rules release-check
 
 # Frontmatter + attestation + manifest↔SKILL.md↔folder integrity.
 validate:
@@ -24,3 +24,7 @@ catalog-check: catalog
 # Every rule + orchestrator resolves to a real skill; no name collisions.
 rules:
 	node scripts/check-rules.mjs
+
+# Repository release history, attestation, receipts, and publication safety.
+release-check:
+	python3 scripts/validate_release.py

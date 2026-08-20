@@ -133,11 +133,24 @@ python3 scripts/validate_examples.py    # worked example output actually matches
 python3 scripts/generate_catalog.py     # regenerate docs/CATALOG.md
 node    scripts/check-rules.mjs          # every rule/orchestrator resolves; no name collisions
 node    scripts/port-skill.mjs <domain/skill> --target=<repo> [--dry-run]
+python3 scripts/validate_release.py       # release boundary + attestation + publication safety
 ```
 
 CI runs the validators on every push under least-privilege permissions (`contents: read`). The
 port script is path-traversal-safe and refuses to write outside `--target` or to port an
 un-attested skill. See [`CONTRIBUTING.md`](CONTRIBUTING.md) and [`SECURITY.md`](SECURITY.md).
+
+## Release truth
+
+- [`CHANGELOG.md`](CHANGELOG.md) — curated library history and the `v0.2.0` queue
+- [`RELEASING.md`](RELEASING.md) — two-stage release path and meaningful-update cadence
+- [`docs/releases/release-ledger.json`](docs/releases/release-ledger.json) — exact Git, PR,
+  attestation, and public-surface receipts
+- `make release-check` — dependency-free validation of release claims
+
+The first GitHub release is a draft candidate at the historical 26-skill
+boundary. Skill frontmatter versions, repository releases, downstream ports,
+and website updates remain separate approval boundaries.
 
 ## Built on SIP
 

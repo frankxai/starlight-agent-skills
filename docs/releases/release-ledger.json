@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "repository": "frankxai/starlight-agent-skills",
+  "defaultBranch": "main",
+  "source": {
+    "auditedAt": "2026-08-10",
+    "auditedHead": "89db74a185fb75d7c51968649bd3f1242c3d8180",
+    "historyStart": "2026-06-07",
+    "historyEnd": "2026-08-06",
+    "commitCount": 18,
+    "semanticTags": [],
+    "githubReleaseCount": 0,
+    "remoteTags": [],
+    "localNonReleaseTags": [
+      "archive/local-pre-v010-20260717",
+      "asph-wip-2026-07-17T02-23-38",
+      "asph-wip-2026-07-14T01-33-51",
+      "asph-wip-2026-07-07T23-43-58"
+    ],
+    "tagBoundaryPolicy": "The four recovery/archive tags exist only in the audited local checkout. The canonical GitHub remote has zero tags."
+  },
+  "release": {
+    "version": "0.1.0",
+    "tag": "v0.1.0",
+    "status": "draft",
+    "published": false,
+    "targetSha": "ff4efe5ac2bea17f080f1d85ba503277e3864a09",
+    "targetCommitCount": 10,
+    "changelogSection": "0.1.0 - Candidate",
+    "notesPath": "docs/releases/v0.1.0.md",
+    "boundaryPolicy": "Backfill the internally consistent 26-skill historical boundary; never retarget v0.1.0 to the later 27-skill tree."
+  },
+  "nextRelease": {
+    "version": "0.2.0",
+    "status": "awaiting-v0.1.0-and-post-governance-boundary",
+    "auditedFromExclusive": "ff4efe5ac2bea17f080f1d85ba503277e3864a09",
+    "auditedThroughInclusive": "89db74a185fb75d7c51968649bd3f1242c3d8180",
+    "auditedCommitCount": 8,
+    "targetSha": null
+  },
+  "approvals": {
+    "changelogComplete": true,
+    "validationComplete": false,
+    "humanAttestationApproval": false,
+    "humanPublicSurfaceAcknowledgement": false,
+    "humanReleaseApproval": false
+  },
+  "receipts": {
+    "releaseBoundary": {
+      "pullRequests": [
+        { "number": 1, "url": "https://github.com/frankxai/starlight-agent-skills/pull/1", "mergeCommit": "ff4efe5ac2bea17f080f1d85ba503277e3864a09", "includedCommits": [] },
+        { "number": 2, "url": "https://github.com/frankxai/starlight-agent-skills/pull/2", "mergeCommit": "67db7a40c8b1b862b37b57d04ef13e228204517c", "includedCommits": [] },
+        { "number": 3, "url": "https://github.com/frankxai/starlight-agent-skills/pull/3", "mergeCommit": "8130712ffe701cda78335b4cc188593bad05d4b9", "includedCommits": [] },
+        { "number": 4, "url": "https://github.com/frankxai/starlight-agent-skills/pull/4", "mergeCommit": "0eb1639df5942fedc6a1a19c6acddc3f65235904", "includedCommits": [] },
+        { "number": 5, "url": "https://github.com/frankxai/starlight-agent-skills/pull/5", "mergeCommit": "5366890b049ab6f3fc1272759f48e99c72c19040", "includedCommits": ["32cfa5757259904a2f46c8e6890df9eb7fba7f3e"] },
+        { "number": 6, "url": "https://github.com/frankxai/starlight-agent-skills/pull/6", "mergeCommit": "5cf213207bf461592c27990907c16663866c5b14", "includedCommits": [] }
+      ],
+      "directCommits": [
+        { "commit": "69a14cd7feabd8a49f517e477445bd4eea3bf465", "summary": "Initial repository commit" },
+        { "commit": "59ef9ff486204a7b2d0468af59ae3ff17b30bb18", "summary": "Seed README and Cosmos placement" },
+        { "commit": "e3e2af5c14cbac2316d85f78bab765691f008ff2", "summary": "Ignore Starlight and ACOS temporary files" }
+      ]
+    },
+    "unreleasedAfterBoundary": {
+      "pullRequests": [
+        { "number": 7, "url": "https://github.com/frankxai/starlight-agent-skills/pull/7", "mergeCommit": "2fedfd270161ab1f4cf33a031404dc004ecc3425" },
+        { "number": 8, "url": "https://github.com/frankxai/starlight-agent-skills/pull/8", "mergeCommit": "ae17d9bc5df1593d93783dd897d86d865b3cf0b3" },
+        { "number": 10, "url": "https://github.com/frankxai/starlight-agent-skills/pull/10", "mergeCommit": "89db74a185fb75d7c51968649bd3f1242c3d8180" },
+        { "number": 11, "url": "https://github.com/frankxai/starlight-agent-skills/pull/11", "mergeCommit": "eaa993e49705fef75e4978e688856eae7cf6d37b" },
+        { "number": 13, "url": "https://github.com/frankxai/starlight-agent-skills/pull/13", "mergeCommit": "d4ab0942cc03fc56b704039b5ae3c7fa780741ca" },
+        { "number": 14, "url": "https://github.com/frankxai/starlight-agent-skills/pull/14", "mergeCommit": "f48634f52b6443d2404e00710377580f876c7aed" },
+        { "number": 16, "url": "https://github.com/frankxai/starlight-agent-skills/pull/16", "mergeCommit": "04f5c554bb942e13e341013413d4a4ba398c4647" },
+        { "number": 17, "url": "https://github.com/frankxai/starlight-agent-skills/pull/17", "mergeCommit": "36514894f3b7da21e79a492378c9ab7eb1e65be1" }
+      ]
+    }
+  },
+  "attestation": {
+    "status": "corrected-append-only",
+    "historicalClaim": "v0.1.0 intended identity at the 26-skill boundary",
+    "publishedAtAudit": false,
+    "correctionPath": "ATTESTATION.md"
+  },
+  "publicSurface": {
+    "homepage": { "url": "https://starlightintelligence.org/protocol", "status": "ok-200", "protocolVersion": "1.1.1" },
+    "siteChangelog": { "url": "https://starlightintelligence.org/changelog", "status": "ok-200", "mentionsRepository": false, "mentionsVersion": false },
+    "protocolDeclaredChangelog": { "url": "https://starlightintelligence.org/protocol/changelog", "status": "missing-404" },
+    "verifiedAt": "2026-08-10",
+    "siteChangeGate": "mandatory-multi-role-starlight-lane"
+  },
+  "validation": {
+    "releaseContract": "passed",
+    "negativePublicationGate": "passed",
+    "yamlParse": "passed-4-files",
+    "skillValidation": "passed-27-skills",
+    "exampleValidation": "passed-22-skills-5-skipped-without-example-manifest",
+    "catalogDrift": "passed-27-skills-7-domains",
+    "rulesValidation": "passed-27-skills-27-rules-2-orchestrators",
+    "tagTopology": "passed-local-4-recovery-tags-remote-0-tags",
+    "diffCheck": "passed",
+    "secretScan": "passed-no-credential-material",
+    "fullBuildClassGate": "held-by-machine-preflight",
+    "cloudCiRequired": true
+  },
+  "packagePublishing": {
+    "status": "not-applicable",
+    "reason": "This repository distributes source skill packs and adapters; no package manifest or registry publication is in scope."
+  }
+}

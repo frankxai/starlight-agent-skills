@@ -1,6 +1,6 @@
 # 🛰️ Starlight Agent Skills — Catalog
 
-The complete index of all **27 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
+The complete index of all **36 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
 
 > This file is generated. After adding or renaming a skill, run `python3 scripts/generate_catalog.py` to regenerate it, then `python3 scripts/validate_skills.py` to verify compliance.
 
@@ -64,11 +64,20 @@ _3 skills_
 
 ## 💻 Coding
 
-_1 skill_
+_10 skills_
 
 | Skill | Version | Description |
 |---|---|---|
 | [`cosmic-code-lab`](../skills/coding/cosmic-code-lab) | 0.1.0 | Generate a runnable, space-themed coding lab — a problem statement, starter code, hidden tests, and a worked solution — in Python or JavaScript. Use when cre... |
+| [`starlight-autoplan`](../skills/coding/starlight-autoplan) | 1.0.0 | Execute the Starlight 4-Stage Adversarial Plan Review Pipeline: CEO Strategy, Engineering Architecture, Design Taste, and Developer Experience. Enforces the... |
+| [`starlight-ceo-review`](../skills/coding/starlight-ceo-review) | 1.0.0 | CEO & Founder-Mode plan review. Rethink the problem, find the 10-star product experience, eliminate artificial constraints, and enforce the Completeness Prin... |
+| [`starlight-design-review`](../skills/coding/starlight-design-review) | 1.0.0 | Visual Design, Taste, and UI Review. Enforces the Anti-Slop Design System, typography hierarchy, responsive layouts, glassmorphism aesthetics, and accessibil... |
+| [`starlight-devex-review`](../skills/coding/starlight-devex-review) | 1.0.0 | Developer Experience (DevEx) & Usability Review. Optimizes API ergonomics, CLI usability, error message actionability, and reduces time-to-hello-world. |
+| [`starlight-eng-review`](../skills/coding/starlight-eng-review) | 1.0.0 | Engineering Architecture review. Stress-test data models, concurrency boundaries, network failure modes, state atomicity, and memory limits. |
+| [`starlight-investigate`](../skills/coding/starlight-investigate) | 1.0.0 | Systematic root-cause debugging without speculative trial-and-error. Formulates hypotheses, collects deterministic evidence, isolates failure boundaries, and... |
+| [`starlight-qa`](../skills/coding/starlight-qa) | 1.0.0 | Autonomous Web QA, user-flow testing, responsive layout audit, and visual dogfooding via the Centralized CDP Multiplexer Hub. |
+| [`starlight-ship`](../skills/coding/starlight-ship) | 1.0.0 | Pre-landing quality gate, commit squashing, verification suite runner, and clean landing workflow for agent development branches. |
+| [`starlight-spec`](../skills/coding/starlight-spec) | 1.0.0 | Author a rigorous, backlog-ready 5-Phase Product Specification & Task Breakdown. Turns vague intent or high-level features into executable, test-driven PRDs. |
 
 ## ✨ Brand & Voice
 

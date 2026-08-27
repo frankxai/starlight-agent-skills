@@ -92,6 +92,13 @@ entry describes what is in the repo on that date, not what is planned.
 
 ## Quickstart
 
+Pack contract: [`SKILLPACK.md`](./SKILLPACK.md) · [`skills.json`](./skills.json). Not an awesome-list.
+
+```bash
+npx skills add frankxai/starlight-agent-skills
+# omit Arcanea/FrankX/income skills — see SKILLPACK.md excludes
+```
+
 ```bash
 # Claude Code — install one skill
 cp -r skills/cosmos/apod-to-short ~/.claude/skills/apod-to-short

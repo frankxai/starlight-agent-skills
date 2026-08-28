@@ -1,0 +1,34 @@
+{
+  "name": "starlight",
+  "description": "Starlight execute layer: voice, cosmos, research, media, education, swarm/payments substrate. No Arcanea/FrankX/income skills.",
+  "skills": [
+    {
+      "source": "frankxai/starlight-agent-skills",
+      "skills": [
+        "starlight-voice",
+        "cosmic-code-lab",
+        "apod-to-short",
+        "arxiv-space-paper-to-brief",
+        "cosmic-mythic-overlay",
+        "nasa-image-to-atlas-page",
+        "rights-check-nasa-esa",
+        "rocket-launch-to-reel",
+        "space-social-repurposer",
+        "arxiv-paper-to-brief",
+        "claim-verification",
+        "mission-page-to-summary",
+        "caption-and-hashtag",
+        "nasa-image-to-short",
+        "rocket-launch-to-youtube",
+        "social-repurposer",
+        "thumbnail-concept",
+        "coding-challenge-generator",
+        "explain-like-cosmic-professor",
+        "simulation-lab-builder",
+        "swarm-queen-coordination",
+        "payments-mandate",
+        "notion-operating-system"
+      ]
+    }
+  ]
+}

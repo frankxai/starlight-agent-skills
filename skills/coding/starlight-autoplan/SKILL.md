@@ -47,8 +47,13 @@ Return:
 - `reviews`: findings from each lens with severity and evidence.
 - `execution_plan`: ordered, independently verifiable steps.
 - `verification`: automated, manual, security, accessibility, and deployment gates as applicable.
+- `artifacts`: plan, decision, rollback, and verification records with stable references.
+- `failure_conditions`: conditions that force revise, defer, or stop.
+- `verification_receipts`: one receipt per applicable gate with `gate`, `result`, `evidence`, and `owner`.
 - `rollback`: safe recovery path and ownership.
 - `human_gates`: decisions the agent may not make.
+
+Return `decision: build` only when every gate applicable before implementation has a passing verification receipt. Record later-stage gates as pending; when their decision point arrives, a failed or missing applicable receipt blocks promotion and requires `revise`, `defer`, or `stop`.
 
 ## Tools & MCP
 

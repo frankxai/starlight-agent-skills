@@ -30,7 +30,7 @@ Find architectural failure modes while the design is still cheap to change.
 4. Review authentication, authorization, secret handling, data minimization, and abuse controls.
 5. Check compatibility, migrations, rollback, and version negotiation.
 6. Define observability and tests that falsify the design’s critical assumptions.
-7. Classify findings by severity and block landing on unresolved critical risks.
+7. Classify findings by severity and recommend blocking landing on unresolved critical risks. The review is advisory; any merge action requires explicit human approval.
 
 ## Output contract
 

@@ -21,6 +21,7 @@ SPEC.loader.exec_module(VALIDATOR)
 
 class SkillValidatorTests(unittest.TestCase):
     def validate(self, folder: str, frontmatter: str) -> tuple[int, str]:
+        """Run the validator against one isolated skill fixture."""
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir) / "skills"
             skill_dir = root / "coding" / folder
@@ -40,6 +41,7 @@ class SkillValidatorTests(unittest.TestCase):
             return result, output.getvalue()
 
     def test_accepts_standard_compatibility_and_string_metadata(self) -> None:
+        """Accept official compatibility and string metadata fields."""
         result, output = self.validate(
             "valid-skill",
             "\n".join(
@@ -54,6 +56,7 @@ class SkillValidatorTests(unittest.TestCase):
         self.assertEqual(result, 0, output)
 
     def test_rejects_array_metadata_values(self) -> None:
+        """Reject non-string metadata values from portable frontmatter."""
         result, output = self.validate(
             "array-tags",
             "\n".join(
@@ -68,6 +71,7 @@ class SkillValidatorTests(unittest.TestCase):
         self.assertIn("metadata keys and values must be strings", output)
 
     def test_rejects_consecutive_hyphens(self) -> None:
+        """Reject names with consecutive hyphens."""
         result, output = self.validate(
             "bad--name",
             "\n".join(
@@ -82,6 +86,7 @@ class SkillValidatorTests(unittest.TestCase):
         self.assertIn("must be lowercase kebab-case", output)
 
     def test_rejects_overlong_compatibility(self) -> None:
+        """Reject compatibility text beyond the official length limit."""
         result, output = self.validate(
             "long-compatibility",
             "\n".join(
@@ -97,6 +102,7 @@ class SkillValidatorTests(unittest.TestCase):
         self.assertIn("must be 1-500 characters", output)
 
     def test_rejects_custom_top_level_keys(self) -> None:
+        """Reject non-standard top-level frontmatter keys."""
         result, output = self.validate(
             "custom-key",
             "\n".join(

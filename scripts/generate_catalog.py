@@ -35,6 +35,7 @@ DOMAIN_ORDER = [
 
 
 def parse_frontmatter(path: str) -> dict:
+    """Parse the supported single-line frontmatter fields for one skill."""
     with open(path, encoding="utf-8") as f:
         text = f.read()
     m = FM_RE.match(text)
@@ -57,6 +58,7 @@ def parse_frontmatter(path: str) -> dict:
 
 
 def collect() -> dict[str, tuple[str, str, str, str]]:
+    """Collect catalog rows keyed by portable skill identifier."""
     skills: dict[str, tuple[str, str, str, str]] = {}
     for dirpath, _dirs, files in os.walk(ROOT):
         for fn in files:
@@ -78,6 +80,7 @@ def collect() -> dict[str, tuple[str, str, str, str]]:
 
 
 def main() -> None:
+    """Regenerate the checked-in skill catalog from current skill sources."""
     skills = collect()
     grouped: dict[str, list[tuple[str, str, str, str]]] = collections.defaultdict(list)
     for name, (rel, desc, domain, ver) in sorted(skills.items()):

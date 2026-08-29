@@ -77,6 +77,7 @@ def parse_frontmatter(text: str) -> tuple[dict | None, str | None]:
 
 
 def validate_manifest(skill_dir: str, name: str, domain: str, version: str, path: str, errors: list[str]) -> None:
+    """Append contract errors for an optional sibling manifest."""
     mpath = os.path.join(skill_dir, "manifest.json")
     if not os.path.exists(mpath):
         return
@@ -98,6 +99,7 @@ def validate_manifest(skill_dir: str, name: str, domain: str, version: str, path
 
 
 def main() -> int:
+    """Validate the complete skill tree and return a process exit code."""
     errors: list[str] = []
     count = 0
     for dirpath, _dirs, files in os.walk(ROOT):

@@ -1,7 +1,7 @@
 ---
 name: starlight-qa
 description: "Exercise a web experience or API through real user flows, semantic accessibility checks, responsive viewports, console/network inspection, and release-specific assertions. Use when a preview or deployed surface needs evidence-based QA; use the host-approved browser connector and avoid unauthorized external side effects."
-metadata: {"version": "0.1.0", "domain": "coding", "tags": ["qa", "browser", "accessibility", "responsive", "api", "visual-regression"]}
+metadata: {"version":"0.1.0","domain":"coding","tags":"qa,browser,accessibility,responsive,api,visual-regression"}
 ---
 
 # Starlight QA

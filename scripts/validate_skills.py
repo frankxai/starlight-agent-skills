@@ -4,7 +4,7 @@
 For each `SKILL.md` under `skills/<domain>/<name>/`:
   * YAML frontmatter is present and single-line (block scalars / multi-line
     values are rejected — keep `description` a single quoted line)
-  * `name` matches ^[a-z0-9][a-z0-9-]*$, is <= 64 chars, AND equals the folder name
+  * `name` is strict kebab-case, is <= 64 chars, AND equals the folder name
   * `description` is non-empty and <= 1024 chars
   * only Agent Skills-compatible top-level keys are accepted
   * `metadata.version` is semver X.Y.Z
@@ -24,10 +24,17 @@ import re
 import sys
 
 ROOT = os.path.join(os.path.dirname(__file__), "..", "skills")
-NAME_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
+NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
 DOMAINS = {"substrate", "research", "media", "education", "coding", "brand", "cosmos"}
-ALLOWED_FRONTMATTER_KEYS = {"name", "description", "license", "allowed-tools", "metadata"}
+ALLOWED_FRONTMATTER_KEYS = {
+    "name",
+    "description",
+    "license",
+    "compatibility",
+    "allowed-tools",
+    "metadata",
+}
 # Frontmatter block: tolerant of a BOM and of the closing `---` having no trailing newline.
 FM_RE = re.compile("^﻿?---\\s*\n(.*?)\n?---", re.S)
 
@@ -126,7 +133,10 @@ def main() -> int:
         if not name:
             errors.append(f"{path}: missing 'name'")
         elif not NAME_RE.match(name):
-            errors.append(f"{path}: 'name' must match ^[a-z0-9][a-z0-9-]*$ (got {name!r})")
+            errors.append(
+                f"{path}: 'name' must be lowercase kebab-case without edge or "
+                f"consecutive hyphens (got {name!r})"
+            )
         elif len(name) > 64:
             errors.append(f"{path}: 'name' exceeds 64 characters")
         elif name != folder:
@@ -145,6 +155,24 @@ def main() -> int:
         if metadata and not isinstance(metadata, dict):
             errors.append(f"{path}: 'metadata' must be an object")
             metadata = {}
+        if isinstance(metadata, dict):
+            non_string_metadata = sorted(
+                key
+                for key, value in metadata.items()
+                if not isinstance(key, str) or not isinstance(value, str)
+            )
+            if non_string_metadata:
+                errors.append(
+                    f"{path}: metadata keys and values must be strings "
+                    f"(invalid entries: {non_string_metadata})"
+                )
+
+        compatibility = fm.get("compatibility")
+        if compatibility is not None:
+            if not isinstance(compatibility, str):
+                errors.append(f"{path}: 'compatibility' must be a string")
+            elif not 1 <= len(compatibility) <= 500:
+                errors.append(f"{path}: 'compatibility' must be 1-500 characters")
 
         version = metadata.get("version", "")
         if not isinstance(version, str):

@@ -1,7 +1,7 @@
 ---
 name: thumbnail-concept
 description: "Generate high-CTR thumbnail concepts for a video — layout, focal subject, text overlay (≤4 words), color/contrast, and an image-gen prompt. Use when designing a YouTube/short thumbnail, asked for 'thumbnail ideas', or planning cover art for a video."
-metadata: {"version": "0.1.0", "domain": "media", "tags": ["thumbnail", "design", "youtube", "cover", "ctr"]}
+metadata: {"version":"0.1.0","domain":"media","tags":"thumbnail,design,youtube,cover,ctr"}
 ---
 
 # Thumbnail Concept

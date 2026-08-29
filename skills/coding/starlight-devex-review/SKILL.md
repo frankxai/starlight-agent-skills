@@ -1,7 +1,7 @@
 ---
 name: starlight-devex-review
 description: "Review an API, CLI, SDK, plugin, package, or installation flow for discoverability, safe defaults, actionable errors, compatibility, documentation, and time to verified value. Use before publishing a developer-facing interface or when onboarding friction is suspected."
-metadata: {"version": "0.1.0", "domain": "coding", "tags": ["devex", "api", "cli", "plugin", "documentation", "onboarding"]}
+metadata: {"version":"0.1.0","domain":"coding","tags":"devex,api,cli,plugin,documentation,onboarding"}
 ---
 
 # Starlight DevEx Review

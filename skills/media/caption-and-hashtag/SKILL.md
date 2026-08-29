@@ -1,7 +1,7 @@
 ---
 name: caption-and-hashtag
 description: "Write a platform-tuned caption plus a researched, non-spammy hashtag set for a post. Use when finishing a social post, asked for 'caption and hashtags', or optimizing reach for Instagram/TikTok/X/LinkedIn."
-metadata: {"version": "0.1.0", "domain": "media", "tags": ["caption", "hashtags", "social", "instagram", "reach"]}
+metadata: {"version":"0.1.0","domain":"media","tags":"caption,hashtags,social,instagram,reach"}
 ---
 
 # Caption & Hashtag

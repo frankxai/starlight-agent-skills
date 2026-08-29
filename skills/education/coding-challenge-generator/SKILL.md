@@ -1,7 +1,7 @@
 ---
 name: coding-challenge-generator
 description: "Generate a graded set of coding challenges around a topic — progressive difficulty, each with statement, constraints, hidden tests, and solution. Use when building a problem set, a challenge ladder, interview prep, or a curriculum of exercises."
-metadata: {"version": "0.1.0", "domain": "education", "tags": ["coding", "challenges", "problem-set", "curriculum", "assessment"]}
+metadata: {"version":"0.1.0","domain":"education","tags":"coding,challenges,problem-set,curriculum,assessment"}
 ---
 
 # Coding Challenge Generator

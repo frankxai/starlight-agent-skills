@@ -12,9 +12,11 @@ Every skill MUST:
   `substrate`, `research`, `media`, `education`, `coding`, `brand`, `cosmos`.
 - Start with Agent Skills-compatible YAML frontmatter: `name`, `description`,
   and `metadata`. Put Starlight's required `version` and `domain` plus optional
-  `tags` inside the single-line metadata object. See
+  comma-separated `tags` inside the single-line, string-valued metadata object.
+  Use the standard `compatibility` field for genuine environment requirements. See
   [`docs/SKILL_SPEC.md`](docs/SKILL_SPEC.md).
-- Use a `name` that is lowercase, kebab-case, ≤64 chars (`^[a-z0-9][a-z0-9-]*$`).
+- Use a `name` that is lowercase, kebab-case, ≤64 chars
+  (`^[a-z0-9]+(?:-[a-z0-9]+)*$`).
 - Give a specific `description` (≤1024 chars) that tells the model **when** to fire
   ("Use when …") with real trigger keywords.
 - Follow the body skeleton: Purpose · When it fires · Inputs · Workflow · Output

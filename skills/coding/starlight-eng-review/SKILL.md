@@ -1,7 +1,7 @@
 ---
 name: starlight-eng-review
 description: "Stress-test a technical design across data integrity, trust boundaries, concurrency, failure recovery, compatibility, observability, and resource limits. Use before implementing or landing a change whose failure could corrupt state, expose data, break clients, or create operational toil."
-metadata: {"version": "0.1.0", "domain": "coding", "tags": ["engineering", "architecture", "security", "reliability", "failure-modes"]}
+metadata: {"version":"0.1.0","domain":"coding","tags":"engineering,architecture,security,reliability,failure-modes"}
 ---
 
 # Starlight Engineering Review

@@ -1,7 +1,7 @@
 ---
 name: starlight-ship
 description: "Prepare an authorized change for review or landing by checking repository state, required gates, secrets, diff scope, deployment evidence, rollback, and merge policy. Use when a branch or pull request is ready for a release decision; never rewrite, merge, deploy, or publish without the authority granted for that action."
-metadata: {"version": "0.1.0", "domain": "coding", "tags": ["release", "git", "pull-request", "verification", "rollback", "deployment"]}
+metadata: {"version":"0.1.0","domain":"coding","tags":"release,git,pull-request,verification,rollback,deployment"}
 ---
 
 # Starlight Ship

@@ -31,6 +31,9 @@ jobs:
       - name: Validate skill frontmatter
         run: python3 scripts/validate_skills.py
 
+      - name: Test validator edge cases
+        run: python3 scripts/test_validate_skills.py
+
       - name: Validate example outputs against manifests
         run: python3 scripts/validate_examples.py
 

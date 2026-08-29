@@ -1,7 +1,7 @@
 ---
 name: simulation-lab-builder
 description: "Design an interactive simulation lab — a self-contained HTML/JS (or p5.js) sim with tunable parameters, a learning goal, and guided experiments. Use when building an interactive demo, a physics/astronomy sandbox, or a 'simulation' / 'interactive lab' for teaching."
-metadata: {"version": "0.1.0", "domain": "education", "tags": ["simulation", "interactive", "lab", "physics", "p5js"]}
+metadata: {"version":"0.1.0","domain":"education","tags":"simulation,interactive,lab,physics,p5js"}
 ---
 
 # Simulation Lab Builder

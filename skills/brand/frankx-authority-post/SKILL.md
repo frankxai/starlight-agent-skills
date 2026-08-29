@@ -1,7 +1,7 @@
 ---
 name: frankx-authority-post
 description: "Write a FrankX authority post — an AI-Architect-voiced LinkedIn/X post that leads with a result, teaches one concrete lesson, and stays humble. Use when drafting a thought-leadership post as FrankX, sharing a build/insight, or asked for an 'authority post'."
-metadata: {"version": "0.1.0", "domain": "brand", "tags": ["frankx", "authority", "linkedin", "thought-leadership", "ai-architect"]}
+metadata: {"version":"0.1.0","domain":"brand","tags":"frankx,authority,linkedin,thought-leadership,ai-architect"}
 ---
 
 # FrankX Authority Post

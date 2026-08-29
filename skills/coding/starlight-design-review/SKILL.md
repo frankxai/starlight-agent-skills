@@ -1,7 +1,7 @@
 ---
 name: starlight-design-review
 description: "Audit a digital experience against its own design language, information hierarchy, accessibility, responsive behavior, interaction states, content truth, and visual craft. Use for websites, applications, dashboards, generated media, or frontend changes before release."
-metadata: {"version": "0.1.0", "domain": "coding", "tags": ["design", "ux", "accessibility", "responsive", "visual-qa", "taste"]}
+metadata: {"version":"0.1.0","domain":"coding","tags":"design,ux,accessibility,responsive,visual-qa,taste"}
 ---
 
 # Starlight Design Review

@@ -1,7 +1,7 @@
 ---
 name: arxiv-space-paper-to-brief
 description: "Turn an astrophysics/space-science arXiv paper into a structured brief tuned for space audiences — adds object/mission context, instruments, and observational caveats. Use when summarizing an astro-ph paper, a space-science result, or a mission's published findings."
-metadata: {"version": "0.1.0", "domain": "cosmos", "tags": ["arxiv", "astrophysics", "space", "brief", "astro-ph"]}
+metadata: {"version":"0.1.0","domain":"cosmos","tags":"arxiv,astrophysics,space,brief,astro-ph"}
 ---
 
 # arXiv Space Paper → Brief

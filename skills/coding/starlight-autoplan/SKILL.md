@@ -1,7 +1,7 @@
 ---
 name: starlight-autoplan
 description: "Review a non-trivial implementation plan through product, engineering, design, and developer-experience lenses, then reconcile the findings into an evidence-gated execution plan. Use when a change crosses multiple systems, carries meaningful risk, or needs an explicit build/no-build decision."
-metadata: {"version": "0.1.0", "domain": "coding", "tags": ["planning", "review", "architecture", "design", "devex", "quality-gate"]}
+metadata: {"version":"0.1.0","domain":"coding","tags":"planning,review,architecture,design,devex,quality-gate"}
 ---
 
 # Starlight Autoplan

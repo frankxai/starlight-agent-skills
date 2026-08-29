@@ -1,7 +1,7 @@
 ---
 name: starlight-investigate
 description: "Diagnose a reproducible software failure by separating observations from hypotheses, locating the failing boundary, and defining regression evidence. Use when a bug, failed check, production incident, or unexpected behavior needs a root-cause report; modify code only when the user also authorizes a fix."
-metadata: {"version": "0.1.0", "domain": "coding", "tags": ["diagnosis", "debugging", "root-cause", "evidence", "regression"]}
+metadata: {"version":"0.1.0","domain":"coding","tags":"diagnosis,debugging,root-cause,evidence,regression"}
 ---
 
 # Starlight Investigate

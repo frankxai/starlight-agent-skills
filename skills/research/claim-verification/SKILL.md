@@ -1,7 +1,7 @@
 ---
 name: claim-verification
 description: "Fact-check a claim against sources and return a verdict with evidence and confidence — supported, refuted, partially-supported, or unverifiable. Use when asked to 'verify', 'fact-check', 'is this true', or before publishing a statistic or scientific claim."
-metadata: {"version": "0.1.0", "domain": "research", "tags": ["fact-check", "verification", "evidence", "sources"]}
+metadata: {"version":"0.1.0","domain":"research","tags":"fact-check,verification,evidence,sources"}
 ---
 
 # Claim Verification

@@ -1,7 +1,7 @@
 ---
 name: rocket-launch-to-reel
 description: "Turn a rocket launch into a short vertical reel — punchy hook, 30–45s narration, beat-synced captions, and a footage-credit line. Use when making a launch reel/short (not a long-form YouTube video), or a quick social recap of a launch."
-metadata: {"version": "0.1.0", "domain": "cosmos", "tags": ["rocket", "launch", "reel", "short", "social"]}
+metadata: {"version":"0.1.0","domain":"cosmos","tags":"rocket,launch,reel,short,social"}
 ---
 
 # Rocket Launch → Reel

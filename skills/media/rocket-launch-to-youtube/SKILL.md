@@ -1,7 +1,7 @@
 ---
 name: rocket-launch-to-youtube
 description: "Turn a rocket launch (mission details + footage notes) into a full YouTube package — title options, description, chapters, tags, and a long-form script. Use when producing a launch recap/explainer video, or asked to 'make a YouTube video about this launch'."
-metadata: {"version": "0.1.0", "domain": "media", "tags": ["rocket", "launch", "youtube", "longform", "script"]}
+metadata: {"version":"0.1.0","domain":"media","tags":"rocket,launch,youtube,longform,script"}
 ---
 
 # Rocket Launch → YouTube

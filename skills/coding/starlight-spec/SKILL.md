@@ -1,7 +1,7 @@
 ---
 name: starlight-spec
 description: "Convert an approved product intent into a backlog-ready specification with boundaries, contracts, tasks, verification, rollback, and human approval points. Use when requirements are ambiguous, multiple components must change, or implementation needs a durable handoff."
-metadata: {"version": "0.1.0", "domain": "coding", "tags": ["specification", "requirements", "architecture", "task-breakdown", "verification"]}
+metadata: {"version":"0.1.0","domain":"coding","tags":"specification,requirements,architecture,task-breakdown,verification"}
 ---
 
 # Starlight Spec

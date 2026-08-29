@@ -1,7 +1,7 @@
 ---
 name: starlight-ceo-review
 description: "Review a proposal from the accountable founder or product-owner perspective: user value, strategic fit, economics, evidence, sequencing, and human responsibility. Use when a plan needs a build/revise/defer decision or when ambition may be obscuring the actual outcome."
-metadata: {"version": "0.1.0", "domain": "coding", "tags": ["founder", "product-strategy", "value", "sequencing", "decision"]}
+metadata: {"version":"0.1.0","domain":"coding","tags":"founder,product-strategy,value,sequencing,decision"}
 ---
 
 # Starlight CEO Review

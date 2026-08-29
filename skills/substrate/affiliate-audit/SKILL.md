@@ -1,9 +1,7 @@
 ---
 name: affiliate-audit
-description: Map which content mentions paying tools but lacks affiliate links, and which programs to join first. Use when monetizing tool-comparison content, choosing affiliate programs, or auditing a passive-income site's link coverage. Portable and brand-neutral. Trigger phrases: affiliate audit, affiliate link, affiliate program, monetization gap, link coverage, which programs to join, missing affiliate links, audit my content, program catalog.
-type: agent-orchestration
-version: 0.1.0
-domain: substrate
+description: "Map which content mentions paying tools but lacks affiliate links, and which programs to join first. Use when monetizing tool-comparison content, choosing affiliate programs, or auditing a passive-income site's link coverage. Portable and brand-neutral. Trigger phrases: affiliate audit, affiliate link, affiliate program, monetization gap, link coverage, which programs to join, missing affiliate links, audit my content, program catalog."
+metadata: {"version": "0.1.0", "domain": "substrate", "type": "agent-orchestration"}
 ---
 
 # affiliate-audit

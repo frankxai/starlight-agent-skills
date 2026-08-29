@@ -1,9 +1,7 @@
 ---
 name: apod-to-short
 description: "Turn a NASA Astronomy Picture of the Day (APOD) into a 30–60s vertical short — script, shot list, captions, and a rights line. Use when the user mentions APOD, 'astronomy picture of the day', or wants a daily space short/reel/TikTok from a NASA image."
-version: 0.1.0
-domain: cosmos
-tags: [nasa, apod, video, short, social]
+metadata: {"version":"0.1.0","domain":"cosmos","tags":"nasa,apod,video,short,social"}
 ---
 
 # APOD → Short

@@ -28,7 +28,7 @@
 > Reusable `SKILL.md` capabilities — prompts, manifests, examples, tests, and adapters —
 > for Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System.
 
-![Skills](https://img.shields.io/badge/skills-26-7fffd4?style=for-the-badge&labelColor=0d1117)
+![Skills](https://img.shields.io/badge/skills-36-7fffd4?style=for-the-badge&labelColor=0d1117)
 ![Domains](https://img.shields.io/badge/domains-7-c084fc?style=for-the-badge&labelColor=0d1117)
 [![Built on SIP](https://img.shields.io/badge/Built_on-SIP-78a6ff?style=for-the-badge&labelColor=0d1117)](https://github.com/frankxai/Starlight-Intelligence-System)
 [![License: MIT](https://img.shields.io/badge/license-MIT-white?style=for-the-badge&labelColor=0d1117)](https://opensource.org/licenses/MIT)
@@ -45,7 +45,7 @@
 
 ## What's inside
 
-**27 production-grade skills across 7 domains**, each a self-contained, rich-portable package.
+**36 validated skills across 7 domains**, each a self-contained, rich-portable package.
 Browse the full [**Catalog**](docs/CATALOG.md).
 
 | Domain | Skills | Examples |
@@ -55,7 +55,7 @@ Browse the full [**Catalog**](docs/CATALOG.md).
 | 🔬 research | 3 | `arxiv-paper-to-brief`, `mission-page-to-summary`, `claim-verification` |
 | 🎬 media | 5 | `social-repurposer`, `thumbnail-concept`, `caption-and-hashtag` |
 | 🎓 education | 3 | `explain-like-cosmic-professor`, `simulation-lab-builder` |
-| 💻 coding | 1 | `cosmic-code-lab` |
+| 💻 coding | 10 | `cosmic-code-lab`, `starlight-spec`, `starlight-autoplan`, `starlight-qa` |
 | ✨ brand | 3 | `starlight-voice`, `arcanea-mythic-overlay`, `frankx-authority-post` |
 
 The **substrate** domain holds brand-neutral operating skills (income systems, affiliate

@@ -16,23 +16,31 @@ skills/<domain>/<skill-name>/
 └── tests/            # OPTIONAL — golden-checklist asserting the output contract
 ```
 
-- `<domain>` ∈ `research`, `media`, `education`, `coding`, `brand`, `cosmos`.
-- `<skill-name>` is kebab-case and matches `^[a-z0-9][a-z0-9-]*$`.
+- `<domain>` ∈ `substrate`, `research`, `media`, `education`, `coding`, `brand`, `cosmos`.
+- `<skill-name>` is kebab-case and matches `^[a-z0-9]+(?:-[a-z0-9]+)*$`;
+  it cannot start or end with a hyphen or contain consecutive hyphens.
 
 ## `SKILL.md` frontmatter (validated)
 
 ```yaml
 ---
-name: apod-to-short          # kebab-case, ≤64 chars, ^[a-z0-9][a-z0-9-]*$
+name: apod-to-short          # kebab-case, ≤64 chars; no edge/consecutive hyphens
 description: "What it does + 'Use when …' triggers. ≤1024 chars."
-version: 0.1.0               # semver X.Y.Z
-domain: cosmos              # one of the 6 domains
-tags: [nasa, video, social] # optional, free-form
+metadata: {"version": "0.1.0", "domain": "cosmos", "tags": "nasa,video,social"}
 ---
 ```
 
-Required keys: `name`, `description`, `version`, `domain`. Every `SKILL.md` MUST
-also contain the `Built on SIP` attestation footer (checked by the validator).
+The portable top-level contract is `name`, `description`, and optional standard
+fields such as `license`, `compatibility`, `allowed-tools`, and `metadata`.
+Starlight requires `metadata.version` and `metadata.domain`; tags remain
+optional. Agent Skills metadata is a string-to-string map, so encode tags as a
+comma-separated string. Keep `metadata` as a single-line JSON object so both
+strict Agent Skills validators and the repository's zero-dependency validator
+read the same value.
+
+Custom top-level `version`, `domain`, `tags`, or `type` keys are rejected. Put
+those values inside `metadata`. Every `SKILL.md` MUST also contain the
+`Built on SIP` attestation footer.
 
 ## `SKILL.md` body — consistent sections
 

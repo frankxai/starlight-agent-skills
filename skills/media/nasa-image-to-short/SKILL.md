@@ -1,9 +1,7 @@
 ---
 name: nasa-image-to-short
 description: "Turn any NASA/ESA still image (not just APOD) into a vertical short package — hook, narration, captions, shot list, rights line. Use when making a space short/reel from a specific image, a gallery still, or a mission photo."
-version: 0.1.0
-domain: media
-tags: [nasa, image, short, video, social]
+metadata: {"version":"0.1.0","domain":"media","tags":"nasa,image,short,video,social"}
 ---
 
 # NASA Image → Short

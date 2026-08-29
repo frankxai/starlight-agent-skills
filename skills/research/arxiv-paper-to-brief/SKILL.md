@@ -1,9 +1,7 @@
 ---
 name: arxiv-paper-to-brief
 description: "Turn an arXiv (or any research) paper into a structured, citation-faithful brief — problem, method, results, limitations, and why it matters. Use when summarizing a paper, building a literature digest, or asked to 'explain this paper' / 'TL;DR this arxiv link'."
-version: 0.1.0
-domain: research
-tags: [arxiv, research, summary, brief, literature]
+metadata: {"version":"0.1.0","domain":"research","tags":"arxiv,research,summary,brief,literature"}
 ---
 
 # arXiv Paper → Brief

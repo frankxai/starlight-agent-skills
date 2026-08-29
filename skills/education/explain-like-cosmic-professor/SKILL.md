@@ -1,9 +1,7 @@
 ---
 name: explain-like-cosmic-professor
 description: "Explain any concept in the voice of a warm, rigorous cosmic professor — an analogy ladder from intuitive to precise, with a check-for-understanding. Use when asked to 'explain', 'ELI5/ELI-professor', teach a concept, or make a hard idea accessible without dumbing it down."
-version: 0.1.0
-domain: education
-tags: [explainer, teaching, analogy, pedagogy]
+metadata: {"version":"0.1.0","domain":"education","tags":"explainer,teaching,analogy,pedagogy"}
 ---
 
 # Explain Like a Cosmic Professor

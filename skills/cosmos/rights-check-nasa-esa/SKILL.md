@@ -1,9 +1,7 @@
 ---
 name: rights-check-nasa-esa
 description: "Check usage rights for NASA/ESA/observatory space media and emit a correct attribution line. Use when reusing a space image/video, before publishing a short or atlas page, or when the user asks 'can I use this image' / 'what's the credit' for NASA, ESA, Hubble, Webb, or observatory media."
-version: 0.1.0
-domain: cosmos
-tags: [rights, licensing, attribution, nasa, esa, compliance]
+metadata: {"version":"0.1.0","domain":"cosmos","tags":"rights,licensing,attribution,nasa,esa,compliance"}
 ---
 
 # Rights Check — NASA / ESA

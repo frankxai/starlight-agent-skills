@@ -1,9 +1,7 @@
 ---
 name: swarm-queen-coordination
-description: How a stream queen coordinates a worker swarm and runs the escalation contract that keeps money safe — queens run streams, the founder owns capital, humans hold the final gate. Use when designing or operating a multi-agent income swarm, deciding what an agent may do autonomously vs. what it must escalate, or wiring the queen/worker/founder roles. Portable and brand-neutral. Trigger phrases: coordinate the swarm, stream queen, worker swarm, escalation contract, what can the agent decide, queen and workers, founder agent, agent autonomy limits.
-type: substrate
-version: 0.1.0
-domain: substrate
+description: "How a stream queen coordinates a worker swarm and runs the escalation contract that keeps money safe — queens run streams, the founder owns capital, humans hold the final gate. Use when designing or operating a multi-agent income swarm, deciding what an agent may do autonomously vs. what it must escalate, or wiring the queen/worker/founder roles. Portable and brand-neutral. Trigger phrases: coordinate the swarm, stream queen, worker swarm, escalation contract, what can the agent decide, queen and workers, founder agent, agent autonomy limits."
+metadata: {"version": "0.1.0", "domain": "substrate", "type": "substrate"}
 ---
 
 # swarm-queen-coordination

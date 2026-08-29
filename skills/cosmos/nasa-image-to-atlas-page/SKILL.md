@@ -1,9 +1,7 @@
 ---
 name: nasa-image-to-atlas-page
 description: "Turn a NASA/ESA image into a structured 'cosmic atlas' web page — MDX with hero, plain-language explainer, fact table, sources, and rights. Use when building an atlas/encyclopedia entry, a gallery page, or a catalog of space objects from NASA imagery."
-version: 0.1.0
-domain: cosmos
-tags: [nasa, atlas, mdx, web, catalog]
+metadata: {"version":"0.1.0","domain":"cosmos","tags":"nasa,atlas,mdx,web,catalog"}
 ---
 
 # NASA Image → Atlas Page

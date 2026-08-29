@@ -1,9 +1,7 @@
 ---
 name: space-social-repurposer
 description: "Repurpose a space asset (APOD short, mission brief, launch reel, atlas page) into a coordinated multi-platform pack, preserving image/footage credits across every variant. Use when distributing space content across X/LinkedIn/Instagram/YouTube while keeping NASA/ESA attribution intact."
-version: 0.1.0
-domain: cosmos
-tags: [space, repurpose, distribution, social, rights]
+metadata: {"version":"0.1.0","domain":"cosmos","tags":"space,repurpose,distribution,social,rights"}
 ---
 
 # Space Social Repurposer

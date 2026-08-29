@@ -1,9 +1,7 @@
 ---
 name: skill-name-here
 description: "One or two sentences. Lead with what it does, then the trigger: 'Use when …' with concrete keywords the model will match on. Keep under 1024 characters."
-version: 0.1.0
-domain: research
-tags: [tag-one, tag-two]
+metadata: {"version": "0.1.0", "domain": "research", "tags": "tag-one,tag-two"}
 ---
 
 # Skill Name Here

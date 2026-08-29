@@ -1,9 +1,7 @@
 ---
 name: notion-operating-system
-description: Design safe, private-first Notion operating systems, estate audits, parallel rebuilds, template systems, and public mirrors. Use when asked to map a Notion workspace, clean or restructure Notion, create business/personal Notion dashboards, build reusable Notion templates, or turn private Notion content into sanitized public docs. Portable and brand-neutral. Trigger phrases: map my Notion, Notion estate audit, restructure Notion, Notion operating system, Notion dashboard, Notion template system, publish Notion docs.
-type: substrate
-version: 0.1.0
-domain: substrate
+description: "Design safe, private-first Notion operating systems, estate audits, parallel rebuilds, template systems, and public mirrors. Use when asked to map a Notion workspace, clean or restructure Notion, create business/personal Notion dashboards, build reusable Notion templates, or turn private Notion content into sanitized public docs. Portable and brand-neutral. Trigger phrases: map my Notion, Notion estate audit, restructure Notion, Notion operating system, Notion dashboard, Notion template system, publish Notion docs."
+metadata: {"version": "0.1.0", "domain": "substrate", "type": "substrate"}
 ---
 
 # Notion Operating System

@@ -1,9 +1,7 @@
 ---
 name: cosmic-code-lab
 description: "Generate a runnable, space-themed coding lab — a problem statement, starter code, hidden tests, and a worked solution — in Python or JavaScript. Use when creating coding exercises, a 'code lab', an interactive tutorial, or a space/astronomy programming challenge."
-version: 0.1.0
-domain: coding
-tags: [education, coding, exercise, lab, astronomy]
+metadata: {"version":"0.1.0","domain":"coding","tags":"education,coding,exercise,lab,astronomy"}
 ---
 
 # Cosmic Code Lab

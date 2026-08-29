@@ -1,6 +1,6 @@
 # 🛰️ Starlight Agent Skills — Catalog
 
-The complete index of all **27 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
+The complete index of all **36 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
 
 > This file is generated. After adding or renaming a skill, run `python3 scripts/generate_catalog.py` to regenerate it, then `python3 scripts/validate_skills.py` to verify compliance.
 
@@ -64,11 +64,20 @@ _3 skills_
 
 ## 💻 Coding
 
-_1 skill_
+_10 skills_
 
 | Skill | Version | Description |
 |---|---|---|
 | [`cosmic-code-lab`](../skills/coding/cosmic-code-lab) | 0.1.0 | Generate a runnable, space-themed coding lab — a problem statement, starter code, hidden tests, and a worked solution — in Python or JavaScript. Use when cre... |
+| [`starlight-autoplan`](../skills/coding/starlight-autoplan) | 0.1.0 | Review a non-trivial implementation plan through product, engineering, design, and developer-experience lenses, then reconcile the findings into an evidence-... |
+| [`starlight-ceo-review`](../skills/coding/starlight-ceo-review) | 0.1.0 | Review a proposal from the accountable founder or product-owner perspective: user value, strategic fit, economics, evidence, sequencing, and human responsibi... |
+| [`starlight-design-review`](../skills/coding/starlight-design-review) | 0.1.0 | Audit a digital experience against its own design language, information hierarchy, accessibility, responsive behavior, interaction states, content truth, and... |
+| [`starlight-devex-review`](../skills/coding/starlight-devex-review) | 0.1.0 | Review an API, CLI, SDK, plugin, package, or installation flow for discoverability, safe defaults, actionable errors, compatibility, documentation, and time... |
+| [`starlight-eng-review`](../skills/coding/starlight-eng-review) | 0.1.0 | Stress-test a technical design across data integrity, trust boundaries, concurrency, failure recovery, compatibility, observability, and resource limits. Use... |
+| [`starlight-investigate`](../skills/coding/starlight-investigate) | 0.1.0 | Diagnose a reproducible software failure by separating observations from hypotheses, locating the failing boundary, and defining regression evidence. Use whe... |
+| [`starlight-qa`](../skills/coding/starlight-qa) | 0.1.0 | Exercise a web experience or API through real user flows, semantic accessibility checks, responsive viewports, console/network inspection, and release-specif... |
+| [`starlight-ship`](../skills/coding/starlight-ship) | 0.1.0 | Prepare an authorized change for review or landing by checking repository state, required gates, secrets, diff scope, deployment evidence, rollback, and merg... |
+| [`starlight-spec`](../skills/coding/starlight-spec) | 0.1.0 | Convert an approved product intent into a backlog-ready specification with boundaries, contracts, tasks, verification, rollback, and human approval points. U... |
 
 ## ✨ Brand & Voice
 

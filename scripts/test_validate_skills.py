@@ -20,13 +20,13 @@ SPEC.loader.exec_module(VALIDATOR)
 
 
 class SkillValidatorTests(unittest.TestCase):
-    def validate(self, folder: str, frontmatter: str) -> tuple[int, str]:
+    def validate(self, folder: str, frontmatter: str, filename: str = "SKILL.md") -> tuple[int, str]:
         """Run the validator against one isolated skill fixture."""
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir) / "skills"
             skill_dir = root / "coding" / folder
             skill_dir.mkdir(parents=True)
-            (skill_dir / "SKILL.md").write_text(
+            (skill_dir / filename).write_text(
                 f"---\n{frontmatter}\n---\n\n# Fixture\n\nBuilt on SIP\n",
                 encoding="utf-8",
             )
@@ -116,6 +116,23 @@ class SkillValidatorTests(unittest.TestCase):
         )
         self.assertEqual(result, 1)
         self.assertIn("unsupported top-level frontmatter keys", output)
+
+
+    def test_rejects_mis_cased_skill_filename(self) -> None:
+        """Reject skill files that disappear on case-sensitive hosts."""
+        result, output = self.validate(
+            "mis-cased-file",
+            "\n".join(
+                [
+                    "name: mis-cased-file",
+                    "description: An invalid fixture. Use when testing filename casing.",
+                    'metadata: {"version": "0.1.0", "domain": "coding"}',
+                ]
+            ),
+            filename="Skill.md",
+        )
+        self.assertEqual(result, 1)
+        self.assertIn("skill file must be named exactly 'SKILL.md'", output)
 
 
 if __name__ == "__main__":

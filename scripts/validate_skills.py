@@ -104,6 +104,10 @@ def main() -> int:
     count = 0
     for dirpath, _dirs, files in os.walk(ROOT):
         # Exact filename — a stray `Skill.md` should not pass on case-insensitive FS.
+        for filename in files:
+            if filename.casefold() == "skill.md" and filename != "SKILL.md":
+                bad_path = os.path.relpath(os.path.join(dirpath, filename), os.path.join(ROOT, ".."))
+                errors.append(f"{bad_path}: skill file must be named exactly 'SKILL.md'")
         if "SKILL.md" not in files:
             continue
         count += 1

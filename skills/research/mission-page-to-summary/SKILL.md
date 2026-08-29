@@ -1,9 +1,7 @@
 ---
 name: mission-page-to-summary
 description: "Turn an official mission page (NASA/ESA/JPL spacecraft, instrument, or mission site) into a clean, accurate summary — objective, timeline, instruments, status, and key results. Use when summarizing a space mission, building a mission card, or asked to 'explain this mission' from an agency page."
-version: 0.1.0
-domain: research
-tags: [mission, nasa, esa, summary, spacecraft]
+metadata: {"version": "0.1.0", "domain": "research", "tags": ["mission", "nasa", "esa", "summary", "spacecraft"]}
 ---
 
 # Mission Page → Summary

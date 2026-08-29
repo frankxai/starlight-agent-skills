@@ -1,113 +1,74 @@
 ---
 name: starlight-autoplan
-description: "Execute the Starlight 4-Stage Adversarial Plan Review Pipeline: CEO Strategy, Engineering Architecture, Design Taste, and Developer Experience. Enforces the Completeness Principle ('Boil the Lake') to produce hardened implementation specs."
-version: 1.0.0
-domain: coding
-tags: [autoplan, review, architecture, ceo, engineering, design, devex, quality-gate]
+description: "Review a non-trivial implementation plan through product, engineering, design, and developer-experience lenses, then reconcile the findings into an evidence-gated execution plan. Use when a change crosses multiple systems, carries meaningful risk, or needs an explicit build/no-build decision."
+metadata: {"version": "0.1.0", "domain": "coding", "tags": ["planning", "review", "architecture", "design", "devex", "quality-gate"]}
 ---
 
-# Starlight Autoplan — 4-Stage Adversarial Review Swarm
-
-> Transform any rough implementation idea or technical plan into a battle-tested, 10/10 complete implementation specification through four specialized review gates.
+# Starlight Autoplan
 
 ## Purpose
 
-The difference between a mediocre software release and a category-defining product is systematic pre-flight scrutiny. `starlight-autoplan` chains four independent reviewer perspectives:
-
-1. **Gate 1: CEO / Founder Review** — Rethink the problem, find the 10-star product, challenge scarcity premises, enforce the Completeness Principle ("Boil the Lake").
-2. **Gate 2: Engineering Architecture Review** — Stress-test data models, concurrency boundaries, edge cases, error recovery, and failure modes.
-3. **Gate 3: Design & Taste Review** — Audit visual hierarchy, typography, responsive breakpoints, UX state transitions, and anti-slop compliance.
-4. **Gate 4: Developer Experience (DevEx) Review** — Scrutinize API ergonomics, CLI flags, time-to-hello-world, and documentation clarity.
+Turn a rough proposal into a bounded plan whose assumptions, risks, authority limits, and verification gates are visible before implementation begins.
 
 ## When it fires
 
-- Command triggers: `/starlight-autoplan`, `/autoplan`, `/plan-review`
-- Context triggers: "review this plan", "stress test our architecture", "make this 10x better", "autoplan", "is this ready to build"
+- The user asks to review, harden, or stress-test a plan.
+- The work crosses product, data, security, design, runtime, or deployment boundaries.
+- A wrong decision would be expensive or difficult to reverse.
 
-## The 4-Stage Review Protocol
+Do not invoke the full review for a trivial, reversible edit unless the user asks for it.
 
-```
-                        ┌────────────────────────────────────────┐
-                        │        INPUT IMPLEMENTATION PLAN       │
-                        └──────────────────┬─────────────────────┘
-                                           │
-                        ┌──────────────────▼─────────────────────┐
-                        │        GATE 1: CEO STRATEGY REVIEW     │
-                        │ • 10-Star Experience • Boil the Lake   │
-                        │ • Monetization & Value Alignment       │
-                        └──────────────────┬─────────────────────┘
-                                           │
-                        ┌──────────────────▼─────────────────────┐
-                        │       GATE 2: ENGINEERING ARCHITECTURE │
-                        │ • Edge Cases • Concurrency • Failures  │
-                        │ • Data Models & Security Perimeter     │
-                        └──────────────────┬─────────────────────┘
-                                           │
-                        ┌──────────────────▼─────────────────────┐
-                        │        GATE 3: DESIGN & TASTE REVIEW   │
-                        │ • Impeccable UX • Typography Hierarchy │
-                        │ • Anti-Slop Check • Micro-Interactions │
-                        └──────────────────┬─────────────────────┘
-                                           │
-                        ┌──────────────────▼─────────────────────┐
-                        │         GATE 4: DEVEX ERGONOMICS       │
-                        │ • API Simplicity • Time-to-Hello-World │
-                        │ • CLI Usability • Error Actionability  │
-                        └──────────────────┬─────────────────────┘
-                                           │
-                        ┌──────────────────▼─────────────────────┐
-                        │     ## STARLIGHT REVIEW REPORT         │
-                        │ Consolidated Action Plan & Green Light │
-                        └────────────────────────────────────────┘
-```
+## Inputs
 
-### Stage 1: CEO / Founder Strategy Review
-- **Completeness Principle:** AI makes marginal coding cost near-zero. Did we build the full lake (all edge cases, full test coverage, complete workflows), or did we take false shortcuts?
-- **Ambition:** Is this the simplest version of a 10-star product, or merely a 3-star incremental patch?
-- **BYOK / Business Alignment:** Does this preserve user sovereignty, require zero multi-tenant server liability, and create compounding enterprise value?
+- Desired user outcome and explicit non-goals.
+- Current repository or system evidence.
+- Time, cost, compatibility, privacy, and authority constraints.
+- Known failure history and required verification commands.
 
-### Stage 2: Engineering & Architecture Review
-- **Failure Modes:** What happens when networks drop, tokens expire, or rates are limited?
-- **Data Integrity:** Are mutations atomic? Are state transitions idempotent?
-- **Resource Constraints:** Does it respect RAM, connection limits, and token budgets?
+## Workflow
 
-### Stage 3: Design, Taste & UX Review
-- **Anti-Slop Standard:** Zero unformatted divs, generic Tailwind gradients, or default system fonts.
-- **Hierarchy:** Is the primary call-to-action unmistakable? Is secondary information progressively disclosed?
-- **Feedback States:** Are loading, empty, success, and error states designed and handled?
+1. Restate the outcome, success criteria, non-goals, and unresolved assumptions.
+2. Select review depth proportional to reversibility and impact.
+3. Run four lenses: product value, engineering integrity, design quality, and developer/operator experience.
+4. Give every finding an evidence reference, confidence level, and consequence.
+5. Reconcile contradictions; never silently average incompatible recommendations.
+6. Produce the smallest coherent execution sequence with rollback and promotion gates.
+7. Stop for human direction before destructive, costly, public, or credential-bearing actions.
 
-### Stage 4: DevEx & Usability Review
-- **Time to Hello World:** Can a new developer or user get value in under 60 seconds?
-- **Error Clarity:** Every error message must tell the user or agent exactly how to resolve it.
+When the same agent performs every lens, disclose that the review was sequential rather than independent.
 
-## Output Contract
+## Output contract
 
-Every Autoplan run updates the implementation plan with a terminal review report:
+Return:
 
-```markdown
-## STARLIGHT REVIEW REPORT
+- `decision`: build, revise, defer, or stop.
+- `scope`: user-visible outcome, non-goals, and affected surfaces.
+- `assumptions`: verified, inferred, and unresolved items kept separate.
+- `reviews`: findings from each lens with severity and evidence.
+- `execution_plan`: ordered, independently verifiable steps.
+- `verification`: automated, manual, security, accessibility, and deployment gates as applicable.
+- `rollback`: safe recovery path and ownership.
+- `human_gates`: decisions the agent may not make.
 
-### 1. CEO Strategy Verdict
-- **Completeness Score:** [X/10]
-- **Key Expansions:** [What was added to make the product exceptional]
+## Tools & MCP
 
-### 2. Engineering Architecture Verdict
-- **Verdict:** [APPROVED | BLOCKED | APPROVED WITH CONCERNS]
-- **Mitigated Risks:** [Edge cases and failure paths patched]
+Use repository search, tests, type/lint gates, preview deployments, and an approved browser connector when relevant. Do not enable connectors, spend money, publish, merge, or mutate external systems merely because a plan mentions them.
 
-### 3. Design & Taste Verdict
-- **Anti-Slop Compliance:** [PASSED]
-- **UX Refinements:** [Hierarchy and responsive notes]
+## Quality bar
 
-### 4. DevEx Usability Verdict
-- **Time to First Action:** [<60s]
-- **API/CLI Polish:** [Flag and syntax simplifications]
+- No claim that AI makes execution free or removes operational ownership.
+- No speculative expansion without a stated user outcome.
+- Evidence and inference are distinguishable.
+- Every high-risk step has a verifier and rollback.
+- The plan can be handed to another operator without hidden context.
 
----
-**FINAL ACTION PLAN:** [Step-by-step verified execution order]
-```
+## Example
+
+Input: “Add a self-service agent marketplace with portable plugins.”
+
+Good output: a revise decision that separates catalog, package, installer, evaluation, and promotion contracts; identifies marketplace approval and credential handling as human gates; and gives exact API, schema, preview, security, and rollback checks.
 
 ---
 
-Built on SIP — Starlight Intelligence Protocol  
-Vertical: starlight-agent-skills · autonomous capability layer
+Built on SIP — Starlight Intelligence Protocol
+Vertical: starlight-agent-skills · portable capability layer

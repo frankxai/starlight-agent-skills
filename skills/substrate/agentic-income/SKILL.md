@@ -1,9 +1,7 @@
 ---
 name: agentic-income
-description: The substrate operating brain for building income systems with AI agents. Use when planning, building, or scaling an affiliate/content/product income network — deciding what to build next, where money actually comes from, how to make it compound, and how the system improves itself. Portable and brand-neutral. Composes affiliate-audit. Trigger phrases: build an income system, make money with agents, scale my content network, what should I build next, passive income with AI, monetize this site, agentic income.
-type: agent-orchestration
-version: 0.1.0
-domain: substrate
+description: "The substrate operating brain for building income systems with AI agents. Use when planning, building, or scaling an affiliate/content/product income network — deciding what to build next, where money actually comes from, how to make it compound, and how the system improves itself. Portable and brand-neutral. Composes affiliate-audit. Trigger phrases: build an income system, make money with agents, scale my content network, what should I build next, passive income with AI, monetize this site, agentic income."
+metadata: {"version": "0.1.0", "domain": "substrate", "type": "agent-orchestration"}
 ---
 
 # agentic-income

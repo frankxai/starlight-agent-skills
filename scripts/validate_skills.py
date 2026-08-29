@@ -6,8 +6,9 @@ For each `SKILL.md` under `skills/<domain>/<name>/`:
     values are rejected — keep `description` a single quoted line)
   * `name` matches ^[a-z0-9][a-z0-9-]*$, is <= 64 chars, AND equals the folder name
   * `description` is non-empty and <= 1024 chars
-  * `version` is semver X.Y.Z
-  * `domain` is a known domain AND equals the parent folder
+  * only Agent Skills-compatible top-level keys are accepted
+  * `metadata.version` is semver X.Y.Z
+  * `metadata.domain` is a known domain AND equals the parent folder
   * the "Built on SIP" attestation footer is present
 
 If a sibling `manifest.json` exists, it must be valid JSON and agree with the
@@ -26,6 +27,7 @@ ROOT = os.path.join(os.path.dirname(__file__), "..", "skills")
 NAME_RE = re.compile(r"^[a-z0-9][a-z0-9-]*$")
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
 DOMAINS = {"substrate", "research", "media", "education", "coding", "brand", "cosmos"}
+ALLOWED_FRONTMATTER_KEYS = {"name", "description", "license", "allowed-tools", "metadata"}
 # Frontmatter block: tolerant of a BOM and of the closing `---` having no trailing newline.
 FM_RE = re.compile("^﻿?---\\s*\n(.*?)\n?---", re.S)
 
@@ -39,7 +41,7 @@ def parse_frontmatter(text: str) -> tuple[dict | None, str | None]:
     m = FM_RE.match(text)
     if not m:
         return None, "missing or malformed YAML frontmatter"
-    fm: dict[str, str] = {}
+    fm: dict[str, object] = {}
     for raw in m.group(1).splitlines():
         if not raw.strip():
             continue
@@ -54,7 +56,16 @@ def parse_frontmatter(text: str) -> tuple[dict | None, str | None]:
         # Strip one layer of matching surrounding quotes only.
         if len(val) >= 2 and val[0] == val[-1] and val[0] in ("'", '"'):
             val = val[1:-1]
-        fm[key] = val
+        if key == "metadata":
+            try:
+                metadata = json.loads(val)
+            except json.JSONDecodeError as e:
+                return None, f"metadata must be an inline JSON object ({e})"
+            if not isinstance(metadata, dict):
+                return None, "metadata must be an inline JSON object"
+            fm[key] = metadata
+        else:
+            fm[key] = val
     return fm, None
 
 
@@ -101,7 +112,17 @@ def main() -> int:
             errors.append(f"{path}: {fm_err}")
             continue
 
+        unexpected = sorted(set(fm) - ALLOWED_FRONTMATTER_KEYS)
+        if unexpected:
+            errors.append(
+                f"{path}: unsupported top-level frontmatter keys {unexpected}; "
+                f"allowed keys are {sorted(ALLOWED_FRONTMATTER_KEYS)}"
+            )
+
         name = fm.get("name", "")
+        if not isinstance(name, str):
+            errors.append(f"{path}: 'name' must be a string")
+            name = ""
         if not name:
             errors.append(f"{path}: missing 'name'")
         elif not NAME_RE.match(name):
@@ -112,24 +133,38 @@ def main() -> int:
             errors.append(f"{path}: 'name' ({name!r}) must equal the folder name ({folder!r})")
 
         desc = fm.get("description", "")
+        if not isinstance(desc, str):
+            errors.append(f"{path}: 'description' must be a string")
+            desc = ""
         if not desc:
             errors.append(f"{path}: missing 'description'")
         elif len(desc) > 1024:
             errors.append(f"{path}: 'description' exceeds 1024 characters")
 
-        version = fm.get("version", "")
-        if not version:
-            errors.append(f"{path}: missing 'version'")
-        elif not SEMVER_RE.match(version):
-            errors.append(f"{path}: 'version' must be semver X.Y.Z (got {version!r})")
+        metadata = fm.get("metadata", {})
+        if metadata and not isinstance(metadata, dict):
+            errors.append(f"{path}: 'metadata' must be an object")
+            metadata = {}
 
-        domain = fm.get("domain", "")
+        version = metadata.get("version", "")
+        if not isinstance(version, str):
+            errors.append(f"{path}: 'metadata.version' must be a string")
+            version = ""
+        if not version:
+            errors.append(f"{path}: missing 'metadata.version'")
+        elif not SEMVER_RE.match(version):
+            errors.append(f"{path}: 'metadata.version' must be semver X.Y.Z (got {version!r})")
+
+        domain = metadata.get("domain", "")
+        if not isinstance(domain, str):
+            errors.append(f"{path}: 'metadata.domain' must be a string")
+            domain = ""
         if not domain:
-            errors.append(f"{path}: missing 'domain'")
+            errors.append(f"{path}: missing 'metadata.domain'")
         elif domain not in DOMAINS:
-            errors.append(f"{path}: 'domain' must be one of {sorted(DOMAINS)} (got {domain!r})")
+            errors.append(f"{path}: 'metadata.domain' must be one of {sorted(DOMAINS)} (got {domain!r})")
         elif domain != parent:
-            errors.append(f"{path}: 'domain' ({domain!r}) must equal the parent folder ({parent!r})")
+            errors.append(f"{path}: 'metadata.domain' ({domain!r}) must equal the parent folder ({parent!r})")
 
         if "Built on SIP" not in text:
             errors.append(f"{path}: missing 'Built on SIP' attestation footer")

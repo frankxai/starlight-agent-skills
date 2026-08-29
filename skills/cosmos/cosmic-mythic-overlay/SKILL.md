@@ -1,9 +1,7 @@
 ---
 name: cosmic-mythic-overlay
 description: "Layer an Arcanea-style cosmic-mythic framing over a real space object or event, keeping the astronomy intact and separable from the myth. Use when giving a nebula/planet/launch a mythic narrative for the Arcanea universe without distorting the science."
-version: 0.1.0
-domain: cosmos
-tags: [cosmos, mythic, arcanea, narrative, astronomy]
+metadata: {"version": "0.1.0", "domain": "cosmos", "tags": ["cosmos", "mythic", "arcanea", "narrative", "astronomy"]}
 ---
 
 # Cosmic Mythic Overlay

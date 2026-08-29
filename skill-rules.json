@@ -391,6 +391,207 @@
       "priority": "medium"
     },
     {
+      "skill": "starlight-autoplan",
+      "triggers": {
+        "keywords": [
+          "review this plan",
+          "stress-test this plan",
+          "autoplan",
+          "harden the implementation plan",
+          "is this ready to build"
+        ],
+        "file_patterns": [
+          "docs/plans/**",
+          "docs/specs/**",
+          "*-plan.md"
+        ],
+        "commands": [
+          "/starlight-autoplan",
+          "/autoplan",
+          "/plan-review"
+        ]
+      },
+      "priority": "high"
+    },
+    {
+      "skill": "starlight-spec",
+      "triggers": {
+        "keywords": [
+          "write a specification",
+          "create a PRD",
+          "define acceptance criteria",
+          "backlog-ready spec",
+          "technical design"
+        ],
+        "file_patterns": [
+          "docs/specs/**",
+          "*-spec.md",
+          "*-prd.md"
+        ],
+        "commands": [
+          "/starlight-spec",
+          "/spec"
+        ]
+      },
+      "priority": "high"
+    },
+    {
+      "skill": "starlight-investigate",
+      "triggers": {
+        "keywords": [
+          "diagnose this bug",
+          "root cause",
+          "investigate the failure",
+          "reproduce this issue",
+          "why is this failing"
+        ],
+        "file_patterns": [
+          "logs/**",
+          "*-incident.md",
+          "*-reproduction.*"
+        ],
+        "commands": [
+          "/starlight-investigate",
+          "/investigate"
+        ]
+      },
+      "priority": "high"
+    },
+    {
+      "skill": "starlight-ceo-review",
+      "triggers": {
+        "keywords": [
+          "founder review",
+          "CEO review",
+          "should we build this",
+          "strategic review",
+          "product investment decision"
+        ],
+        "file_patterns": [
+          "docs/strategy/**",
+          "docs/product/**",
+          "*-business-case.md"
+        ],
+        "commands": [
+          "/starlight-ceo-review",
+          "/founder-review"
+        ]
+      },
+      "priority": "medium"
+    },
+    {
+      "skill": "starlight-eng-review",
+      "triggers": {
+        "keywords": [
+          "engineering review",
+          "architecture review",
+          "failure modes",
+          "trust boundary",
+          "stress-test the architecture"
+        ],
+        "file_patterns": [
+          "docs/architecture/**",
+          "schemas/**",
+          "migrations/**"
+        ],
+        "commands": [
+          "/starlight-eng-review",
+          "/engineering-review"
+        ]
+      },
+      "priority": "high"
+    },
+    {
+      "skill": "starlight-design-review",
+      "triggers": {
+        "keywords": [
+          "design review",
+          "visual QA",
+          "accessibility review",
+          "responsive audit",
+          "anti-slop review"
+        ],
+        "file_patterns": [
+          "app/**/*.css",
+          "components/**",
+          "public/assets/**"
+        ],
+        "commands": [
+          "/starlight-design-review",
+          "/design-review"
+        ]
+      },
+      "priority": "medium"
+    },
+    {
+      "skill": "starlight-devex-review",
+      "triggers": {
+        "keywords": [
+          "developer experience review",
+          "DevEx review",
+          "install friction",
+          "API ergonomics",
+          "CLI usability"
+        ],
+        "file_patterns": [
+          "README.md",
+          "docs/install/**",
+          "cli/**",
+          "api/**"
+        ],
+        "commands": [
+          "/starlight-devex-review",
+          "/devex-review"
+        ]
+      },
+      "priority": "medium"
+    },
+    {
+      "skill": "starlight-ship",
+      "triggers": {
+        "keywords": [
+          "ship this",
+          "land the PR",
+          "prepare a release",
+          "merge when ready",
+          "deployment gate"
+        ],
+        "file_patterns": [
+          ".github/workflows/**",
+          "CHANGELOG.md",
+          "package.json"
+        ],
+        "commands": [
+          "/starlight-ship",
+          "/ship"
+        ]
+      },
+      "priority": "high"
+    },
+    {
+      "skill": "starlight-qa",
+      "triggers": {
+        "keywords": [
+          "QA this preview",
+          "test the user flow",
+          "responsive QA",
+          "browser verification",
+          "accessibility QA"
+        ],
+        "file_patterns": [
+          "tests/e2e/**",
+          "playwright.config.*",
+          "app/**",
+          "components/**"
+        ],
+        "commands": [
+          "/starlight-qa",
+          "/qa"
+        ]
+      },
+      "priority": "high"
+    },
+    {
       "skill": "starlight-voice",
       "triggers": {
         "keywords": [

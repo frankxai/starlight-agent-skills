@@ -69,15 +69,15 @@ _10 skills_
 | Skill | Version | Description |
 |---|---|---|
 | [`cosmic-code-lab`](../skills/coding/cosmic-code-lab) | 0.1.0 | Generate a runnable, space-themed coding lab — a problem statement, starter code, hidden tests, and a worked solution — in Python or JavaScript. Use when cre... |
-| [`starlight-autoplan`](../skills/coding/starlight-autoplan) | 1.0.0 | Execute the Starlight 4-Stage Adversarial Plan Review Pipeline: CEO Strategy, Engineering Architecture, Design Taste, and Developer Experience. Enforces the... |
-| [`starlight-ceo-review`](../skills/coding/starlight-ceo-review) | 1.0.0 | CEO & Founder-Mode plan review. Rethink the problem, find the 10-star product experience, eliminate artificial constraints, and enforce the Completeness Prin... |
-| [`starlight-design-review`](../skills/coding/starlight-design-review) | 1.0.0 | Visual Design, Taste, and UI Review. Enforces the Anti-Slop Design System, typography hierarchy, responsive layouts, glassmorphism aesthetics, and accessibil... |
-| [`starlight-devex-review`](../skills/coding/starlight-devex-review) | 1.0.0 | Developer Experience (DevEx) & Usability Review. Optimizes API ergonomics, CLI usability, error message actionability, and reduces time-to-hello-world. |
-| [`starlight-eng-review`](../skills/coding/starlight-eng-review) | 1.0.0 | Engineering Architecture review. Stress-test data models, concurrency boundaries, network failure modes, state atomicity, and memory limits. |
-| [`starlight-investigate`](../skills/coding/starlight-investigate) | 1.0.0 | Systematic root-cause debugging without speculative trial-and-error. Formulates hypotheses, collects deterministic evidence, isolates failure boundaries, and... |
-| [`starlight-qa`](../skills/coding/starlight-qa) | 1.0.0 | Autonomous Web QA, user-flow testing, responsive layout audit, and visual dogfooding via the Centralized CDP Multiplexer Hub. |
-| [`starlight-ship`](../skills/coding/starlight-ship) | 1.0.0 | Pre-landing quality gate, commit squashing, verification suite runner, and clean landing workflow for agent development branches. |
-| [`starlight-spec`](../skills/coding/starlight-spec) | 1.0.0 | Author a rigorous, backlog-ready 5-Phase Product Specification & Task Breakdown. Turns vague intent or high-level features into executable, test-driven PRDs. |
+| [`starlight-autoplan`](../skills/coding/starlight-autoplan) | 0.1.0 | Review a non-trivial implementation plan through product, engineering, design, and developer-experience lenses, then reconcile the findings into an evidence-... |
+| [`starlight-ceo-review`](../skills/coding/starlight-ceo-review) | 0.1.0 | Review a proposal from the accountable founder or product-owner perspective: user value, strategic fit, economics, evidence, sequencing, and human responsibi... |
+| [`starlight-design-review`](../skills/coding/starlight-design-review) | 0.1.0 | Audit a digital experience against its own design language, information hierarchy, accessibility, responsive behavior, interaction states, content truth, and... |
+| [`starlight-devex-review`](../skills/coding/starlight-devex-review) | 0.1.0 | Review an API, CLI, SDK, plugin, package, or installation flow for discoverability, safe defaults, actionable errors, compatibility, documentation, and time... |
+| [`starlight-eng-review`](../skills/coding/starlight-eng-review) | 0.1.0 | Stress-test a technical design across data integrity, trust boundaries, concurrency, failure recovery, compatibility, observability, and resource limits. Use... |
+| [`starlight-investigate`](../skills/coding/starlight-investigate) | 0.1.0 | Diagnose a reproducible software failure by separating observations from hypotheses, locating the failing boundary, and defining regression evidence. Use whe... |
+| [`starlight-qa`](../skills/coding/starlight-qa) | 0.1.0 | Exercise a web experience or API through real user flows, semantic accessibility checks, responsive viewports, console/network inspection, and release-specif... |
+| [`starlight-ship`](../skills/coding/starlight-ship) | 0.1.0 | Prepare an authorized change for review or landing by checking repository state, required gates, secrets, diff scope, deployment evidence, rollback, and merg... |
+| [`starlight-spec`](../skills/coding/starlight-spec) | 0.1.0 | Convert an approved product intent into a backlog-ready specification with boundaries, contracts, tasks, verification, rollback, and human approval points. U... |
 
 ## ✨ Brand & Voice
 

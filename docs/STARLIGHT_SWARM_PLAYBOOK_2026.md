@@ -1,130 +1,125 @@
-# The Starlight Swarm Playbook (2026 Edition)
-## The Sovereign Operating System for 1-Person Unicorns & Autonomous Engineering Swarms
+# Starlight evidence-gated agent engineering playbook
 
-> *"When marginal execution cost drops to zero, the only remaining bottlenecks are judgment, taste, architecture, and memory."*
+Status: working operating contract, 2026 edition.
 
----
+This playbook describes how a small human team can coordinate capable agents without pretending that model output is self-verifying or that automation removes operational ownership.
 
-## 1. Executive Philosophy: The 1-Person Unicorn
+## Operating thesis
 
-The traditional software organization required product managers, engineering directors, QA leads, design critics, and devops engineers.
+Agent leverage is highest when judgment, authority, state, and evidence are explicit:
 
-With **Starlight Intelligence System (SIS)**, a single founder commands a coordinated, adversarial swarm of specialized agents that execute with the quality, rigor, and velocity of a 50-person elite engineering team.
+- Humans own purpose, irreversible decisions, credentials, budgets, publication, and promotion.
+- Agents may inspect, propose, implement, and verify within the authority granted for the task.
+- Repository instructions, product truth, and signed or versioned artifacts outrank conversational memory.
+- A result is not promoted because it looks complete; it is promoted because the required gates passed on the exact revision.
 
-```
-                     ┌──────────────────────────────────────┐
-                     │            FOUNDER / CEO             │
-                     │    (Vision, Judgment, Sovereignty)   │
-                     └──────────────────┬───────────────────┘
-                                        │
-             ┌──────────────────────────┴──────────────────────────┐
-             │                                                     │
-┌────────────▼────────────┐                               ┌────────▼────────────┐
-│   4-STAGE AUTOPLAN      │                               │   SOVEREIGN MEMORY  │
-│ • CEO "Boil the Lake"   │                               │ • Embedded PGLite   │
-│ • Eng Architecture Gate │                               │ • AST Symbol Graph  │
-│ • Design & Taste Gate   │                               │ • Git Cross-Machine │
-│ • DevEx Ergonomics Gate │                               │ • Zero Cloud Daemon │
-└────────────┬────────────┘                               └────────┬────────────┘
-             │                                                     │
-             └──────────────────────────┬──────────────────────────┘
-                                        │
-                     ┌──────────────────▼───────────────────┐
-                     │      EXECUTION & VERIFICATION        │
-                     │ • Atomic Commits   • 100% Test Pass  │
-                     │ • Centralized CDP  • Anti-Slop UI    │
-                     └──────────────────────────────────────┘
-```
+## The lifecycle
 
----
-
-## 2. Pillar I: The 4-Stage Adversarial Review Swarm
-
-Most AI coding agents generate code on first instinct. The result is shallow: missing edge cases, generic styling, brittle data models, and unhandled failure paths.
-
-**Never write code without running the 4-Stage Review Swarm:**
-
-### Stage 1: CEO & Founder Review (`/starlight-ceo-review`)
-- **The Completeness Principle ("Boil the Lake"):** In legacy software, teams cut scope to save developer hours. With AI, a 150-line complete feature takes minutes. Always build the full lake: 100% test coverage, comprehensive error recovery, responsive breakpoints, polished micro-interactions.
-- **Dual-Scale Effort Scoring:** Evaluate every feature in both *Human Team Time* (e.g. 2 weeks) and *Agent Time* (e.g. 20 minutes).
-- **Sovereignty & BYOK:** Zero multi-tenant server liability. The customer runs the agent runtime with their own private keys.
-
-### Stage 2: Engineering Architecture Review (`/starlight-eng-review`)
-- **Failure Paths & Error Recovery:** What happens when an external API times out or returns 429?
-- **State Atomicity & Concurrency:** Are file writes atomic (write to temp file then rename)?
-- **Memory & Resource Caps:** Keep process counts bounded and memory buffers capped to prevent OOM errors.
-
-### Stage 3: Design & Taste Review (`/starlight-design-review`)
-- **Zero AI Slop:** No default browser fonts, generic Tailwind gradients, or un-grained flat containers.
-- **Calibrated Typography Pairings:** Inter/Geist, Outfit/Plus Jakarta Sans, Space Grotesk/Instrument Serif.
-- **Component States:** Every button and card must have defined hover, active, focus, loading, and error states.
-- **Responsive Viewports:** Verified across mobile (375px), tablet (768px), and desktop (1440px).
-
-### Stage 4: Developer Experience Review (`/starlight-devex-review`)
-- **Time-to-Hello-World (<60 seconds):** One-command setups (`npx ...`).
-- **Actionable Error Messages:** Bad: `"Error: Failed"`. Good: `"Error: Could not reach vault. Run 'starlight-memory wire' to initialize."`
-
----
-
-## 3. Pillar II: Sovereign Local Memory & Symbol Graph
-
-Large language models suffer from session amnesia. Cloud vector databases add recurring subscriptions, latency, and privacy risks.
-
-**The Starlight Solution:**
-1. **Embedded PGLite Vector Database:** Runs WASM PostgreSQL with `pgvector` directly inside the Node.js/agent process. Zero Docker containers, zero cloud accounts, sub-millisecond cosine similarity recall.
-2. **AST Code Symbol Graph (`code_def`, `code_refs`, `code_callers`):** Parses syntax trees to find exact function declarations, interfaces, types, and call hierarchies across the workspace without guessing with regex.
-3. **Git-Backed Federated Sync:** Memory atoms are stored as human-readable markdown files committed to private git repositories, syncing seamlessly across machines.
-
----
-
-## 4. Pillar III: Harness Integration Guide
-
-### Claude Code Setup
-Add to your project's `.claude/config.json` or `~/.claude/skills/`:
-```bash
-# Clone and symlink skills
-git clone https://github.com/frankxai/starlight-agent-skills.git ~/.starlight-agent-skills
-cp -r ~/.starlight-agent-skills/skills/coding/starlight-* ~/.claude/skills/
-```
-
-### Cursor & Windsurf Setup
-Add to `.cursorrules` or `.windsurfrules`:
-```markdown
-# Starlight Swarm Rules
-- Before writing code for any complex task, execute the 4-Stage Review Protocol:
-  1. CEO Strategy Review (Boil the Lake)
-  2. Engineering Architecture Review (Failure modes & atomicity)
-  3. Design Taste Review (Anti-Slop typography & states)
-  4. DevEx Usability Review (Ergonomics & <60s time-to-hello-world)
-- Always verify changes with automated unit tests before reporting completion.
-```
-
-### Antigravity & OpenClaw MCP Setup
-Add to `mcp_servers`:
-```json
-{
-  "starlight-memory": {
-    "command": "node",
-    "args": ["path/to/starlight-memory/bin/starlight-memory.mjs", "mcp", "serve"]
-  }
-}
-```
-
----
-
-## 5. Summary of Core Commands
-
-| Command | Harness | Purpose |
+| Stage | Core question | Exit evidence |
 |---|---|---|
-| `/starlight-autoplan` | Any | Full 4-Stage Adversarial Review Swarm |
-| `/starlight-spec` | Any | 5-Phase PRD & Task Decomposition Engine |
-| `/starlight-investigate` | Any | Evidence-driven root-cause debugging |
-| `/starlight-ship` | Any | Clean commits, test verification, and landing gate |
-| `/starlight-qa` | Any | Autonomous dogfooding via CDP Multiplexer Hub |
-| `starlight-memory code-def <sym>` | CLI/MCP | AST Symbol Definition Lookup |
-| `starlight-memory code-callers <sym>` | CLI/MCP | AST Call-Graph Caller Tracing |
-| `starlight-memory vector-recall <q>` | CLI/MCP | In-Process PGLite Vector Similarity Recall |
+| Intake | What user outcome and decision are actually in scope? | Outcome, owner, constraints, non-goals |
+| Specification | What contracts must remain true? | Testable spec, trust boundaries, human gates |
+| Plan review | Is this the right mechanism and sequence? | Reconciled product, engineering, design, and DevEx findings |
+| Implementation | What is the smallest coherent change? | Scoped diff, migration and rollback where needed |
+| Verification | Does the supported journey work? | Tests, semantic/visual QA, security and preview receipts |
+| Review | What did the maker miss? | Independent review or disclosed sequential self-review |
+| Landing | May this exact revision merge? | Required checks, clean merge state, release notes |
+| Production | Did the promoted revision remain healthy? | Live URL, runtime checks, rollback revision, monitoring |
+| Learning | What should change next time? | Evidence draft, exceptions, owner-approved lesson |
+
+## The portable coding skill set
+
+| Skill | Responsibility |
+|---|---|
+| starlight-spec | Convert approved intent into contracts, tasks, gates, and rollback |
+| starlight-autoplan | Reconcile product, engineering, design, and DevEx review lenses |
+| starlight-ceo-review | Test user value, strategy, economics, sequencing, and ownership |
+| starlight-eng-review | Stress-test data, trust, failure, compatibility, and operations |
+| starlight-design-review | Audit hierarchy, system coherence, accessibility, states, and responsive craft |
+| starlight-devex-review | Audit install, API/CLI ergonomics, errors, versions, removal, and support |
+| starlight-investigate | Diagnose root cause with falsifiable evidence |
+| starlight-qa | Exercise real journeys and document tested and untested boundaries |
+| starlight-ship | Govern Git, reviews, previews, merge, production, and rollback |
+
+These are composable capabilities, not permanent job titles. Use only the review depth warranted by impact and reversibility.
+
+## Review topology
+
+For high-risk work, separate the maker and verifier when machine capacity and task tooling allow it. Give the verifier the outcome, diff, repository rules, and test evidence, but not a request to confirm the maker’s conclusion.
+
+When independent execution is unavailable:
+
+1. Freeze the candidate revision.
+2. Re-read the diff from the reviewer perspective.
+3. Run adversarial fixtures and negative-path checks.
+4. Disclose that the review was sequential self-review.
+5. Keep unresolved high-risk findings as blockers.
+
+Consensus is not proof. A review report must cite code, commands, protocol text, or observed runtime behavior.
+
+## Runtime portability
+
+The canonical skill instructions live in SKILL.md. Runtime adapters define discovery and installation, not a rewritten behavior contract.
+
+Use the best native path available for each host:
+
+- native plugin or skill package when the host supports it;
+- reviewed marketplace submission when approval is required;
+- a staged profile or adapter when native publication is unavailable;
+- MCP for bounded tool access;
+- a documented local copy only when no package mechanism exists.
+
+Never market every host as one-click. Authentication, OAuth, admin consent, marketplace review, filesystem permissions, and restart behavior must remain visible and independently verified.
+
+## Authority and side effects
+
+Classify each action before execution:
+
+| Class | Examples | Default |
+|---|---|---|
+| Read-only | Search, inspect, fetch logs, compare revisions | Agent may proceed in scope |
+| Reversible local | Edit a scoped branch, create a preview | Agent may proceed when implementation is requested |
+| External reversible | Open/update a PR, send a task message | Require task-level authority and leave a receipt |
+| Costly or public | Purchase, publish, production promote, message customers | Human gate unless explicitly authorized |
+| Destructive or hard to recover | Delete data, rewrite shared history, rotate live credentials | Resolve exact target and authority first |
+
+## Git and deployment discipline
+
+1. Verify path, repository root, origin, and branch before the first write.
+2. Preserve unrelated user changes and active worktrees.
+3. Use focused commits and non-interactive Git.
+4. Run repository-required tests, secret scans, and diff checks.
+5. Prefer a Vercel or equivalent preview when the project is already connected.
+6. Review the exact head revision; a later push invalidates earlier evidence.
+7. Merge only when required checks and governance pass.
+8. Verify the live route after promotion and retain the rollback revision.
+
+## Academy and evidence
+
+Learning material should culminate in work, not passive completion:
+
+- a real decision and bounded source packet;
+- a worked example with a rubric;
+- a guided lab and an own-work mission;
+- artifact references rather than copied secrets;
+- evaluation that separates observation, inference, and decision;
+- a transfer task under changed constraints;
+- a non-canonical evidence draft awaiting separate review.
+
+A generated draft is not a credential, certification, authorization, or proof that the underlying work occurred.
+
+## Claim discipline
+
+Do not claim:
+
+- that AI execution is free;
+- equivalence to an unmeasured human team;
+- universal runtime compatibility;
+- full security, scalability, or test coverage without evidence;
+- partner, marketplace, or production approval before it exists.
+
+State the exact revision, environment, test scope, verification date, and untested boundaries instead.
 
 ---
 
-*Starlight Intelligence Protocol (SIP) · Sovereign Agent Infrastructure for Builders*
+Built on SIP — Starlight Intelligence Protocol

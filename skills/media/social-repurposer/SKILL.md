@@ -1,9 +1,7 @@
 ---
 name: social-repurposer
 description: "Repurpose one source asset (article, video, paper brief, image) into a platform-tailored social pack — X thread, LinkedIn post, Instagram caption, YouTube short script, newsletter blurb. Use when asked to 'repurpose', 'turn this into posts', 'make social content', or distribute one piece across channels."
-version: 0.1.0
-domain: media
-tags: [social, repurpose, distribution, multi-platform]
+metadata: {"version": "0.1.0", "domain": "media", "tags": ["social", "repurpose", "distribution", "multi-platform"]}
 ---
 
 # Social Repurposer

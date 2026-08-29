@@ -1,37 +1,71 @@
 ---
 name: starlight-spec
-description: "Author a rigorous, backlog-ready 5-Phase Product Specification & Task Breakdown. Turns vague intent or high-level features into executable, test-driven PRDs."
-version: 1.0.0
-domain: coding
-tags: [spec, prd, requirements, task-breakdown, product-management]
+description: "Convert an approved product intent into a backlog-ready specification with boundaries, contracts, tasks, verification, rollback, and human approval points. Use when requirements are ambiguous, multiple components must change, or implementation needs a durable handoff."
+metadata: {"version": "0.1.0", "domain": "coding", "tags": ["specification", "requirements", "architecture", "task-breakdown", "verification"]}
 ---
 
-# Starlight Spec — 5-Phase PRD & Task Decomposition Engine
-
-> Transform vague feature requests into structured, executable specifications with clear verification contracts.
+# Starlight Spec
 
 ## Purpose
 
-Engineering friction occurs when agents or builders begin writing code before defining requirements, constraints, and success criteria. `starlight-spec` guides the formulation of specifications through five structured phases:
+Create an executable specification before code when the cost of ambiguity is greater than the cost of writing the contract.
 
-1. **Phase 1: Intent & Problem Statement** — Who is this for, what pain is eliminated, and why does this exist?
-2. **Phase 2: Clarification & Boundaries** — Non-negotiable constraints, out-of-scope declarations, and data contracts.
-3. **Phase 3: Technical Architecture** — Component models, API endpoints, file modifications, and state machines.
-4. **Phase 4: Task Decomposition** — Logical, sequential units of work that can be committed incrementally.
-5. **Phase 5: Verification Contract** — Automated tests, manual walkthrough steps, and exit criteria.
+## When it fires
+
+- A feature spans more than one component or repository.
+- Inputs, outputs, states, permissions, or failure behavior are unclear.
+- The user asks for a PRD, technical design, or implementation plan.
+
+## Inputs
+
+- User outcome, audience, and decision owner.
+- Existing architecture, conventions, and repository instructions.
+- In-scope and out-of-scope behavior.
+- Data sensitivity, runtime targets, compatibility, and delivery constraints.
 
 ## Workflow
 
-```
-[Intent] ──> [Clarification] ──> [Architecture] ──> [Tasks] ──> [Verification]
-```
+1. Define the user-visible outcome and measurable acceptance criteria.
+2. Record non-goals, assumptions, unknowns, and authority boundaries.
+3. Map existing components and identify the smallest required change surface.
+4. Specify data shapes, state transitions, APIs, errors, and compatibility behavior.
+5. Decompose work by dependency and verification boundary, not an arbitrary line count.
+6. Define tests, preview checks, observability, rollback, migration, and promotion gates.
+7. Mark any unresolved choice that would materially change the design for human decision.
 
-1. **Frame the User Outcome:** Define the user-visible delta before touching code.
-2. **Identify Touchpoints:** List every file, type, function, and config that will be touched.
-3. **Draft Unit Tasks:** Group work into commits of ≤150 lines with clean diff boundaries.
-4. **Define the Verification Suite:** Name the exact test commands and visual inspection points that prove completion.
+## Output contract
+
+Return a specification containing:
+
+- problem and user outcome;
+- scope and non-goals;
+- current-state evidence;
+- functional and non-functional requirements;
+- data, API, state, trust, and compatibility contracts;
+- ordered implementation tasks with ownership;
+- acceptance tests and manual verification;
+- rollout, rollback, and migration plan;
+- open decisions and human gates.
+
+## Tools & MCP
+
+Read the repository and its local instructions before naming files or commands. Browse primary documentation when an external API or current standard is involved. Use read-only inspection by default.
+
+## Quality bar
+
+- File and symbol references exist.
+- Requirements are testable and do not smuggle in a preferred implementation.
+- Failure, empty, loading, offline, and permission states are considered where relevant.
+- No invented APIs, versions, metrics, or approvals.
+- A different implementer can execute the spec without guessing the intent.
+
+## Example
+
+Input: “Let customers install one department on Codex and Claude.”
+
+Good output: separate package, host adapter, installation, verification, rollback, and publication contracts, with marketplace approval and credentials explicitly outside autonomous authority.
 
 ---
 
-Built on SIP — Starlight Intelligence Protocol  
-Vertical: starlight-agent-skills · autonomous capability layer
+Built on SIP — Starlight Intelligence Protocol
+Vertical: starlight-agent-skills · portable capability layer

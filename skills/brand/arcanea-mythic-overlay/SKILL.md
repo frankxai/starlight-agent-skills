@@ -1,9 +1,7 @@
 ---
 name: arcanea-mythic-overlay
 description: "Add an Arcanea mythic overlay to factual content — a canon-attributed narrative framing (Guardian/Luminor names, mythic register) layered over the real facts, clearly separable from them. Use when giving content an Arcanea mythology flavor, framing a piece in the Arcanea universe, or asked for a 'mythic' treatment."
-version: 0.1.0
-domain: brand
-tags: [arcanea, mythic, canon, narrative, framing]
+metadata: {"version": "0.1.0", "domain": "brand", "tags": ["arcanea", "mythic", "canon", "narrative", "framing"]}
 ---
 
 # Arcanea Mythic Overlay

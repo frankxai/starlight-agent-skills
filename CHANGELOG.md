@@ -12,6 +12,11 @@ changelog heading is not, by itself, proof of a tag or GitHub release.
 ## [Unreleased]
 
 ### Added
+- Nine evidence-gated coding skills for specification, plan review, investigation,
+  founder and engineering review, design and DevEx review, release gating, and QA;
+  each now has a resolving activation rule.
+- The Starlight Swarm Playbook 2026, with explicit authority classes, runtime
+  truth, Git and Vercel gates, and Academy evidence handoffs.
 - `substrate/notion-operating-system` — private-first Notion estate audits, parallel
   v2 rebuilds, template systems, and sanitized public mirrors (ported from the
   pre-v0.1.0 local library; substrate domain grows to 5, library to 27 skills).
@@ -22,7 +27,10 @@ changelog heading is not, by itself, proof of a tag or GitHub release.
   manual, protected, draft-only GitHub release path.
 
 ### Changed
-- Catalog counts and substrate-domain documentation now match the 27-skill tree.
+- Catalog counts and domain documentation now match the 36-skill tree.
+- All 36 skills now use Agent Skills-compatible `metadata` for Starlight
+  version, domain, tags, and substrate type where applicable; repository
+  validation now rejects nonstandard top-level frontmatter keys.
 - GitHub Actions dependencies advanced to v7 and are pinned to exact commits in
   the validation and release workflows.
 - The claimed `v0.1.0` entry is now explicitly a historical candidate because

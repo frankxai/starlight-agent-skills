@@ -1,38 +1,61 @@
 ---
 name: starlight-qa
-description: "Autonomous Web QA, user-flow testing, responsive layout audit, and visual dogfooding via the Centralized CDP Multiplexer Hub."
-version: 1.0.0
-domain: coding
-tags: [qa, testing, dogfooding, cdp-hub, visual-audit, responsive]
+description: "Exercise a web experience or API through real user flows, semantic accessibility checks, responsive viewports, console/network inspection, and release-specific assertions. Use when a preview or deployed surface needs evidence-based QA; use the host-approved browser connector and avoid unauthorized external side effects."
+metadata: {"version": "0.1.0", "domain": "coding", "tags": ["qa", "browser", "accessibility", "responsive", "api", "visual-regression"]}
 ---
 
-# Starlight QA — Autonomous Web Dogfooding & Layout Audit
+# Starlight QA
 
-> Test web applications end-to-end, verify responsive viewports, capture console errors, and dogfood real user flows without spawning rogue browser instances.
+## Purpose
 
-## Architecture: Centralized CDP Multiplexer Hub (Rule 6 Compliance)
+Prove that the supported journey works on the candidate revision, not merely that a page renders.
 
-In strict accordance with the Starlight Swarm Rules, agents never launch separate local browser binaries (`playwright.launch()`). All browser interactions connect to the central CDP Multiplexer Hub:
+## When it fires
 
-- **WebSocket Endpoint:** `http://localhost:9223/wsEndpoint`
-- **Dashboard:** `http://localhost:9223`
-- **Usage:**
-  ```javascript
-  const wsEndpoint = await fetch('http://localhost:9223/wsEndpoint').then(r => r.text());
-  const browser = await chromium.connect({ wsEndpoint });
-  ```
+- A web, mobile-web, API, installer, or marketplace flow is ready for verification.
+- Responsive, accessibility, network, or state regressions are possible.
+- A preview must be checked before merge or production.
 
-## QA Testing Protocol
+## Inputs
 
-1. **Page Load & Health:** Navigate to the target URL; assert title, HTTP 200, zero console errors, zero failed network requests.
-2. **Interactive User Flows:** Test signup, checkout, filters, modal dialogs, and form validation states.
-3. **Responsive Layouts:** Capture visual snapshots across viewports:
-   - Mobile: 375x812 (iPhone)
-   - Tablet: 768x1024 (iPad)
-   - Desktop: 1440x900
-4. **Visual Diffing & Proof:** Generate before/after diffs and capture annotated screenshots of defects.
+- Exact candidate URL or revision and supported environments.
+- Critical journeys, expected outcomes, and side-effect boundaries.
+- Test accounts or fixtures explicitly approved for the run.
+- Accessibility, performance, and browser support requirements.
+
+## Workflow
+
+1. Confirm the candidate revision and environment.
+2. Load each critical route and inspect status, console, and failed requests.
+3. Exercise the journey with role/label-based interactions and observable assertions.
+4. Test validation, loading, empty, error, success, refresh, and back-navigation states as relevant.
+5. Verify keyboard access, focus, names, heading order, reduced motion, contrast, and image alternatives.
+6. Check representative phone, tablet, and desktop viewports for overflow and occlusion.
+7. Capture the smallest useful screenshot or payload receipt for each material finding.
+8. Re-run focused checks after fixes and report anything not tested.
+
+## Output contract
+
+Return candidate revision/URL, environments, journeys, pass/fail assertions, console/network findings, accessibility findings, responsive findings, evidence references, defects with reproduction, and untested boundaries.
+
+## Tools & MCP
+
+Use the browser or computer-use capability approved by the active host. Reuse existing sessions where policy requires it. Never hardcode a local CDP endpoint as a portable dependency. Do not submit real purchases, publish content, send messages, or alter production data without explicit authorization.
+
+## Quality bar
+
+- Assertions target user-observable outcomes.
+- Semantic checks complement visual screenshots.
+- The report distinguishes automated, manual, and inferred results.
+- No “fully tested” claim when environments or destructive paths were skipped.
+
+## Example
+
+Input: “QA the Academy evidence export on the PR preview.”
+
+Good output: fill the labeled fields, complete the evidence phases, prepare the JSON, validate its schema/counts/approval state, verify the download link, inspect mobile overflow and semantics, and name any browser-download limitation.
 
 ---
 
-Built on SIP — Starlight Intelligence Protocol  
-Vertical: starlight-agent-skills · autonomous capability layer
+Built on SIP — Starlight Intelligence Protocol
+Vertical: starlight-agent-skills · portable capability layer

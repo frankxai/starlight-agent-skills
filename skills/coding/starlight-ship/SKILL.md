@@ -1,24 +1,59 @@
 ---
 name: starlight-ship
-description: "Pre-landing quality gate, commit squashing, verification suite runner, and clean landing workflow for agent development branches."
-version: 1.0.0
-domain: coding
-tags: [ship, landing, git-ops, verify, squash, quality-gate]
+description: "Prepare an authorized change for review or landing by checking repository state, required gates, secrets, diff scope, deployment evidence, rollback, and merge policy. Use when a branch or pull request is ready for a release decision; never rewrite, merge, deploy, or publish without the authority granted for that action."
+metadata: {"version": "0.1.0", "domain": "coding", "tags": ["release", "git", "pull-request", "verification", "rollback", "deployment"]}
 ---
 
-# Starlight Ship — Pre-Landing & Clean Commit Gate
+# Starlight Ship
 
-> Verify the complete build, run unit tests, clean WIP commits into crisp conventional commits, and prepare for landing.
+## Purpose
 
-## Pre-Flight Checklist
+Turn “the code seems done” into a reproducible release decision while preserving unrelated work and repository governance.
 
-1. **Verify Automated Tests:** Run `npm test` or the repository verification command.
-2. **Lint & Typecheck:** Run `npm run lint` / `tsc --noEmit`.
-3. **Secret Scan:** Ensure zero API keys, tokens, or private credentials are in git staging.
-4. **Clean Commit History:** Squash intermediate `WIP:` commits into clean, semantic commit messages (`feat: ...`, `fix: ...`, `chore: ...`).
-5. **Report Outcome:** State what shipped, verification proofs, and post-ship steps.
+## When it fires
+
+- A change is ready to commit, push, open for review, merge, or deploy.
+- The user asks for release, landing, PR, or Git/Vercel operations.
+- A stale or failing PR needs evidence-based disposition.
+
+## Inputs
+
+- Repository instructions, branch policy, and required checks.
+- Exact diff, test results, review findings, deployment state, and rollback path.
+- User authority for commit, push, merge, production, publication, and cleanup.
+
+## Workflow
+
+1. Verify path, repository root, origin, branch, and working-tree ownership.
+2. Inspect the complete diff and exclude unrelated user changes.
+3. Run proportionate tests, lint/type gates, secret scan, and diff checks.
+4. Use a preview deployment for web changes when the repository supports it.
+5. Record independent review findings and resolve blockers.
+6. Confirm mergeability, required checks, release notes, rollback, and post-merge monitoring.
+7. Execute only the authorized Git or deployment action; never force-push or rewrite shared history by default.
+
+## Output contract
+
+Return revision, diff scope, gates and results, review status, preview/production state, known limitations, rollback, action taken, and remaining human decisions.
+
+## Tools & MCP
+
+Use non-interactive Git, the repository’s CI, secret scanner, and hosting connector. Preserve dirty worktrees, avoid destructive reset/checkout commands, and stop session-owned servers.
+
+## Quality bar
+
+- “Green” means required gates passed on the exact head revision.
+- Skipped or unavailable checks are explicit.
+- A successful preview is not called a production release.
+- Merge or deployment follows branch protection and human authority.
+
+## Example
+
+Input: “Land PR 21 if it is ready.”
+
+Good output: verify the exact head, required CI and security reviews, run release smoke tests against the preview, resolve comments, merge using repository policy, verify production, and retain a rollback revision.
 
 ---
 
-Built on SIP — Starlight Intelligence Protocol  
-Vertical: starlight-agent-skills · autonomous capability layer
+Built on SIP — Starlight Intelligence Protocol
+Vertical: starlight-agent-skills · portable capability layer

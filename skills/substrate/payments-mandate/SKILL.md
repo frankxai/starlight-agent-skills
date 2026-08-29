@@ -1,9 +1,7 @@
 ---
 name: payments-mandate
-description: How an agent safely handles a payment mandate — verify authorization before any settlement, hold the spend cap, fail closed on doubt, and keep a human on every money decision. Use when an agent is asked to authorize, settle, charge, or release funds, or when wiring a payments step into an income system. Portable and brand-neutral. Trigger phrases: handle a payment, authorize a charge, verify a mandate, settle money, AP2 mandate, spend cap, can the agent pay, autonomous payment.
-type: substrate
-version: 0.1.0
-domain: substrate
+description: "How an agent safely handles a payment mandate — verify authorization before any settlement, hold the spend cap, fail closed on doubt, and keep a human on every money decision. Use when an agent is asked to authorize, settle, charge, or release funds, or when wiring a payments step into an income system. Portable and brand-neutral. Trigger phrases: handle a payment, authorize a charge, verify a mandate, settle money, AP2 mandate, spend cap, can the agent pay, autonomous payment."
+metadata: {"version": "0.1.0", "domain": "substrate", "type": "substrate"}
 ---
 
 # payments-mandate

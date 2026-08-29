@@ -1,30 +1,60 @@
 ---
 name: starlight-design-review
-description: "Visual Design, Taste, and UI Review. Enforces the Anti-Slop Design System, typography hierarchy, responsive layouts, glassmorphism aesthetics, and accessibility."
-version: 1.0.0
-domain: coding
-tags: [design, taste, anti-slop, ui, typography, accessibility, polish]
+description: "Audit a digital experience against its own design language, information hierarchy, accessibility, responsive behavior, interaction states, content truth, and visual craft. Use for websites, applications, dashboards, generated media, or frontend changes before release."
+metadata: {"version": "0.1.0", "domain": "coding", "tags": ["design", "ux", "accessibility", "responsive", "visual-qa", "taste"]}
 ---
 
-# Starlight Design Review — Impeccable Taste & Anti-Slop Gate
+# Starlight Design Review
 
-> Enforce the Anti-Slop Design Standard. Zero generic templates, zero unstyled containers, zero default fonts.
+## Purpose
 
-## Design Taste Rubric
+Judge whether the experience communicates the right thing, in the right order, with a coherent visual system and usable states across real viewports and input modes.
 
-1. **Anti-Slop Compliance:**
-   - No default system fonts (use curated pairings: Inter/Geist, Outfit/Plus Jakarta Sans, Space Grotesk/Instrument Serif).
-   - No flat un-grained containers (use subtle gradients, borders `rgba(255,255,255,0.08)`, and backdrop-blur).
-   - No generic purple/blue gradients (use calibrated brand palettes).
-2. **Visual Hierarchy & Rhythm:**
-   - High-contrast hero typography with clear scale steps.
-   - Distinct primary vs secondary call-to-actions.
-   - Comfortable whitespace padding (minimum 24px/32px container margins).
-3. **Interactive & Responsive States:**
-   - Every interactive button and card has hover, active, focus, and loading states.
-   - Mobile-first responsive verification across mobile (375px), tablet (768px), and desktop (1440px).
+## When it fires
+
+- A user-facing surface is new or materially changed.
+- A visual system, motion pattern, or generated asset is introduced.
+- The user asks for design, taste, accessibility, or anti-slop review.
+
+## Inputs
+
+- Product intent, audience, and primary task.
+- Existing design system or taste kernel.
+- Live preview or runnable surface and supported breakpoints.
+- Content, asset provenance, accessibility, and performance constraints.
+
+## Workflow
+
+1. Verify the primary task and content hierarchy before judging decoration.
+2. Compare the implementation to its declared design language; do not impose a generic aesthetic.
+3. Inspect typography, spacing, contrast, alignment, density, and sentence-case labels.
+4. Exercise keyboard, focus, pointer, loading, empty, error, success, and reduced-motion states.
+5. Review mobile, tablet, and desktop for overflow, occlusion, and reading order.
+6. Inspect generated media for provenance, legibility, identity drift, and appropriate placement.
+7. Report defects by user impact with visual evidence and a precise correction.
+
+## Output contract
+
+Return verdict, task/hierarchy assessment, system-coherence findings, accessibility findings, responsive findings, interaction-state findings, media/provenance findings, prioritized corrections, and verification receipts.
+
+## Tools & MCP
+
+Use the host-approved browser or design connector and an existing preview when possible. Do not start arbitrary browser binaries or publish assets without authorization.
+
+## Quality bar
+
+- No universal font, gradient, glass, grain, or spacing prescription.
+- Sentence case is preserved unless official product casing requires otherwise.
+- Accessibility and reduced motion are release criteria, not polish.
+- Screenshots support findings but do not replace semantic or interaction checks.
+
+## Example
+
+Input: “Review the new marketplace on desktop and phone.”
+
+Good output: validate the purchase journey, heading order, focus names, state truth, line length, tracking, overflow, and primary CTA at both viewports, then list only evidence-backed corrections.
 
 ---
 
-Built on SIP — Starlight Intelligence Protocol  
-Vertical: starlight-agent-skills · autonomous capability layer
+Built on SIP — Starlight Intelligence Protocol
+Vertical: starlight-agent-skills · portable capability layer

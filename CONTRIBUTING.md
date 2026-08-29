@@ -10,8 +10,10 @@ Every skill MUST:
 
 - Live at `skills/<domain>/<skill-name>/SKILL.md` where `<domain>` is one of
   `substrate`, `research`, `media`, `education`, `coding`, `brand`, `cosmos`.
-- Start with YAML frontmatter: `name`, `description`, `version`, `domain`
-  (`tags` optional). See [`docs/SKILL_SPEC.md`](docs/SKILL_SPEC.md).
+- Start with Agent Skills-compatible YAML frontmatter: `name`, `description`,
+  and `metadata`. Put Starlight's required `version` and `domain` plus optional
+  `tags` inside the single-line metadata object. See
+  [`docs/SKILL_SPEC.md`](docs/SKILL_SPEC.md).
 - Use a `name` that is lowercase, kebab-case, ≤64 chars (`^[a-z0-9][a-z0-9-]*$`).
 - Give a specific `description` (≤1024 chars) that tells the model **when** to fire
   ("Use when …") with real trigger keywords.
@@ -19,6 +21,8 @@ Every skill MUST:
   contract · Tools & MCP · Quality bar · Example.
 - Carry the `Built on SIP` attestation footer.
 - Pass `python3 scripts/validate_skills.py`.
+- Pass the current host-native Agent Skills validator when the target runtime
+  provides one; strict runtimes reject custom top-level frontmatter keys.
 
 Strongly recommended: a `manifest.json`, plus `examples/` and `tests/` for any
 skill people will actually run. If a skill ships both `manifest.json` and

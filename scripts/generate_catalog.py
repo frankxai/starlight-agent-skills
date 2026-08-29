@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Generate docs/CATALOG.md from the frontmatter of every SKILL.md.
 
-Skills are grouped by their `domain` frontmatter field (the canonical taxonomy),
-falling back to a path-derived domain. Run this whenever skills are added or
-renamed:
+Skills are grouped by `metadata.domain` (the canonical taxonomy), falling back
+to a path-derived domain for catalog diagnostics. Run this whenever skills are
+added or renamed:
 
     python3 scripts/generate_catalog.py
 
@@ -11,6 +11,7 @@ Adapted from frankxai/claude-skills-library scripts/generate_catalog.py.
 """
 from __future__ import annotations
 import collections
+import json
 import os
 import re
 
@@ -37,12 +38,21 @@ def parse_frontmatter(path: str) -> dict:
     with open(path, encoding="utf-8") as f:
         text = f.read()
     m = FM_RE.match(text)
-    fm: dict[str, str] = {}
+    fm: dict[str, object] = {}
     if m:
         for line in m.group(1).splitlines():
-            kv = re.match(r"^([A-Za-z_]+):\s*(.*)$", line)
+            kv = re.match(r"^([A-Za-z][A-Za-z0-9_-]*):\s*(.*)$", line)
             if kv:
-                fm[kv.group(1)] = kv.group(2).strip().strip('"')
+                key = kv.group(1)
+                value = kv.group(2).strip()
+                if key == "metadata":
+                    try:
+                        parsed = json.loads(value)
+                    except json.JSONDecodeError:
+                        parsed = {}
+                    fm[key] = parsed if isinstance(parsed, dict) else {}
+                else:
+                    fm[key] = value.strip('"')
     return fm
 
 
@@ -55,12 +65,15 @@ def collect() -> dict[str, tuple[str, str, str, str]]:
             p = os.path.join(dirpath, fn)
             fm = parse_frontmatter(p)
             name = fm.get("name")
-            if not name:
+            if not isinstance(name, str) or not name:
                 continue
             rel = os.path.relpath(p, REPO).replace(os.sep, "/")
-            # Domain from frontmatter, else from path skills/<domain>/...
-            domain = fm.get("domain") or rel.split("/")[1]
-            skills[name] = (rel, fm.get("description", ""), domain, fm.get("version", ""))
+            metadata = fm.get("metadata") if isinstance(fm.get("metadata"), dict) else {}
+            # Canonical metadata domain, with path fallback for diagnostics.
+            domain = metadata.get("domain") or rel.split("/")[1]
+            description = fm.get("description", "") if isinstance(fm.get("description"), str) else ""
+            version = metadata.get("version") or ""
+            skills[name] = (rel, description, str(domain), str(version))
     return skills
 
 

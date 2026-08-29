@@ -1,9 +1,7 @@
 ---
 name: starlight-voice
 description: "Apply the Starlight voice to any text — cool, premium, high-intellect, direct, technical, warm, playful; pattern recognition as poetry. Use when writing or rewriting content in the Starlight register, enforcing brand voice, or asked to 'make this sound like Starlight'."
-version: 0.1.0
-domain: brand
-tags: [brand, voice, starlight, tone, editing]
+metadata: {"version": "0.1.0", "domain": "brand", "tags": ["brand", "voice", "starlight", "tone", "editing"]}
 ---
 
 # Starlight Voice

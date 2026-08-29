@@ -1,35 +1,59 @@
 ---
 name: starlight-ceo-review
-description: "CEO & Founder-Mode plan review. Rethink the problem, find the 10-star product experience, eliminate artificial constraints, and enforce the Completeness Principle ('Boil the Lake')."
-version: 1.0.0
-domain: coding
-tags: [ceo, founder-mode, strategy, boil-the-lake, ambition, review]
+description: "Review a proposal from the accountable founder or product-owner perspective: user value, strategic fit, economics, evidence, sequencing, and human responsibility. Use when a plan needs a build/revise/defer decision or when ambition may be obscuring the actual outcome."
+metadata: {"version": "0.1.0", "domain": "coding", "tags": ["founder", "product-strategy", "value", "sequencing", "decision"]}
 ---
 
-# Starlight CEO Review — Founder-Mode Strategy Gate
+# Starlight CEO Review
 
-> Challenge premises, dream bigger, and enforce the Completeness Principle: always build the complete lake when AI makes marginal execution cost near-zero.
+## Purpose
 
-## The Completeness Principle ("Boil the Lake")
+Test whether a proposal deserves to exist and whether its scope serves the intended user without transferring hidden cost, liability, or support burden to the operator.
 
-In legacy software engineering, teams cut scope, skipped edge cases, and deferred tests to "save developer hours." With AI agents, the delta between a 50-line shortcut and a 150-line complete implementation is minutes.
+## When it fires
 
-- **A Lake is Boilable:** 100% test coverage, comprehensive error recovery, responsive breakpoints, polished micro-interactions, complete documentation. **Always boil the lake.**
-- **An Ocean is Out of Scope:** Multi-year platform rewrites, building dependencies from scratch.
-- **Dual-Scale Effort Scoring:** When evaluating features, always present effort in both scales:
-  - *Human Team Time:* (e.g. 2 weeks)
-  - *Starlight Agent Time:* (e.g. 30 minutes)
+- A material feature, product, partnership, or platform investment needs a decision.
+- The plan contains unverified market, cost, or adoption assumptions.
+- Scope is either artificially narrow or expanding without evidence.
 
-## Evaluation Rubric
+## Inputs
 
-1. **The 10-Star Product Test:** What would make this feature not just functional, but genuinely magical for the user?
-2. **Sovereignty & BYOK Check:** Does this respect user ownership, data privacy, and zero multi-tenant server liability?
-3. **Completeness Score (1-10):**
-   - `10/10`: Full parity, all edge cases, 100% test coverage, zero lazy shortcuts.
-   - `7/10`: Covers the happy path, defers minor edge cases.
-   - `3/10`: Brittle prototype, skips tests or error handling.
+- Target user, job to be done, and desired behavior change.
+- Evidence of demand and alternatives already available.
+- Revenue or mission hypothesis, operating cost, support owner, and constraints.
+- Reversibility, legal/privacy implications, and success thresholds.
+
+## Workflow
+
+1. State the decision and the evidence required to make it.
+2. Test the user problem and the proposed mechanism separately.
+3. Compare build, integrate, partner, defer, and do-nothing options.
+4. Identify the smallest coherent scope that delivers the full promised outcome.
+5. Surface lifecycle cost: maintenance, support, security, compliance, and migration.
+6. Define leading indicators, stop conditions, and the next human decision.
+
+## Output contract
+
+Return a verdict of build, revise, defer, or stop, followed by evidence, assumptions, strategic fit, alternatives, scope corrections, operating-owner obligations, metrics, and human gates.
+
+## Tools & MCP
+
+Use current product evidence, customer research, financial assumptions, and primary market sources. Do not invent demand, ROI, partner approval, or “zero liability.”
+
+## Quality bar
+
+- Ambition is connected to a concrete user outcome.
+- Completeness means the promise works end to end, not that every imaginable feature ships.
+- Human and agent effort estimates include uncertainty and operating cost.
+- Irreversible or public decisions remain human-owned.
+
+## Example
+
+Input: “Should we fork an agent runtime?”
+
+Good output: compare a profile/adapter layer against a fork, price the maintenance and support obligations, define the evidence that would justify owning the runtime, and recommend the reversible path until that evidence exists.
 
 ---
 
-Built on SIP — Starlight Intelligence Protocol  
-Vertical: starlight-agent-skills · autonomous capability layer
+Built on SIP — Starlight Intelligence Protocol
+Vertical: starlight-agent-skills · portable capability layer

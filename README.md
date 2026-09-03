@@ -28,8 +28,8 @@
 > Reusable `SKILL.md` capabilities — prompts, manifests, examples, tests, and adapters —
 > for Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System.
 
-![Skills](https://img.shields.io/badge/skills-36-7fffd4?style=for-the-badge&labelColor=0d1117)
-![Domains](https://img.shields.io/badge/domains-7-c084fc?style=for-the-badge&labelColor=0d1117)
+![Skills](https://img.shields.io/badge/skills-41-7fffd4?style=for-the-badge&labelColor=0d1117)
+![Domains](https://img.shields.io/badge/domains-8-c084fc?style=for-the-badge&labelColor=0d1117)
 [![Built on SIP](https://img.shields.io/badge/Built_on-SIP-78a6ff?style=for-the-badge&labelColor=0d1117)](https://github.com/frankxai/Starlight-Intelligence-System)
 [![License: MIT](https://img.shields.io/badge/license-MIT-white?style=for-the-badge&labelColor=0d1117)](https://opensource.org/licenses/MIT)
 [![validate](https://github.com/frankxai/starlight-agent-skills/actions/workflows/validate.yml/badge.svg)](https://github.com/frankxai/starlight-agent-skills/actions/workflows/validate.yml)
@@ -45,11 +45,12 @@
 
 ## What's inside
 
-**36 validated skills across 7 domains**, each a self-contained, rich-portable package.
+**41 validated skills across 8 domains**, each a self-contained, rich-portable package.
 Browse the full [**Catalog**](docs/CATALOG.md).
 
 | Domain | Skills | Examples |
 |--------|:------:|----------|
+| 🏛️ **studios** | 5 | `publishing-studio`, `template-studio`, `software-studio`, `media-studio`, `world-experience-studio` |
 | 🧩 **substrate** | 5 | `agentic-income`, `affiliate-audit`, `payments-mandate`, `swarm-queen-coordination`, `notion-operating-system` |
 | 🌌 **cosmos** (flagship) | 7 | `apod-to-short`, `nasa-image-to-atlas-page`, `rights-check-nasa-esa` |
 | 🔬 research | 3 | `arxiv-paper-to-brief`, `mission-page-to-summary`, `claim-verification` |
@@ -63,6 +64,11 @@ monetization, AP2 payment safety, swarm coordination) that feed the Starlight In
 System directly. The creative domains ship worked `examples/` and golden `tests/`. Frontmatter,
 the `Built on SIP` footer, and each `manifest.json` are cross-checked against the folder and
 `SKILL.md` in CI, so the library can't silently drift.
+
+The **studios** domain contains the five federated product verticals. They select bounded
+specialists, preserve one canonical product source, compile channel packages through governed
+adapters, and emit exact-revision evidence receipts. `agents/product-studio-director` routes
+cross-media products to one primary studio and bounded contributing studios.
 
 ## The ecosystem
 

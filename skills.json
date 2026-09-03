@@ -1,6 +1,6 @@
 {
   "name": "starlight",
-  "description": "Starlight execute layer: voice, cosmos, research, media, education, swarm/payments substrate. No Arcanea/FrankX/income skills.",
+  "description": "Starlight execute layer: five product studios plus voice, cosmos, research, media, education and substrate capabilities. No foreign-brand product truth.",
   "skills": [
     {
       "source": "frankxai/starlight-agent-skills",
@@ -27,7 +27,12 @@
         "simulation-lab-builder",
         "swarm-queen-coordination",
         "payments-mandate",
-        "notion-operating-system"
+        "notion-operating-system",
+        "publishing-studio",
+        "template-studio",
+        "software-studio",
+        "media-studio",
+        "world-experience-studio"
       ]
     }
   ]

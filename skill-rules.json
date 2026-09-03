@@ -799,6 +799,131 @@
       },
       "priority": "medium",
       "load_level": "extended"
+    },
+    {
+      "skill": "publishing-studio",
+      "triggers": {
+        "keywords": [
+          "publishing studio",
+          "publish an ebook",
+          "build a workbook",
+          "create a course edition",
+          "prepare for kdp",
+          "prepare for apple books",
+          "multi-format publication"
+        ],
+        "file_patterns": [
+          "product.manifest.yaml",
+          "manuscript/**",
+          "editions/**"
+        ],
+        "commands": [
+          "/publishing-studio"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "skill": "template-studio",
+      "triggers": {
+        "keywords": [
+          "template studio",
+          "build a notion template",
+          "build a canva template",
+          "build a figma library",
+          "framer template",
+          "webflow template",
+          "nextjs starter",
+          "vercel template"
+        ],
+        "file_patterns": [
+          "product.manifest.yaml",
+          "templates/**",
+          "marketplace.listing.yaml"
+        ],
+        "commands": [
+          "/template-studio"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "skill": "software-studio",
+      "triggers": {
+        "keywords": [
+          "software studio",
+          "build an application",
+          "build a plugin",
+          "build an mcp server",
+          "build an agent",
+          "platform module",
+          "app store release",
+          "professional sdlc"
+        ],
+        "file_patterns": [
+          "product.manifest.yaml",
+          "src/**",
+          "app/**",
+          "mcp.json"
+        ],
+        "commands": [
+          "/software-studio"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "skill": "media-studio",
+      "triggers": {
+        "keywords": [
+          "media studio",
+          "produce original music",
+          "motion graphic",
+          "sound pack",
+          "art pack",
+          "video package",
+          "media license"
+        ],
+        "file_patterns": [
+          "product.manifest.yaml",
+          "media/**",
+          "assets/**",
+          "distribution.yaml"
+        ],
+        "commands": [
+          "/media-studio"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
+      "skill": "world-experience-studio",
+      "triggers": {
+        "keywords": [
+          "world and experience studio",
+          "arcanea experience",
+          "cinematic website",
+          "interactive story",
+          "world bible",
+          "collector experience",
+          "cross-media game"
+        ],
+        "file_patterns": [
+          "CANON.md",
+          "canon/**",
+          "worlds/**",
+          "experiences/**"
+        ],
+        "commands": [
+          "/world-experience-studio"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
     }
   ]
 }

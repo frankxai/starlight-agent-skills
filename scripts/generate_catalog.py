@@ -24,6 +24,7 @@ FM_RE = re.compile("^﻿?---\\s*\n(.*?)\n?---", re.S)
 
 # Canonical domain order + human label.
 DOMAIN_ORDER = [
+    ("studios", "🏛️ Specialist Studios"),
     ("substrate", "🧩 Substrate (income · payments · swarm)"),
     ("cosmos", "🌌 Cosmos (flagship pack)"),
     ("research", "🔬 Research"),

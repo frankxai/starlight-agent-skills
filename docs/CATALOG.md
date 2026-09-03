@@ -1,8 +1,20 @@
 # 🛰️ Starlight Agent Skills — Catalog
 
-The complete index of all **36 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
+The complete index of all **41 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
 
 > This file is generated. After adding or renaming a skill, run `python3 scripts/generate_catalog.py` to regenerate it, then `python3 scripts/validate_skills.py` to verify compliance.
+
+## 🏛️ Specialist Studios
+
+_5 skills_
+
+| Skill | Version | Description |
+|---|---|---|
+| [`media-studio`](../skills/studios/media-studio) | 0.1.0 | Create original music, art, motion, video, sound packs and licensable media collections with governed creative direction, masters, provenance and technical Q... |
+| [`publishing-studio`](../skills/studios/publishing-studio) | 0.1.0 | Turn governed source material into evidence-backed ebooks, guides, workbooks, courses, print editions, and audiobook packages. Use when a product requires ed... |
+| [`software-studio`](../skills/studios/software-studio) | 0.1.0 | Build and release secure applications, mobile products, games, plugins, MCP servers, agents, SDKs and platform modules with professional SDLC evidence. Use w... |
+| [`template-studio`](../skills/studios/template-studio) | 0.1.0 | Build editable, installable and commercially licensable Notion, Canva, Figma, Framer, Webflow, Next.js, Vercel, Railway and workflow templates from one canon... |
+| [`world-experience-studio`](../skills/studios/world-experience-studio) | 0.1.0 | Build coherent games, cinematic websites, interactive stories, world bibles, soundtrack experiences and collector editions from governed canon. Use when Arca... |
 
 ## 🧩 Substrate (income · payments · swarm)
 

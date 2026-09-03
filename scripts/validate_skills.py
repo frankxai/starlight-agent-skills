@@ -26,7 +26,7 @@ import sys
 ROOT = os.path.join(os.path.dirname(__file__), "..", "skills")
 NAME_RE = re.compile(r"^[a-z0-9]+(?:-[a-z0-9]+)*$")
 SEMVER_RE = re.compile(r"^\d+\.\d+\.\d+$")
-DOMAINS = {"substrate", "research", "media", "education", "coding", "brand", "cosmos"}
+DOMAINS = {"substrate", "research", "media", "education", "coding", "brand", "cosmos", "studios"}
 ALLOWED_FRONTMATTER_KEYS = {
     "name",
     "description",

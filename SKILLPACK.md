@@ -11,6 +11,7 @@ npx skills add frankxai/starlight-agent-skills
 
 Starlight voice, coding, cosmos, research, media, education, and substrate ops that are brand-neutral Starlight:
 
+- studios: `publishing-studio`, `template-studio`, `software-studio`, `media-studio`, `world-experience-studio`
 - `starlight-voice`
 - `cosmic-code-lab`
 - cosmos: `apod-to-short`, `arxiv-space-paper-to-brief`, `cosmic-mythic-overlay`, `nasa-image-to-atlas-page`, `rights-check-nasa-esa`, `rocket-launch-to-reel`, `space-social-repurposer`

@@ -9,7 +9,8 @@ Starlight ecosystem.
 Every skill MUST:
 
 - Live at `skills/<domain>/<skill-name>/SKILL.md` where `<domain>` is one of
-  `substrate`, `research`, `media`, `education`, `coding`, `brand`, `cosmos`.
+  `substrate`, `research`, `media`, `education`, `coding`, `brand`, `cosmos`,
+  `studios`.
 - Start with Agent Skills-compatible YAML frontmatter: `name`, `description`,
   and `metadata`. Put Starlight's required `version` and `domain` plus optional
   comma-separated `tags` inside the single-line, string-valued metadata object.

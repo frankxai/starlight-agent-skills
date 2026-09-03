@@ -16,7 +16,7 @@ skills/<domain>/<skill-name>/
 └── tests/            # OPTIONAL — golden-checklist asserting the output contract
 ```
 
-- `<domain>` ∈ `substrate`, `research`, `media`, `education`, `coding`, `brand`, `cosmos`.
+- `<domain>` ∈ `substrate`, `research`, `media`, `education`, `coding`, `brand`, `cosmos`, `studios`.
 - `<skill-name>` is kebab-case and matches `^[a-z0-9]+(?:-[a-z0-9]+)*$`;
   it cannot start or end with a hyphen or contain consecutive hyphens.
 

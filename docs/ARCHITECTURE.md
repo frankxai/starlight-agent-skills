@@ -13,6 +13,7 @@ inside it. The governing rule:
 |-------|------|------|
 | Substrate / memory | `frankxai/Starlight-Intelligence-System` | Vaults, retrieval, protocol (SIP), platform adapters |
 | **Skills** | **`frankxai/starlight-agent-skills`** | **Portable, reusable capability packs (this repo)** |
+| Product control plane | `frankxai/agentic-ops` | Studio identity, topology, channel adapters, budgets and release contracts |
 | Connectors | `frankxai/starlight-mcp` | External tool/data senses + hands (MCP servers) |
 | Domain engine | `frankxai/starlight-cosmos-engine` | One domain machine — consumes `skills/cosmos/*` |
 | Operation | `frankxai/agentic-creator-os` | Creator productivity OS that consumes skills |
@@ -48,3 +49,15 @@ them independently, and compose them under SIP attestation.
 system fires a skill when the current context matches its triggers. Every `skill`
 id in the rules file resolves to a real `skills/<domain>/<name>/SKILL.md`
 (enforced by `scripts/check-rules.mjs`).
+
+## Federated product studios
+
+`skills/studios/*` provides five vertical managers: Publishing, Templates,
+Software, Media, and World and Experience. The skills are portable execution
+logic; they do not own portfolio or product truth. Reviewed `agentic-ops`
+records select the studio, pack, repositories, budget and channel adapters.
+Product repositories retain canonical source and release artifacts.
+
+Cross-media work uses `agents/product-studio-director`. It appoints one primary
+studio, gives other studios bounded sub-envelopes, keeps evidence append-only,
+and returns one synthesized release receipt.

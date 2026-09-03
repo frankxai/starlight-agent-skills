@@ -1,0 +1,27 @@
+{
+  "id": "studios/media-studio",
+  "name": "media-studio",
+  "version": "0.1.0",
+  "domain": "studios",
+  "summary": "Produce original, rights-governed media with editable masters, technical QC and channel packages.",
+  "inputs": [
+    {"name": "task_envelope", "type": "object", "required": true},
+    {"name": "product_manifest", "type": "object", "required": true},
+    {"name": "creative_brief", "type": "object", "required": true},
+    {"name": "rights_record", "type": "object", "required": true},
+    {"name": "target_channels", "type": "array", "required": true}
+  ],
+  "outputs": [
+    {"name": "editable_masters", "type": "array"},
+    {"name": "approved_renditions", "type": "array"},
+    {"name": "rights_and_provenance", "type": "object"},
+    {"name": "channel_packages", "type": "array"},
+    {"name": "evidence_receipt", "type": "object"},
+    {"name": "release_decision", "type": "string"}
+  ],
+  "tools": ["Read", "Write", "Bash", "Web"],
+  "mcp_dependencies": ["github", "google-drive", "figma", "canva", "hyperframes"],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["music", "art", "motion", "video", "sound", "licensing", "provenance"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

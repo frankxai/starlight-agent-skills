@@ -12,6 +12,9 @@ changelog heading is not, by itself, proof of a tag or GitHub release.
 ## [Unreleased]
 
 ### Added
+- Five federated specialist studio skills for Publishing, Templates, Software,
+  Media, and World and Experience, plus a Product Studio Director orchestrator,
+  portable manifests, contract tests and activation rules.
 - Nine evidence-gated coding skills for specification, plan review, investigation,
   founder and engineering review, design and DevEx review, release gating, and QA;
   each now has a resolving activation rule.

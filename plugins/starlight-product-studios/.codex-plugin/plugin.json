@@ -1,0 +1,41 @@
+{
+  "name": "starlight-product-studios",
+  "version": "0.1.0",
+  "description": "Five governed product studios for publishing, templates, software, media, and Arcanea experiences.",
+  "author": {
+    "name": "FrankX / Starlight Intelligence",
+    "url": "https://github.com/frankxai"
+  },
+  "homepage": "https://github.com/frankxai/starlight-agent-skills/tree/main/plugins/starlight-product-studios",
+  "repository": "https://github.com/frankxai/starlight-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "product-studio",
+    "publishing",
+    "templates",
+    "software",
+    "media",
+    "worldbuilding",
+    "agents"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Starlight Product Studios",
+    "shortDescription": "Five specialist studios for premium digital products.",
+    "longDescription": "Route and build governed publications, templates, software, media, and Arcanea experiences with bounded budgets, quality gates, and evidence receipts.",
+    "developerName": "FrankX / Starlight Intelligence",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Create",
+      "Code"
+    ],
+    "websiteURL": "https://github.com/frankxai/starlight-agent-skills",
+    "defaultPrompt": [
+      "Route this product through the right specialist studio.",
+      "Build a release-ready product and its channel package.",
+      "Audit this product against studio quality gates."
+    ],
+    "brandColor": "#7FFFD4"
+  }
+}

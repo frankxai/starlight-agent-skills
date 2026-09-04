@@ -48,5 +48,8 @@ jobs:
       - name: Validate skill-rules.json and rule/skill coverage
         run: node scripts/check-rules.mjs
 
+      - name: Validate Codex plugin package
+        run: python3 scripts/validate_plugin.py
+
       - name: Validate release truth
         run: python3 scripts/validate_release.py

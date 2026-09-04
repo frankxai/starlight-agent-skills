@@ -1,0 +1,26 @@
+{
+  "id": "studios/publishing-studio",
+  "name": "publishing-studio",
+  "version": "0.1.0",
+  "domain": "studios",
+  "summary": "Compile governed source into verified multi-format publications and channel packages.",
+  "inputs": [
+    {"name": "task_envelope", "type": "object", "required": true},
+    {"name": "product_manifest", "type": "object", "required": true},
+    {"name": "source_inventory", "type": "array", "required": true},
+    {"name": "rights_record", "type": "object", "required": true},
+    {"name": "target_channels", "type": "array", "required": true}
+  ],
+  "outputs": [
+    {"name": "canonical_edition", "type": "object"},
+    {"name": "source_map", "type": "object"},
+    {"name": "channel_packages", "type": "array"},
+    {"name": "evidence_receipt", "type": "object"},
+    {"name": "release_decision", "type": "string"}
+  ],
+  "tools": ["Read", "Write", "Bash", "Web"],
+  "mcp_dependencies": ["github", "google-drive", "notion", "canva"],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["publishing", "ebook", "workbook", "course", "kdp", "apple-books"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

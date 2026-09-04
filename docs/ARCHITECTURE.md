@@ -32,6 +32,10 @@ them independently, and compose them under SIP attestation.
 
 ## How consumers load skills
 
+- **Codex plugin** — `plugins/starlight-product-studios` packages byte-matched
+  projections of the five canonical studio skills plus the Product Studio
+  Director. The first release is skills-only; it does not claim an MCP server
+  or app surface that has not been deployed and tested.
 - **Claude Code / Codex / Cursor / Gemini / OpenCode** — copy a skill folder into
   the runtime's skills path (see [`../adapters/`](../adapters/)). `SKILL.md` is the
   same everywhere.
@@ -61,3 +65,9 @@ Product repositories retain canonical source and release artifacts.
 Cross-media work uses `agents/product-studio-director`. It appoints one primary
 studio, gives other studios bounded sub-envelopes, keeps evidence append-only,
 and returns one synthesized release receipt.
+
+Plugin packaging is a generated distribution projection of this repository,
+not another source of skill truth. `scripts/build_product_studios_plugin.py
+--check` fails on any byte drift; `scripts/validate_plugin.py` also fails if a
+studio entrypoint or the director disappears, or if the package claims an
+undeployed MCP/app surface.

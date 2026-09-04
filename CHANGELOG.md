@@ -12,6 +12,9 @@ changelog heading is not, by itself, proof of a tag or GitHub release.
 ## [Unreleased]
 
 ### Added
+- A validated skills-only Codex plugin compiling byte-matched projections of
+  the five studios and Product Studio Director without creating another
+  authoring surface or claiming undeployed MCP/app capabilities.
 - Five federated specialist studio skills for Publishing, Templates, Software,
   Media, and World and Experience, plus a Product Studio Director orchestrator,
   portable manifests, contract tests and activation rules.
@@ -30,8 +33,8 @@ changelog heading is not, by itself, proof of a tag or GitHub release.
   manual, protected, draft-only GitHub release path.
 
 ### Changed
-- Catalog counts and domain documentation now match the 36-skill tree.
-- All 36 skills now use Agent Skills-compatible `metadata` for Starlight
+- Catalog counts and domain documentation now match the 41-skill tree.
+- All 41 skills now use Agent Skills-compatible `metadata` for Starlight
   version, domain, tags, and substrate type where applicable; repository
   validation now rejects nonstandard top-level frontmatter keys.
 - GitHub Actions dependencies advanced to v7 and are pinned to exact commits in

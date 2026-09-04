@@ -116,6 +116,15 @@ cp -r skills/cosmos/apod-to-short ~/.claude/skills/apod-to-short
 Then, in your agent: *"Turn today's APOD into a 45-second short."* The skill auto-activates from
 its `description` (and from [`skill-rules.json`](skill-rules.json) in SIS/ACOS).
 
+### Codex plugin package
+
+[`plugins/starlight-product-studios`](plugins/starlight-product-studios) is a validated,
+skills-only Codex plugin. Its six packaged skills are deterministic projections of the five
+canonical studio skills plus the Product Studio Directorâ€”never a second authoring surface.
+`python3 scripts/build_product_studios_plugin.py` compiles the package, while
+`python3 scripts/validate_plugin.py` rejects source drift, invented MCP/app endpoints or an
+invalid plugin manifest before release.
+
 ## Skill format (rich-portable)
 
 ```
@@ -145,6 +154,8 @@ python3 scripts/validate_skills.py      # frontmatter + attestation + manifestâ†
 python3 scripts/validate_examples.py    # worked example output actually matches its manifest's contract
 python3 scripts/generate_catalog.py     # regenerate docs/CATALOG.md
 node    scripts/check-rules.mjs          # every rule/orchestrator resolves; no name collisions
+python3 scripts/validate_plugin.py        # Codex plugin manifest + five-studio package integrity
+python3 scripts/build_product_studios_plugin.py --check  # prove packaged skills match canon
 node    scripts/port-skill.mjs <domain/skill> --target=<repo> [--dry-run]
 python3 scripts/validate_release.py       # release boundary + attestation + publication safety
 ```

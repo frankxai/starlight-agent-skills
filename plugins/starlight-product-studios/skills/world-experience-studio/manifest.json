@@ -1,0 +1,27 @@
+{
+  "id": "studios/world-experience-studio",
+  "name": "world-experience-studio",
+  "version": "0.1.0",
+  "domain": "studios",
+  "summary": "Compile governed canon into coherent cross-media and interactive experiences.",
+  "inputs": [
+    {"name": "task_envelope", "type": "object", "required": true},
+    {"name": "product_manifest", "type": "object", "required": true},
+    {"name": "canon_authority", "type": "object", "required": true},
+    {"name": "conflict_ledger", "type": "array", "required": true},
+    {"name": "target_channels", "type": "array", "required": true}
+  ],
+  "outputs": [
+    {"name": "canon_delta", "type": "object"},
+    {"name": "experience_package", "type": "object"},
+    {"name": "cross_studio_receipts", "type": "array"},
+    {"name": "channel_packages", "type": "array"},
+    {"name": "evidence_receipt", "type": "object"},
+    {"name": "release_decision", "type": "string"}
+  ],
+  "tools": ["Read", "Write", "Bash", "Web"],
+  "mcp_dependencies": ["github", "google-drive", "figma", "canva", "vercel", "hyperframes"],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["worldbuilding", "games", "cinematic-web", "interactive-story", "arcanea"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

@@ -1,7 +1,7 @@
 .PHONY: check validate validate-examples catalog catalog-check rules plugin release-check
 
 # Run the full quality gate (what CI runs).
-check: validate validate-examples catalog-check rules plugin release-check
+check: validate validate-examples catalog-check rules plugin golden-age release-check
 
 # Frontmatter + attestation + manifest↔SKILL.md↔folder integrity.
 validate:
@@ -32,3 +32,7 @@ plugin:
 # Repository release history, attestation, receipts, and publication safety.
 release-check:
 	python3 scripts/validate_release.py
+
+.PHONY: golden-age
+golden-age:
+	python3 scripts/test_golden_age.py

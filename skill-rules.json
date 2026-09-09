@@ -1,7 +1,7 @@
 {
   "_description": "Starlight Agent Skills auto-activation rules. Same schema as ACOS .claude/skill-rules.json and SIS skills/skill-rules.json. A consuming system fires a skill when context matches its triggers. Every 'skill' id resolves to skills/<domain>/<name>/SKILL.md (enforced by scripts/check-rules.mjs).",
   "_version": "0.1.0",
-  "_attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0",
+  "_attestation": "Built on SIP \u2014 starlightintelligence.org/protocol v1.1.0",
   "activation_rules": [
     {
       "skill": "apod-to-short",
@@ -924,6 +924,51 @@
       },
       "priority": "high",
       "load_level": "core"
+    },
+    {
+      "skill": "starlight-practice-preparation",
+      "triggers": {
+        "keywords": [
+          "prepare for SOMA",
+          "breathwork preparation",
+          "breathwork chemistry"
+        ],
+        "commands": [
+          "/starlight-practice-preparation"
+        ],
+        "file_patterns": []
+      },
+      "priority": "medium"
+    },
+    {
+      "skill": "starlight-golden-age",
+      "triggers": {
+        "keywords": [
+          "Golden Age visualization",
+          "imagined mentor",
+          "Starlight visualization"
+        ],
+        "commands": [
+          "/starlight-golden-age"
+        ],
+        "file_patterns": []
+      },
+      "priority": "medium"
+    },
+    {
+      "skill": "starlight-practice-integration",
+      "triggers": {
+        "keywords": [
+          "integrate my breathwork",
+          "practice integration",
+          "save my visualization insight"
+        ],
+        "commands": [
+          "/starlight-practice-integration"
+        ],
+        "file_patterns": []
+      },
+      "priority": "medium"
     }
   ]
 }

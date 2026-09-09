@@ -1,0 +1,41 @@
+{
+  "id": "education/starlight-golden-age",
+  "name": "starlight-golden-age",
+  "version": "0.1.0",
+  "domain": "education",
+  "summary": "starlight golden age",
+  "inputs": [
+    {
+      "name": "request",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "mode",
+      "type": "string"
+    },
+    {
+      "name": "result",
+      "type": "object"
+    },
+    {
+      "name": "limitations",
+      "type": "array"
+    }
+  ],
+  "tools": [],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "claude",
+    "codex",
+    "sis"
+  ],
+  "tags": [
+    "visualization",
+    "imagination",
+    "contribution"
+  ],
+  "attestation": "Built on SIP \u2014 starlightintelligence.org/protocol v1.1.0"
+}

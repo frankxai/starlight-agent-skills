@@ -85,7 +85,7 @@ independently, and compose it under SIP attestation. See [`docs/ARCHITECTURE.md`
 cp -r skills/cosmos/apod-to-short ~/.claude/skills/apod-to-short
 
 # Other runtimes — see adapters/
-#   adapters/claude.md  codex.md  cursor.md  gemini.md  opencode.md  sis.md
+#   adapters/claude.md  codex.md  grok.md  antigravity.md  cursor.md  gemini.md  opencode.md  sis.md
 ```
 
 Then, in your agent: *"Turn today's APOD into a 45-second short."* The skill auto-activates from

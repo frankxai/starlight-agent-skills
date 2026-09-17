@@ -1,19 +1,65 @@
-# Codex (OpenAI)
+# OpenAI Codex CLI & Desktop
 
-Codex has no native skill loader. Two supported paths:
+OpenAI Codex natively loads Agent Skills (`SKILL.md`) and distributes bundles via Agent Plugins (`plugin.json`).
 
-## 1. Paste into `AGENTS.md`
+## 1. Native Skill Directory (Direct Install)
 
-Copy the body of `SKILL.md` (drop the YAML frontmatter) into the project's
-`AGENTS.md` under a heading, so Codex picks it up as standing instructions.
+Codex automatically discovers skills in:
 
-## 2. Wrap as MCP
+- **Global Skills:** `~/.codex/skills/<name>/SKILL.md`
+- **Project Skills:** `./.codex/skills/<name>/SKILL.md`
 
-If the skill declares `mcp_dependencies` in `manifest.json`, run it behind an MCP
-server and register that server in Codex's config. The skill body becomes the
-tool's instruction set.
+### Install One Skill
 
-## Notes
+```bash
+cp -r skills/brand/brand-voice ~/.codex/skills/brand-voice
+```
 
-- Keep the `manifest.json` `inputs`/`outputs` as the tool schema when wrapping.
-- The "Built on SIP" footer should remain in any artifact the skill generates.
+### Install a Full Lane (Symlink / Junction)
+
+```powershell
+# Windows PowerShell
+New-Item -ItemType Junction -Path "$HOME\.codex\skills\creator-skills" -Target "C:\Users\frank\starlight\repos\creator-skills\skills"
+```
+
+---
+
+## 2. Agent Plugin Distribution (Recommended for Production)
+
+OpenAI Codex uses Agent Plugins as the vendor-neutral distribution unit. A plugin bundles skills, optional MCP tools, and metadata:
+
+```
+starlight-creator/
+├── plugin.json          # Agent Plugins 1.0 manifest
+├── .codex-plugin/       # Optional marketplace metadata
+├── skills/              # Agent Skills (SKILL.md)
+└── mcp.json             # Optional MCP tools
+```
+
+Install via Codex CLI:
+```bash
+codex plugin install frankxai/creator-skills
+```
+
+---
+
+## 3. Context Budget & Performance Protection
+
+Codex eager discovery scans all installed skills. To prevent Turn 0 context saturation, enforce a catalog budget in `~/.codex/config.toml`:
+
+```toml
+[skills]
+max_context_tokens = 8000
+```
+
+For routine editing, use `model_reasoning_effort = "medium"`. Reserve `xhigh` or Sol Ultra for architecture and complex migrations.
+
+---
+
+## Verification
+
+In Codex:
+```
+Show active skills or test brand-voice.
+```
+Codex matches intent against the skill's YAML `description` line and injects the procedure just-in-time.

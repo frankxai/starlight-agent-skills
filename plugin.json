@@ -1,0 +1,51 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/plugin.v1.json",
+  "name": "starlight-skills",
+  "version": "1.2.0",
+  "description": "Portable capability pack for the Starlight ecosystem across 7 domains: substrate, coding, cosmos, research, media, brand, and education.",
+  "author": {
+    "name": "Frank Riemer",
+    "url": "https://frankx.ai",
+    "github": "frankxai"
+  },
+  "homepage": "https://github.com/frankxai/starlight-agent-skills",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/frankxai/starlight-agent-skills.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "starlight",
+    "agent-skills",
+    "agent-plugins",
+    "substrate",
+    "cosmos",
+    "research",
+    "media",
+    "coding",
+    "brand"
+  ],
+  "skills": "./skills",
+  "runtimes": {
+    "codex": {
+      "supported": true,
+      "skills_dir": "./skills"
+    },
+    "claude": {
+      "supported": true,
+      "skills_dir": "./skills"
+    },
+    "grok": {
+      "supported": true,
+      "skills_dir": "./skills"
+    },
+    "antigravity": {
+      "supported": true,
+      "skills_dir": "./skills"
+    },
+    "cursor": {
+      "supported": true,
+      "skills_dir": "./skills"
+    }
+  }
+}

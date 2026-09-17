@@ -1,0 +1,7 @@
+{
+  "name": "starlight-skills",
+  "version": "1.2.0",
+  "description": "Portable capability pack for the Starlight ecosystem across 7 domains: substrate, coding, cosmos, research, media, brand, and education.",
+  "author": "Frank Riemer",
+  "skills": "./skills"
+}

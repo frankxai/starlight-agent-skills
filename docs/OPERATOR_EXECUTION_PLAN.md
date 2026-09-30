@@ -22,7 +22,7 @@ python3 scripts/test_operator_plugins.py
 python3 scripts/test_queen_intake.py
 ```
 
-Plugin files are generated from `skills/substrate/{starlight,starlight-queen}` and the compiler's manifest definition. Edit those sources, then rebuild. Personal-host projection removes the canonical metadata frontmatter line only and retains instruction-body/resource bytes. `--check-personal NAME --personal-root EXACT_DIRECTORY` verifies parity without installing or editing anything.
+Plugin files are generated from `skills/substrate/{starlight,starlight-queen}` and the compiler's manifest definition. Edit those sources, then rebuild. Personal-host projection removes the canonical metadata frontmatter line only and retains instruction-body/reference/script bytes. `--check-personal NAME --personal-root EXACT_DIRECTORY` verifies those bytes without installing or editing anything; it tolerates the host's enriched `agents/openai.yaml` and generated `assets/icon.svg` presentation overlay. Those host files are not authored back into canonical sources.
 
 ## Systems to reuse
 

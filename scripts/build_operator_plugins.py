@@ -85,7 +85,7 @@ def expected_files(name: str) -> dict[Path, bytes]:
     return files
 
 
-def check_files(root: Path, expected: dict[Path, bytes]) -> None:
+def check_files(root: Path, expected: dict[Path, bytes], personal_ui_overlay: bool = False) -> None:
     if root.is_symlink():
         raise ValueError("projection root cannot be a symlink")
     actual = {}
@@ -96,6 +96,13 @@ def check_files(root: Path, expected: dict[Path, bytes]) -> None:
             raise ValueError("projection cannot contain symlinks")
         if path.is_file():
             actual[path.relative_to(root)] = path.read_bytes()
+    if personal_ui_overlay:
+        # The personal host enriches presentation after installation. These two
+        # files are not runtime instructions and are not authored back into canon.
+        if Path("agents/openai.yaml") not in actual:
+            raise ValueError("missing personal UI metadata")
+        expected = {p: b for p, b in expected.items() if p != Path("agents/openai.yaml")}
+        actual = {p: b for p, b in actual.items() if p not in {Path("agents/openai.yaml"), Path("assets/icon.svg")}}
     failures = [("missing", p) for p in expected.keys() - actual.keys()]
     failures += [("extra", p) for p in actual.keys() - expected.keys()]
     failures += [("changed", p) for p in expected.keys() & actual.keys() if expected[p] != actual[p]]
@@ -131,7 +138,7 @@ def main() -> int:
         if args.check_personal:
             if not args.personal_root:
                 parser.error("--check-personal requires --personal-root")
-            check_files(args.personal_root, skill_files(args.check_personal, personal=True))
+            check_files(args.personal_root, skill_files(args.check_personal, personal=True), personal_ui_overlay=True)
             print(f"Personal projection current: {args.check_personal}.")
         else:
             for name in OPERATORS:

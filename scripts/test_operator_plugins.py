@@ -11,6 +11,17 @@ from build_operator_plugins import ROOT, check_files, expected_files, skill_file
 
 
 class ProjectionTests(unittest.TestCase):
+    def test_personal_host_presentation_overlay_does_not_hide_instruction_drift(self):
+        expected = {Path("SKILL.md"): b"canonical", Path("agents/openai.yaml"): b"authored-ui"}
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); (root / "agents").mkdir(); (root / "assets").mkdir()
+            (root / "SKILL.md").write_bytes(b"canonical")
+            (root / "agents/openai.yaml").write_bytes(b"host-ui")
+            (root / "assets/icon.svg").write_bytes(b"host-icon")
+            check_files(root, expected, personal_ui_overlay=True)
+            (root / "SKILL.md").write_bytes(b"changed")
+            with self.assertRaises(ValueError): check_files(root, expected, personal_ui_overlay=True)
+
     def test_compiler_refuses_symlinked_parent_without_deleting_outside_files(self):
         with tempfile.TemporaryDirectory() as repo, tempfile.TemporaryDirectory() as foreign:
             root = Path(repo); outside = Path(foreign)

@@ -51,5 +51,14 @@ jobs:
       - name: Validate Codex plugin package
         run: python3 scripts/validate_plugin.py
 
+      - name: Validate operator plugins and deterministic projections
+        run: |
+          python3 scripts/validate_operator_plugins.py
+          python3 scripts/test_operator_plugins.py
+
+      - name: Test offline Queen trust boundaries
+        run: python3 scripts/test_queen_intake.py
+
       - name: Validate release truth
         run: python3 scripts/validate_release.py
+

@@ -1,0 +1,55 @@
+{
+  "id": "substrate/starlight-queen",
+  "name": "starlight-queen",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "Coordinate Starlight work across Codex, Claude, OpenCode, Hermes and other agents using current ownership, scoped observations, human decisions, bounded work packets and independent verification. Use for fleet triage, agent inbox review, blocker resolution, portfolio execution planning, or Paperclip integration.",
+  "inputs": [
+    {
+      "name": "authorized_task",
+      "type": "object",
+      "required": true
+    },
+    {
+      "name": "current_evidence",
+      "type": "array",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "work",
+      "type": "array"
+    },
+    {
+      "name": "decisions",
+      "type": "array"
+    },
+    {
+      "name": "packets",
+      "type": "array"
+    },
+    {
+      "name": "capability_gaps",
+      "type": "array"
+    }
+  ],
+  "tools": [
+    "Read",
+    "Write",
+    "Bash",
+    "Web"
+  ],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "codex",
+    "claude",
+    "opencode",
+    "hermes"
+  ],
+  "tags": [
+    "starlight",
+    "operations"
+  ],
+  "attestation": "Built on SIP \u2014 starlightintelligence.org/protocol v1.1.0"
+}

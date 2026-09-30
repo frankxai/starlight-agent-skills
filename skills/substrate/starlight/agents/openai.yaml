@@ -1,0 +1,4 @@
+interface:
+  display_name: "Starlight"
+  short_description: "Execute Starlight work with verified evidence"
+  default_prompt: "Use $starlight to resolve the current work owner and prepare the next tested, reviewable change."

@@ -1,5 +1,7 @@
 # Ownership and capability resolution
 
+Historical snapshot: 2026-09-30; expires 2026-10-01T00:00:00Z. Re-fetch current Registry, PR heads and deployments before relying on dated status, including before expiry.
+
 Starting pointers, not permanent admission assertions. Read the current Registry and repository instructions on every material task.
 
 | Existing repository/system | Owner boundary |

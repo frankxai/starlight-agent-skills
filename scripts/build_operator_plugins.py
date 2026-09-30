@@ -5,8 +5,10 @@ from __future__ import annotations
 import argparse
 import json
 from pathlib import Path
+import re
 import shutil
 import sys
+import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 OPERATORS = {
@@ -15,6 +17,99 @@ OPERATORS = {
     "starlight-queen": ("Starlight Queen", "Coordinate agent work, decisions and evidence.",
                         "Review agent work and prepare the next bounded assignment."),
 }
+
+
+def validate_personal_metadata(raw: bytes) -> None:
+    """Accept the host's narrow YAML format, not arbitrary YAML capabilities."""
+    if len(raw) > 16384:
+        raise ValueError("oversized personal metadata")
+    text = raw.decode("utf-8")
+    section = field = None
+    seen = set()
+    values = {}
+    products = []
+    for line in text.splitlines():
+        if not line.strip():
+            continue
+        if line in ("interface:", "policy:"):
+            section = line[:-1]
+            if section in seen:
+                raise ValueError("duplicate personal metadata section")
+            seen.add(section); field = None
+            continue
+        if section == "policy" and field == "products" and re.fullmatch(r" {2,4}- [a-z]+", line):
+            products.append(line.strip()[2:]); continue
+        match = re.fullmatch(r"  ([a-z_]+):(?: (.+))?", line)
+        if match and section:
+            field, value = match.groups()
+            key = (section, field)
+            if key in values:
+                raise ValueError("duplicate personal metadata field")
+            values[key] = value
+            continue
+        if section == "interface" and field and line.startswith("    ") and not line.startswith("     "):
+            key = (section, field)
+            if not values[key] or values[key].startswith(('"', "'")):
+                raise ValueError("unsupported personal metadata continuation")
+            values[key] += " " + line.strip(); continue
+        raise ValueError("unsupported personal metadata syntax")
+    interface = {k: v for (s, k), v in values.items() if s == "interface"}
+    required = {"display_name", "short_description", "default_prompt"}
+    if not required <= interface.keys() or not interface.keys() <= required | {"icon_small", "icon_large", "brand_color"}:
+        raise ValueError("unknown or missing personal interface field")
+    for key, value in interface.items():
+        if value is None:
+            raise ValueError("empty personal interface field")
+        if value.startswith('"'):
+            value = json.loads(value)
+        elif (key != "brand_color" and "#" in value) or any(c in value for c in "&*!|>{}[]'\t"):
+            raise ValueError("unsupported personal metadata scalar")
+        if not isinstance(value, str) or not 0 < len(value) <= 2048 or any(ord(c) < 32 for c in value):
+            raise ValueError("invalid personal interface value")
+        if key.startswith("icon_") and value != "assets/icon.svg":
+            raise ValueError("personal icon must use the bounded static asset")
+        if key == "brand_color" and not re.fullmatch(r"#[0-9A-Fa-f]{6}", value):
+            raise ValueError("invalid personal brand color")
+    policy = {k: v for (s, k), v in values.items() if s == "policy"}
+    if policy.keys() - {"products", "allow_implicit_invocation"}:
+        raise ValueError("unknown personal host policy field")
+    if "products" in policy and (policy["products"] is not None or not products or len(products) != len(set(products))
+                                 or set(products) - {"chatgpt", "codex", "api", "atlas"}):
+        raise ValueError("invalid personal host products")
+    if "allow_implicit_invocation" in policy and policy["allow_implicit_invocation"] not in ("true", "false"):
+        raise ValueError("invalid personal invocation policy")
+
+
+def validate_static_icon(raw: bytes) -> None:
+    if len(raw) > 65536 or b"<!" in raw or b"<?" in raw:
+        raise ValueError("oversized or declarative personal icon")
+    try:
+        root = ET.fromstring(raw)
+    except ET.ParseError as exc:
+        raise ValueError("invalid personal icon") from exc
+    namespace = "{http://www.w3.org/2000/svg}"
+    tags = {"svg", "g", "path", "rect", "circle", "ellipse", "line", "polyline", "polygon", "defs",
+            "linearGradient", "radialGradient", "stop", "clipPath", "mask", "title", "desc", "use"}
+    attributes = {"id", "viewBox", "width", "height", "x", "y", "x1", "y1", "x2", "y2", "cx", "cy",
+                  "r", "rx", "ry", "d", "points", "fill", "fill-rule", "fill-opacity", "stroke", "stroke-width",
+                  "stroke-opacity", "stroke-linecap", "stroke-linejoin", "stroke-dasharray", "opacity", "transform",
+                  "offset", "stop-color", "stop-opacity", "gradientUnits", "gradientTransform", "spreadMethod",
+                  "clip-path", "clip-rule", "clipPathUnits", "mask", "maskUnits", "maskContentUnits", "href",
+                  "preserveAspectRatio", "role", "aria-label"}
+    elements = list(root.iter())
+    if root.tag != namespace + "svg" or len(elements) > 1000:
+        raise ValueError("invalid personal icon root or complexity")
+    for node in elements:
+        if node.tag not in {namespace + tag for tag in tags}:
+            raise ValueError("nonstatic personal icon element")
+        for key, value in node.attrib.items():
+            key = key.removeprefix("{http://www.w3.org/1999/xlink}")
+            if key not in attributes:
+                raise ValueError("unsafe personal icon attribute")
+            if key == "href" and not re.fullmatch(r"#[A-Za-z][A-Za-z0-9_-]*", value):
+                raise ValueError("external personal icon reference")
+            if re.search(r"url\s*\(", value, re.I) and not re.fullmatch(r"url\(#[A-Za-z][A-Za-z0-9_-]*\)", value):
+                raise ValueError("external personal icon resource")
 
 
 def safe_checkout_path(path: Path) -> None:
@@ -70,6 +165,8 @@ def skill_files(name: str, personal: bool = False) -> dict[Path, bytes]:
         if personal and path.name == "SKILL.md":
             # Personal host permits name/description only; preserve the body exactly.
             text = content.decode("utf-8")
+            if not text.startswith("---\n") or "\r" in text or "\n---\n" not in text[4:]:
+                raise ValueError("personal projection requires exact LF frontmatter delimiters")
             front, body = text[4:].split("\n---\n", 1)
             front = "\n".join(line for line in front.splitlines() if not line.startswith("metadata:"))
             content = ("---\n" + front + "\n---\n" + body).encode("utf-8")
@@ -97,10 +194,13 @@ def check_files(root: Path, expected: dict[Path, bytes], personal_ui_overlay: bo
         if path.is_file():
             actual[path.relative_to(root)] = path.read_bytes()
     if personal_ui_overlay:
-        # The personal host enriches presentation after installation. These two
-        # files are not runtime instructions and are not authored back into canon.
+        # Validate presentation AND the host's invocation policy separately.
+        # Dependencies, tools and endpoints cannot hide in the overlay.
         if Path("agents/openai.yaml") not in actual:
             raise ValueError("missing personal UI metadata")
+        validate_personal_metadata(actual[Path("agents/openai.yaml")])
+        if Path("assets/icon.svg") in actual:
+            validate_static_icon(actual[Path("assets/icon.svg")])
         expected = {p: b for p, b in expected.items() if p != Path("agents/openai.yaml")}
         actual = {p: b for p, b in actual.items() if p not in {Path("agents/openai.yaml"), Path("assets/icon.svg")}}
     failures = [("missing", p) for p in expected.keys() - actual.keys()]
@@ -139,7 +239,7 @@ def main() -> int:
             if not args.personal_root:
                 parser.error("--check-personal requires --personal-root")
             check_files(args.personal_root, skill_files(args.check_personal, personal=True), personal_ui_overlay=True)
-            print(f"Personal projection current: {args.check_personal}.")
+            print(f"Personal projection current: {args.check_personal}; host presentation and invocation policy validated.")
         else:
             for name in OPERATORS:
                 if args.check:

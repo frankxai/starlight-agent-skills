@@ -21,7 +21,7 @@ import sys
 MAX_BYTES = 1024 * 1024
 MAX_OBSERVATIONS = 1000
 ID = re.compile(r"[A-Za-z0-9][A-Za-z0-9._:-]{0,127}\Z")
-UTC = re.compile(r"\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z\Z")
+UTC = re.compile(r"[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}\.[0-9]{3}Z\Z")
 SHA256 = re.compile(r"[0-9a-f]{64}\Z")
 REQUIRED = {
     "envelope", "kind", "id", "slug", "producer", "status", "createdAt",
@@ -157,7 +157,7 @@ def review_packet(document: object, repo_root: str | Path) -> dict:
     allowed = Path(repo_root)
     require(declared.is_absolute() and allowed.is_absolute(), "repository paths must be explicit and absolute")
     require(declared.is_dir() and allowed.is_dir(), "repository does not exist")
-    require(declared.resolve() == allowed.resolve(), "repository mapping mismatch")
+    require(declared.resolve(strict=True) == allowed.resolve(strict=True), "repository mapping mismatch")
     if "idempotencyKey" in packet:
         identifier(packet["idempotencyKey"])
     for field in ("needs", "allowedChecks", "requiredChecks", "requiredAncestors", "snapshotPaths"):
@@ -173,13 +173,21 @@ def review_packet(document: object, repo_root: str | Path) -> dict:
         rel = PurePosixPath(raw)
         require(not rel.is_absolute() and ".." not in rel.parts and rel != PurePosixPath(".") and "\\" not in raw
                 and not re.match(r"^[A-Za-z]:", raw), "unsafe snapshot path")
+        require(not any(part == ".git" or part == ".env" or part.startswith(".env.")
+                        or part.lower() in {"id_rsa", "id_ed25519", "credentials.json", "credentials.yaml"}
+                        for part in rel.parts), "sensitive snapshot path")
+        cursor = declared
+        for part in rel.parts:
+            cursor /= part
+            require(not cursor.is_symlink(), "symlinked snapshot path")
         target = (declared / raw).resolve()
-        require(target.is_relative_to(declared.resolve()), "snapshot path escapes repository")
+        require(target.is_relative_to(declared.resolve(strict=True)), "snapshot path escapes repository")
     if "git-write" in packet.get("needs", []):
         require("assignedRef" in packet, "git-write requires an assigned ref")
         require(bool(packet.get("allowedChecks")), "git-write requires allowed checks")
     return {"schema": "starlight.queen_packet_review.v1", "dispatch": False,
             "authority": "not_evaluated", "verification": "not_evaluated",
+            "host_path_scope": "current_host_only", "dispatch_path_validation": "not_evaluated",
             "packet_sha256": digest(packet), "packet": copy.deepcopy(packet)}
 
 

@@ -16,3 +16,6 @@ as a tool is not necessary for native skill discovery.
 
 Verified 2026-09-30 against https://learn.chatgpt.com/docs/build-skills.
 Re-check host documentation before changing installation paths or packaging.
+
+Retain the canonical skill’s "Built on SIP" footer in exported artifacts. This
+adapter updates discovery guidance without changing the attestation contract.

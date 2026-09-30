@@ -141,7 +141,7 @@ def valid_ref(value: object, assigned: bool = False) -> None:
         require(len(parts) >= 4 and parts[1] == "agent", "assigned ref must use remote/agent/harness/slug")
 
 
-def review_packet(document: object, repo_root: str | Path) -> dict:
+def _review_packet(document: object, repo_root: str | Path) -> dict:
     packet = keys(document, REQUIRED, OPTIONAL)
     require(packet["envelope"] == "v1", "unsupported Queen envelope")
     require(packet["kind"] == "task", "only standalone task packets are supported")
@@ -177,7 +177,7 @@ def review_packet(document: object, repo_root: str | Path) -> dict:
                                            for part in rel.parts), "nonportable snapshot path")
         folded = [part.casefold() for part in rel.parts]
         require(not any(part in {".git", ".env", ".ssh", ".aws", ".azure", ".npmrc", ".netrc", ".pypirc",
-                                 ".git-credentials", "id_rsa", "id_ed25519", "credentials.json", "credentials.yaml"}
+                                 ".git-credentials", ".docker", ".kube", "id_rsa", "id_ed25519", "id_ecdsa", "id_dsa", "credentials.json", "credentials.yaml"}
                         or part.startswith(".env.") or part.endswith((".pem", ".key", ".p12", ".pfx"))
                         for part in folded), "sensitive snapshot path")
         cursor = declared
@@ -193,6 +193,13 @@ def review_packet(document: object, repo_root: str | Path) -> dict:
             "authority": "not_evaluated", "verification": "not_evaluated",
             "host_path_scope": "current_host_only", "dispatch_path_validation": "not_evaluated",
             "packet_sha256": digest(packet), "packet": copy.deepcopy(packet)}
+
+
+def review_packet(document: object, repo_root: str | Path) -> dict:
+    try:
+        return _review_packet(document, repo_root)
+    except (OSError, RuntimeError):
+        raise IntakeError("filesystem validation failed") from None
 
 
 def reject_duplicate_keys(pairs: list[tuple[str, object]]) -> dict:

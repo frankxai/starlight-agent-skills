@@ -19,7 +19,7 @@ OPERATORS = {
 }
 
 
-def validate_personal_metadata(raw: bytes) -> None:
+def validate_personal_metadata(raw: bytes) -> dict:
     """Accept the host's narrow YAML format, not arbitrary YAML capabilities."""
     if len(raw) > 16384:
         raise ValueError("oversized personal metadata")
@@ -78,13 +78,17 @@ def validate_personal_metadata(raw: bytes) -> None:
         raise ValueError("invalid personal host products")
     if "allow_implicit_invocation" in policy and policy["allow_implicit_invocation"] not in ("true", "false"):
         raise ValueError("invalid personal invocation policy")
+    return {**({"products": products} if "products" in policy else {}),
+            **({"allow_implicit_invocation": policy["allow_implicit_invocation"] == "true"}
+               if "allow_implicit_invocation" in policy else {})}
 
 
 def validate_static_icon(raw: bytes) -> None:
-    if len(raw) > 65536 or b"<!" in raw or b"<?" in raw:
+    text = raw.decode("utf-8")
+    if len(raw) > 65536 or "<!" in text or "<?" in text or any(ord(c) < 32 and c not in "\n\r\t" for c in text):
         raise ValueError("oversized or declarative personal icon")
     try:
-        root = ET.fromstring(raw)
+        root = ET.fromstring(text)
     except ET.ParseError as exc:
         raise ValueError("invalid personal icon") from exc
     namespace = "{http://www.w3.org/2000/svg}"
@@ -182,7 +186,8 @@ def expected_files(name: str) -> dict[Path, bytes]:
     return files
 
 
-def check_files(root: Path, expected: dict[Path, bytes], personal_ui_overlay: bool = False) -> None:
+def check_files(root: Path, expected: dict[Path, bytes], personal_ui_overlay: bool = False) -> dict | None:
+    host_policy = None
     if root.is_symlink():
         raise ValueError("projection root cannot be a symlink")
     actual = {}
@@ -198,7 +203,7 @@ def check_files(root: Path, expected: dict[Path, bytes], personal_ui_overlay: bo
         # Dependencies, tools and endpoints cannot hide in the overlay.
         if Path("agents/openai.yaml") not in actual:
             raise ValueError("missing personal UI metadata")
-        validate_personal_metadata(actual[Path("agents/openai.yaml")])
+        host_policy = validate_personal_metadata(actual[Path("agents/openai.yaml")])
         if Path("assets/icon.svg") in actual:
             validate_static_icon(actual[Path("assets/icon.svg")])
         expected = {p: b for p, b in expected.items() if p != Path("agents/openai.yaml")}
@@ -210,6 +215,7 @@ def check_files(root: Path, expected: dict[Path, bytes], personal_ui_overlay: bo
         for reason, path in sorted(failures):
             print(f"ERROR: {reason}: {path}", file=sys.stderr)
         raise ValueError("projection drift")
+    return host_policy
 
 
 def compile_plugin(name: str) -> None:
@@ -238,8 +244,8 @@ def main() -> int:
         if args.check_personal:
             if not args.personal_root:
                 parser.error("--check-personal requires --personal-root")
-            check_files(args.personal_root, skill_files(args.check_personal, personal=True), personal_ui_overlay=True)
-            print(f"Personal projection current: {args.check_personal}; host presentation and invocation policy validated.")
+            host_policy = check_files(args.personal_root, skill_files(args.check_personal, personal=True), personal_ui_overlay=True)
+            print(f"Personal projection current: {args.check_personal}; host presentation validated; declared invocation policy={json.dumps(host_policy, sort_keys=True)}.")
         else:
             for name in OPERATORS:
                 if args.check:

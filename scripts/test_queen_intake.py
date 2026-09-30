@@ -11,6 +11,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = Path(__file__).resolve().parents[1]
 HELPER = ROOT / "skills/substrate/starlight-queen/scripts/queen_intake.py"
@@ -155,7 +156,7 @@ class PacketTests(unittest.TestCase):
             with self.assertRaises(q.IntakeError): q.review_packet(self.packet, self.root)
 
     def test_snapshot_denylist_and_internal_symlinks(self):
-        for path in ('.git/config', '.env', '.env.local', '.env.example', 'private/id_rsa', 'credentials.json', '.GIT/config', '.Env', '.git./config', '.env ', 'GIT~1/config', 'src/name:stream', '.SSH/config', '.AWS/credentials', '.npmrc', '.netrc', 'private.PEM', 'private.KEY'):
+        for path in ('.git/config', '.env', '.env.local', '.env.example', 'private/id_rsa', 'credentials.json', '.GIT/config', '.Env', '.git./config', '.env ', 'GIT~1/config', 'src/name:stream', '.SSH/config', '.AWS/credentials', '.npmrc', '.netrc', 'private.PEM', 'private.KEY', '.docker/config.json', '.kube/config', 'id_ecdsa', 'id_dsa'):
             self.packet['snapshotPaths'] = [path]
             with self.assertRaises(q.IntakeError): q.review_packet(self.packet, self.root)
         (self.root / 'real').mkdir(); (self.root / 'link').symlink_to('real', target_is_directory=True)
@@ -168,6 +169,11 @@ class PacketTests(unittest.TestCase):
         for value in ("origin/agent/claude/../secret", "origin/agent/claude/a.lock/b", "origin/agent/claude/a\x7fb", "origin/agent/claude/a b"):
             self.packet["assignedRef"] = value
             with self.assertRaises(q.IntakeError): q.review_packet(self.packet, self.root)
+
+    def test_library_filesystem_failure_does_not_leak_paths(self):
+        with patch.object(Path, 'resolve', side_effect=PermissionError('/private/credential.txt')):
+            with self.assertRaisesRegex(q.IntakeError, '^filesystem validation failed$'):
+                q.review_packet(self.packet, self.root)
 
     def test_symlink_cycle_is_sanitized_at_cli(self):
         (self.root / "private-cycle").symlink_to("private-cycle")

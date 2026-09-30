@@ -27,6 +27,16 @@ class ProjectionTests(unittest.TestCase):
             (root / "SKILL.md").write_bytes(b"changed")
             with self.assertRaises(ValueError): check_files(root, expected, personal_ui_overlay=True)
 
+    def test_host_invocation_policy_value_is_reported(self):
+        self.assertTrue(builder.validate_personal_metadata(HOST_UI)['allow_implicit_invocation'])
+        self.assertFalse(builder.validate_personal_metadata(HOST_UI.replace(b': true', b': false'))['allow_implicit_invocation'])
+
+    def test_utf16_icons_do_not_bypass_static_asset_rules(self):
+        for content in (STATIC_ICON.decode(), '<!DOCTYPE svg [<!ENTITY x "value">]>' + STATIC_ICON.decode(),
+                        '<?xml-stylesheet href="https://evil.invalid"?>' + STATIC_ICON.decode()):
+            with self.assertRaises(ValueError): builder.validate_static_icon(content.encode('utf-16'))
+            with self.assertRaises(ValueError): builder.validate_static_icon(content.encode('utf-16-le'))
+
     def test_overlay_cannot_hide_capabilities_or_ambiguous_yaml(self):
         for addition in (b'\ndependencies:\n  tools: endpoint\n', b'  endpoints: https://evil.invalid\n',
                          b'  allow_implicit_invocation: maybe\n', b'  products: [unknown]\n',

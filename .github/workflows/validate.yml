@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  skills:
+  skills_matrix:
     strategy:
       matrix:
         python: ["3.11", "3.12", "3.13", "3.14"]
@@ -65,3 +65,13 @@ jobs:
       - name: Validate release truth
         run: python3 scripts/validate_release.py
 
+  # Preserve the pre-matrix required status check name.
+  skills:
+    needs: skills_matrix
+    if: ${{ always() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require every supported interpreter
+        env:
+          MATRIX_RESULT: ${{ needs.skills_matrix.result }}
+        run: test "$MATRIX_RESULT" = "success"

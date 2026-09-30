@@ -6,7 +6,7 @@ Starting pointers, not permanent admission assertions. Read the current Registry
 |---|---|
 | frankxai/agentic-ops | Canonical Registry, entity/runtime policy, decisions and dispatch admission |
 | frankxai/starlight-agent-skills | Portable skills and deterministic plugin packages |
-| frankxai/starlight-suite | Private operator view, daemon evidence, work/Queen projections |
+| frankxai/starlight-command-center (Starlight Suite) | Private operator view, daemon evidence, work/Queen projections |
 | frankxai/Starlight-Intelligence-System | Runtime integration and its registered site surface; do not infer website ownership from name |
 | Registered website repositories | Their exact registered Vercel project and public product surface |
 | Upstream Paperclip | Its agents, task/decision records, approvals, runs and adapters; prefer upstream plus a narrow bridge |

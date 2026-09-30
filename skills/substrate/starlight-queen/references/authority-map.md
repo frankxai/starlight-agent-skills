@@ -6,7 +6,7 @@ Read the current Agentic Ops Registry, target instructions and open PRs before p
 |---|---|
 | frankxai/agentic-ops | Registry, runtime admission, dispatch, decisions and authority |
 | frankxai/starlight-agent-skills | Canonical portable capabilities and plugin builds |
-| frankxai/starlight-suite | Private operator UI, local daemon evidence, scoped Queen/Registry projections |
+| frankxai/starlight-command-center (Starlight Suite) | Private operator UI, local daemon evidence, scoped Queen/Registry projections |
 | frankxai/Starlight-Intelligence-System | Registered runtime integration/site; website ownership needs explicit Registry resolution |
 | Registered website repos | Public product surfaces through their registered Vercel projects |
 

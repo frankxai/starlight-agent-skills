@@ -173,9 +173,13 @@ def review_packet(document: object, repo_root: str | Path) -> dict:
         rel = PurePosixPath(raw)
         require(not rel.is_absolute() and ".." not in rel.parts and rel != PurePosixPath(".") and "\\" not in raw
                 and not re.match(r"^[A-Za-z]:", raw), "unsafe snapshot path")
-        require(not any(part == ".git" or part == ".env" or part.startswith(".env.")
-                        or part.lower() in {"id_rsa", "id_ed25519", "credentials.json", "credentials.yaml"}
-                        for part in rel.parts), "sensitive snapshot path")
+        require(":" not in raw and not any(part != part.rstrip(" .") or re.search(r"~[0-9]", part)
+                                           for part in rel.parts), "nonportable snapshot path")
+        folded = [part.casefold() for part in rel.parts]
+        require(not any(part in {".git", ".env", ".ssh", ".aws", ".azure", ".npmrc", ".netrc", ".pypirc",
+                                 ".git-credentials", "id_rsa", "id_ed25519", "credentials.json", "credentials.yaml"}
+                        or part.startswith(".env.") or part.endswith((".pem", ".key", ".p12", ".pfx"))
+                        for part in folded), "sensitive snapshot path")
         cursor = declared
         for part in rel.parts:
             cursor /= part

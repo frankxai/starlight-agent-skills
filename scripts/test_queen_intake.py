@@ -121,6 +121,11 @@ class PacketTests(unittest.TestCase):
         self.packet["repo"] = "relative/repo"
         with self.assertRaises(q.IntakeError): q.review_packet(self.packet, self.root)
 
+    @unittest.skipIf(os.name == 'nt', 'POSIX host incompatibility fixture')
+    def test_windows_checkout_is_not_validated_on_posix(self):
+        self.packet['repo'] = 'C:/Users/frank/starlight/repos/example'
+        with self.assertRaises(q.IntakeError): q.review_packet(self.packet, self.root)
+
     def test_budget_and_priority_booleans_nan_and_large_integers(self):
         for value in (True, float("nan"), float("inf"), 0, 26, 10 ** 1000):
             self.packet["maxMinutes"] = value
@@ -150,7 +155,7 @@ class PacketTests(unittest.TestCase):
             with self.assertRaises(q.IntakeError): q.review_packet(self.packet, self.root)
 
     def test_snapshot_denylist_and_internal_symlinks(self):
-        for path in ('.git/config', '.env', '.env.local', '.env.example', 'private/id_rsa', 'credentials.json'):
+        for path in ('.git/config', '.env', '.env.local', '.env.example', 'private/id_rsa', 'credentials.json', '.GIT/config', '.Env', '.git./config', '.env ', 'GIT~1/config', 'src/name:stream', '.SSH/config', '.AWS/credentials', '.npmrc', '.netrc', 'private.PEM', 'private.KEY'):
             self.packet['snapshotPaths'] = [path]
             with self.assertRaises(q.IntakeError): q.review_packet(self.packet, self.root)
         (self.root / 'real').mkdir(); (self.root / 'link').symlink_to('real', target_is_directory=True)

@@ -1,5 +1,7 @@
 # Resolve existing authority
 
+Historical snapshot: 2026-09-30; expires 2026-10-01T00:00:00Z. Re-fetch current Registry, PR heads and deployment/source evidence before relying on dated claims, including before expiry.
+
 Read the current Agentic Ops Registry, target instructions and open PRs before planning. Starting owners:
 
 | Repository | Scope |

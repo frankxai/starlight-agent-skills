@@ -1,0 +1,14 @@
+{
+  "name": "starlight-practice",
+  "owner": {
+    "name": "FrankX / Starlight Intelligence"
+  },
+  "plugins": [
+    {
+      "name": "starlight-golden-age",
+      "source": "./plugins/starlight-golden-age",
+      "description": "Original visualization, practice preparation and grounded integration with optional private memory handoffs.",
+      "version": "0.1.0"
+    }
+  ]
+}

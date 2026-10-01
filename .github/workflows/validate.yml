@@ -51,5 +51,8 @@ jobs:
       - name: Validate Codex plugin package
         run: python3 scripts/validate_plugin.py
 
+      - name: Verify Golden Age bridge and plugin projection
+        run: python3 scripts/test_golden_age.py
+
       - name: Validate release truth
         run: python3 scripts/validate_release.py

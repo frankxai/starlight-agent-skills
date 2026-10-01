@@ -1,0 +1,41 @@
+{
+  "id": "education/starlight-practice-preparation",
+  "name": "starlight-practice-preparation",
+  "version": "0.1.0",
+  "domain": "education",
+  "summary": "starlight practice preparation",
+  "inputs": [
+    {
+      "name": "request",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "mode",
+      "type": "string"
+    },
+    {
+      "name": "result",
+      "type": "object"
+    },
+    {
+      "name": "limitations",
+      "type": "array"
+    }
+  ],
+  "tools": [],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "claude",
+    "codex",
+    "sis"
+  ],
+  "tags": [
+    "breathwork",
+    "preparation",
+    "evidence"
+  ],
+  "attestation": "Built on SIP \u2014 starlightintelligence.org/protocol v1.1.0"
+}

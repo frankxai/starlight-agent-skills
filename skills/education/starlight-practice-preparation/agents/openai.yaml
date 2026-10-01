@@ -1,0 +1,4 @@
+interface:
+  display_name: "Starlight Practice Preparation"
+  short_description: "Prepare breathwork with evidence and agency"
+  default_prompt: "Use $starlight-practice-preparation to support my next practice."

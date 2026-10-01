@@ -1,0 +1,41 @@
+{
+  "id": "substrate/starlight-practice-integration",
+  "name": "starlight-practice-integration",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "starlight practice integration",
+  "inputs": [
+    {
+      "name": "request",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "mode",
+      "type": "string"
+    },
+    {
+      "name": "result",
+      "type": "object"
+    },
+    {
+      "name": "limitations",
+      "type": "array"
+    }
+  ],
+  "tools": [],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "claude",
+    "codex",
+    "sis"
+  ],
+  "tags": [
+    "integration",
+    "memory",
+    "agency"
+  ],
+  "attestation": "Built on SIP \u2014 starlightintelligence.org/protocol v1.1.0"
+}

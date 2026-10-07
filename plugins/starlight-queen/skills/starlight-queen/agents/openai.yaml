@@ -1,0 +1,4 @@
+interface:
+  display_name: "Starlight Queen"
+  short_description: "Coordinate agents and prepare evidence-backed decisions"
+  default_prompt: "Use $starlight-queen to inspect agent work, resolve blockers, and prepare the next bounded execution packet."

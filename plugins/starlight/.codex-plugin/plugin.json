@@ -1,0 +1,35 @@
+{
+  "name": "starlight",
+  "version": "0.1.0",
+  "description": "Execute bounded work with verified evidence.",
+  "author": {
+    "name": "FrankX / Starlight Intelligence",
+    "url": "https://github.com/frankxai"
+  },
+  "homepage": "https://github.com/frankxai/starlight-agent-skills/tree/main/plugins/starlight",
+  "repository": "https://github.com/frankxai/starlight-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "starlight",
+    "operations",
+    "agents",
+    "evidence"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Starlight",
+    "shortDescription": "Execute bounded work with verified evidence.",
+    "longDescription": "Portable operator procedure using host-provided tools. Includes no live MCP endpoint, credentials or runtime activation.",
+    "developerName": "FrankX / Starlight Intelligence",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Code"
+    ],
+    "websiteURL": "https://github.com/frankxai/starlight-agent-skills",
+    "defaultPrompt": [
+      "Implement the next tested, reviewable Starlight change."
+    ],
+    "brandColor": "#7FFFD4"
+  }
+}

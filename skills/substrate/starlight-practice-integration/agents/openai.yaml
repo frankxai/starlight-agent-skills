@@ -1,0 +1,4 @@
+interface:
+  display_name: "Starlight Practice Integration"
+  short_description: "Turn practice insights into grounded action"
+  default_prompt: "Use $starlight-practice-integration to support my next practice."

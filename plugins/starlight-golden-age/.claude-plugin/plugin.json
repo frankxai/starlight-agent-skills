@@ -1,0 +1,11 @@
+{
+  "name": "starlight-golden-age",
+  "version": "0.1.0",
+  "description": "Original visualization, practice preparation and grounded integration with optional private memory handoffs.",
+  "author": {
+    "name": "FrankX / Starlight Intelligence"
+  },
+  "repository": "https://github.com/frankxai/starlight-agent-skills",
+  "homepage": "https://github.com/frankxai/starlight-agent-skills/tree/main/plugins/starlight-golden-age",
+  "license": "MIT"
+}

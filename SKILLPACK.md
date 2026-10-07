@@ -18,6 +18,8 @@ Starlight voice, coding, cosmos, research, media, education, and substrate ops t
 - research / media / education in `skills/`
 - substrate: `swarm-queen-coordination`, `payments-mandate`, `notion-operating-system`
 
+- practice companion: `starlight-practice-preparation`, `starlight-golden-age`, `starlight-practice-integration`
+
 ## Exclude (other brands own these)
 
 - `arcanea-mythic-overlay` → Arcanea pack

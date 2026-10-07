@@ -1,0 +1,28 @@
+{
+  "name": "starlight-golden-age",
+  "version": "0.1.0",
+  "description": "Original visualization, practice preparation and grounded integration with optional private memory handoffs.",
+  "author": {
+    "name": "FrankX / Starlight Intelligence"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Starlight Golden Age",
+    "shortDescription": "Prepare, imagine, return, and create.",
+    "longDescription": "Three composable skills for evidence-aware practice preparation, original Golden Age visualization, and participant-owned integration. Independent of SOMA Breath.",
+    "developerName": "FrankX / Starlight Intelligence",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Create"
+    ],
+    "defaultPrompt": [
+      "Prepare me for my authorized breathwork session.",
+      "Guide an original Golden Age visualization.",
+      "Turn my reflection into one useful action."
+    ]
+  },
+  "repository": "https://github.com/frankxai/starlight-agent-skills",
+  "homepage": "https://github.com/frankxai/starlight-agent-skills/tree/main/plugins/starlight-golden-age",
+  "license": "MIT"
+}

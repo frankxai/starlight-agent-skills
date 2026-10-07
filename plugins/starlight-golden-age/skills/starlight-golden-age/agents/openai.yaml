@@ -1,0 +1,4 @@
+interface:
+  display_name: "Starlight Golden Age"
+  short_description: "Imagine a beautiful future and bring it home"
+  default_prompt: "Use $starlight-golden-age to support my next practice."

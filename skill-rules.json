@@ -775,6 +775,35 @@
       "load_level": "core"
     },
     {
+      "skill": "queen-operator",
+      "triggers": {
+        "keywords": [
+          "run the queen",
+          "brief the swarm",
+          "who verifies this",
+          "is this task credited",
+          "dispatch receipt",
+          "maker checker",
+          "arm a queen session",
+          "queen operator"
+        ],
+        "file_patterns": [],
+        "commands": [],
+        "agents": [
+          "starlight-orchestrator",
+          "starlight-navigator"
+        ],
+        "intents": [
+          "dispatch",
+          "verify",
+          "credit",
+          "brief"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
       "skill": "notion-operating-system",
       "triggers": {
         "keywords": [

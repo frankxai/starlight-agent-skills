@@ -45,13 +45,13 @@
 
 ## What's inside
 
-**41 validated skills across 8 domains**, each a self-contained, rich-portable package.
+**42 validated skills across 8 domains**, each a self-contained, rich-portable package.
 Browse the full [**Catalog**](docs/CATALOG.md).
 
 | Domain | Skills | Examples |
 |--------|:------:|----------|
 | 🏛️ **studios** | 5 | `publishing-studio`, `template-studio`, `software-studio`, `media-studio`, `world-experience-studio` |
-| 🧩 **substrate** | 5 | `agentic-income`, `affiliate-audit`, `payments-mandate`, `swarm-queen-coordination`, `notion-operating-system` |
+| 🧩 **substrate** | 6 | `agentic-income`, `affiliate-audit`, `payments-mandate`, `swarm-queen-coordination`, `queen-operator`, `notion-operating-system` |
 | 🌌 **cosmos** (flagship) | 7 | `apod-to-short`, `nasa-image-to-atlas-page`, `rights-check-nasa-esa` |
 | 🔬 research | 3 | `arxiv-paper-to-brief`, `mission-page-to-summary`, `claim-verification` |
 | 🎬 media | 5 | `social-repurposer`, `thumbnail-concept`, `caption-and-hashtag` |

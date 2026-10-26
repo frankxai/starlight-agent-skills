@@ -1,6 +1,6 @@
 ---
 name: product-studio-director
-description: "Assign one primary specialist studio and compose bounded cross-studio contributions into one canonical release. Use when a product spans publishing, templates, software, media, or world experiences."
+description: "Assign one primary specialist studio and compose bounded cross-studio contributions into one canonical release. Use when a product spans publishing, templates, software, media, world experiences, or communities."
 metadata: {"version":"0.1.0","domain":"studios","tags":"orchestration,routing,product-studio,release-governance"}
 ---
 
@@ -18,7 +18,8 @@ Choose one primary studio by the product's irreversible core:
 - editable reusable system → `template-studio`;
 - executable runtime or integration → `software-studio`;
 - standalone sensory work or media license → `media-studio`;
-- governed world plus interactive cross-media journey → `world-experience-studio`.
+- governed world plus interactive cross-media journey → `world-experience-studio`;
+- people learning or building together with a named operator → `community-studio`.
 
 Other studios receive bounded sub-envelopes. The primary studio retains task state, product synthesis, termination and release recommendation.
 

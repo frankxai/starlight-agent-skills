@@ -850,6 +850,30 @@
       "load_level": "core"
     },
     {
+      "skill": "community-studio",
+      "triggers": {
+        "keywords": [
+          "community studio",
+          "build a community",
+          "build an academy",
+          "cohort",
+          "learning lab",
+          "circle community",
+          "member receipts"
+        ],
+        "file_patterns": [
+          "contract/schemas/*.schema.json",
+          "docs/community/**",
+          "studios/community/**"
+        ],
+        "commands": [
+          "/community-studio"
+        ]
+      },
+      "priority": "high",
+      "load_level": "core"
+    },
+    {
       "skill": "software-studio",
       "triggers": {
         "keywords": [

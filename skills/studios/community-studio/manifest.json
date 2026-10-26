@@ -1,0 +1,28 @@
+{
+  "id": "studios/community-studio",
+  "name": "community-studio",
+  "version": "0.1.0",
+  "domain": "studios",
+  "summary": "Build a working community or academy from one curriculum contract, with member-owned receipts and read-only operating agents.",
+  "inputs": [
+    {"name": "task_envelope", "type": "object", "required": true},
+    {"name": "product_manifest", "type": "object", "required": true},
+    {"name": "named_operator", "type": "string", "required": true},
+    {"name": "dated_cadence", "type": "object", "required": true},
+    {"name": "room_choice", "type": "string", "required": true},
+    {"name": "rights_record", "type": "object", "required": true}
+  ],
+  "outputs": [
+    {"name": "contract_valid_curriculum", "type": "array"},
+    {"name": "space_plan", "type": "object"},
+    {"name": "staged_agents", "type": "object"},
+    {"name": "walkthrough_evidence", "type": "object"},
+    {"name": "evidence_receipt", "type": "object"},
+    {"name": "release_decision", "type": "string"}
+  ],
+  "tools": ["Read", "Write", "Bash", "Web"],
+  "mcp_dependencies": ["github", "circle"],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["community", "academy", "cohort", "curriculum", "circle", "receipts"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

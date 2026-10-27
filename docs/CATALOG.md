@@ -1,15 +1,16 @@
 # 🛰️ Starlight Agent Skills — Catalog
 
-The complete index of all **41 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
+The complete index of all **42 skills** in this library. Every skill ships as a self-contained, rich-portable package: a canonical `SKILL.md` (spec-compliant frontmatter), an optional `manifest.json`, and optional `examples/` + `tests/`. Skills run across Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System — see [`adapters/`](../adapters/).
 
 > This file is generated. After adding or renaming a skill, run `python3 scripts/generate_catalog.py` to regenerate it, then `python3 scripts/validate_skills.py` to verify compliance.
 
 ## 🏛️ Specialist Studios
 
-_5 skills_
+_6 skills_
 
 | Skill | Version | Description |
 |---|---|---|
+| [`community-studio`](../skills/studios/community-studio) | 0.1.0 | Build a working community or academy from one curriculum contract: a named operator, a dated cadence, lessons as code, member-owned receipts, a room such as... |
 | [`media-studio`](../skills/studios/media-studio) | 0.1.0 | Create original music, art, motion, video, sound packs and licensable media collections with governed creative direction, masters, provenance and technical Q... |
 | [`publishing-studio`](../skills/studios/publishing-studio) | 0.1.0 | Turn governed source material into evidence-backed ebooks, guides, workbooks, courses, print editions, and audiobook packages. Use when a product requires ed... |
 | [`software-studio`](../skills/studios/software-studio) | 0.1.0 | Build and release secure applications, mobile products, games, plugins, MCP servers, agents, SDKs and platform modules with professional SDLC evidence. Use w... |

@@ -50,7 +50,7 @@ Browse the full [**Catalog**](docs/CATALOG.md).
 
 | Domain | Skills | Examples |
 |--------|:------:|----------|
-| 🏛️ **studios** | 5 | `publishing-studio`, `template-studio`, `software-studio`, `media-studio`, `world-experience-studio` |
+| 🏛️ **studios** | 6 | `publishing-studio`, `template-studio`, `software-studio`, `media-studio`, `world-experience-studio`, `community-studio` |
 | 🧩 **substrate** | 5 | `agentic-income`, `affiliate-audit`, `payments-mandate`, `swarm-queen-coordination`, `notion-operating-system` |
 | 🌌 **cosmos** (flagship) | 7 | `apod-to-short`, `nasa-image-to-atlas-page`, `rights-check-nasa-esa` |
 | 🔬 research | 3 | `arxiv-paper-to-brief`, `mission-page-to-summary`, `claim-verification` |

@@ -20,6 +20,7 @@ REQUIRED_SKILLS = {
     "software-studio",
     "media-studio",
     "world-experience-studio",
+    "community-studio",
     "product-studio-director",
 }
 ALLOWED_TOP_LEVEL = {

@@ -18,10 +18,11 @@ STUDIOS = (
     "software-studio",
     "media-studio",
     "world-experience-studio",
+    "community-studio",
 )
 DIRECTOR_FRONTMATTER = """---
 name: product-studio-director
-description: "Assign one primary specialist studio and compose bounded cross-studio contributions into one canonical release. Use when a product spans publishing, templates, software, media, or world experiences."
+description: "Assign one primary specialist studio and compose bounded cross-studio contributions into one canonical release. Use when a product spans publishing, templates, software, media, world experiences, or communities."
 metadata: {"version":"0.1.0","domain":"studios","tags":"orchestration,routing,product-studio,release-governance"}
 ---
 

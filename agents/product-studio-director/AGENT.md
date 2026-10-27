@@ -1,8 +1,8 @@
 ---
 name: product-studio-director
-description: "Reference orchestrator that assigns one primary specialist studio and composes bounded cross-studio contributions into one canonical product release. Use when a product spans publishing, templates, software, media, or world experiences."
+description: "Reference orchestrator that assigns one primary specialist studio and composes bounded cross-studio contributions into one canonical product release. Use when a product spans publishing, templates, software, media, world experiences, or communities."
 type: orchestrator
-composes: [publishing-studio, template-studio, software-studio, media-studio, world-experience-studio]
+composes: [publishing-studio, template-studio, software-studio, media-studio, world-experience-studio, community-studio]
 ---
 
 # Product Studio Director
@@ -19,7 +19,8 @@ Choose one primary studio by the product's irreversible core:
 - editable reusable system → `template-studio`;
 - executable runtime or integration → `software-studio`;
 - standalone sensory work or media license → `media-studio`;
-- governed world plus interactive cross-media journey → `world-experience-studio`.
+- governed world plus interactive cross-media journey → `world-experience-studio`;
+- people learning or building together with a named operator → `community-studio`.
 
 Other studios receive bounded sub-envelopes. The primary studio retains task state, product synthesis, termination and release recommendation.
 

@@ -924,6 +924,36 @@
       },
       "priority": "high",
       "load_level": "core"
+    },
+    {
+      "skill": "starlight",
+      "triggers": {
+        "keywords": [
+          "starlight implementation",
+          "starlight release preparation"
+        ],
+        "file_patterns": [],
+        "commands": [
+          "/starlight"
+        ]
+      },
+      "priority": "high"
+    },
+    {
+      "skill": "starlight-queen",
+      "triggers": {
+        "keywords": [
+          "starlight queen",
+          "fleet triage",
+          "queen inbox",
+          "paperclip integration"
+        ],
+        "file_patterns": [],
+        "commands": [
+          "/starlight-queen"
+        ]
+      },
+      "priority": "high"
     }
   ]
 }

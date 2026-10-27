@@ -1,19 +1,21 @@
 # Codex (OpenAI)
 
-Codex has no native skill loader. Two supported paths:
+Codex loads native Agent Skills. Place a capability folder containing `SKILL.md`
+in the repository's `.agents/skills/` or the user's `~/.agents/skills/`. These
+are local discovery locations, not an automatic installation on another host.
 
-## 1. Paste into `AGENTS.md`
+For reusable distribution, package skills as a Codex plugin. This repository
+generates `plugins/starlight` and `plugins/starlight-queen` from their canonical
+skills; run `python3 scripts/build_operator_plugins.py --check` to verify parity.
+The packages contain no live MCP endpoint or credentials. Install/enable them
+through the target host's plugin flow and test invocation there separately.
 
-Copy the body of `SKILL.md` (drop the YAML frontmatter) into the project's
-`AGENTS.md` under a heading, so Codex picks it up as standing instructions.
+Use `AGENTS.md` for repository-wide instructions. An authenticated MCP connector
+provides tools and data independently of the portable skill body; wrapping prose
+as a tool is not necessary for native skill discovery.
 
-## 2. Wrap as MCP
+Verified 2026-09-30 against https://learn.chatgpt.com/docs/build-skills.
+Re-check host documentation before changing installation paths or packaging.
 
-If the skill declares `mcp_dependencies` in `manifest.json`, run it behind an MCP
-server and register that server in Codex's config. The skill body becomes the
-tool's instruction set.
-
-## Notes
-
-- Keep the `manifest.json` `inputs`/`outputs` as the tool schema when wrapping.
-- The "Built on SIP" footer should remain in any artifact the skill generates.
+Retain the canonical skill’s "Built on SIP" footer in exported artifacts. This
+adapter updates discovery guidance without changing the attestation contract.

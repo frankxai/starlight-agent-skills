@@ -1,0 +1,35 @@
+{
+  "name": "starlight-queen",
+  "version": "0.1.0",
+  "description": "Coordinate agent work, decisions and evidence.",
+  "author": {
+    "name": "FrankX / Starlight Intelligence",
+    "url": "https://github.com/frankxai"
+  },
+  "homepage": "https://github.com/frankxai/starlight-agent-skills/tree/main/plugins/starlight-queen",
+  "repository": "https://github.com/frankxai/starlight-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "starlight",
+    "operations",
+    "agents",
+    "evidence"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Starlight Queen",
+    "shortDescription": "Coordinate agent work, decisions and evidence.",
+    "longDescription": "Portable operator procedure using host-provided tools. Includes no live MCP endpoint, credentials or runtime activation.",
+    "developerName": "FrankX / Starlight Intelligence",
+    "category": "Productivity",
+    "capabilities": [
+      "Write",
+      "Code"
+    ],
+    "websiteURL": "https://github.com/frankxai/starlight-agent-skills",
+    "defaultPrompt": [
+      "Review agent work and prepare the next bounded assignment."
+    ],
+    "brandColor": "#7FFFD4"
+  }
+}

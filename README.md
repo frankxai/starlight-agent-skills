@@ -28,7 +28,7 @@
 > Reusable `SKILL.md` capabilities — prompts, manifests, examples, tests, and adapters —
 > for Claude Code, Codex, Cursor, Gemini, OpenCode, and the Starlight Intelligence System.
 
-![Skills](https://img.shields.io/badge/skills-41-7fffd4?style=for-the-badge&labelColor=0d1117)
+![Skills](https://img.shields.io/badge/skills-43-7fffd4?style=for-the-badge&labelColor=0d1117)
 ![Domains](https://img.shields.io/badge/domains-8-c084fc?style=for-the-badge&labelColor=0d1117)
 [![Built on SIP](https://img.shields.io/badge/Built_on-SIP-78a6ff?style=for-the-badge&labelColor=0d1117)](https://github.com/frankxai/Starlight-Intelligence-System)
 [![License: MIT](https://img.shields.io/badge/license-MIT-white?style=for-the-badge&labelColor=0d1117)](https://opensource.org/licenses/MIT)
@@ -45,13 +45,13 @@
 
 ## What's inside
 
-**41 validated skills across 8 domains**, each a self-contained, rich-portable package.
+**43 validated skills across 8 domains**, each a self-contained, rich-portable package.
 Browse the full [**Catalog**](docs/CATALOG.md).
 
 | Domain | Skills | Examples |
 |--------|:------:|----------|
 | 🏛️ **studios** | 5 | `publishing-studio`, `template-studio`, `software-studio`, `media-studio`, `world-experience-studio` |
-| 🧩 **substrate** | 5 | `agentic-income`, `affiliate-audit`, `payments-mandate`, `swarm-queen-coordination`, `notion-operating-system` |
+| 🧩 **substrate** | 7 | `agentic-income`, `affiliate-audit`, `payments-mandate`, `swarm-queen-coordination`, `notion-operating-system`, `starlight`, `starlight-queen` |
 | 🌌 **cosmos** (flagship) | 7 | `apod-to-short`, `nasa-image-to-atlas-page`, `rights-check-nasa-esa` |
 | 🔬 research | 3 | `arxiv-paper-to-brief`, `mission-page-to-summary`, `claim-verification` |
 | 🎬 media | 5 | `social-repurposer`, `thumbnail-concept`, `caption-and-hashtag` |
@@ -125,6 +125,14 @@ canonical studio skills plus the Product Studio Director—never a second author
 `python3 scripts/validate_plugin.py` rejects source drift, invented MCP/app endpoints or an
 invalid plugin manifest before release.
 
+### Starlight operator plugins
+
+[`plugins/starlight`](plugins/starlight) executes bounded work; [`plugins/starlight-queen`](plugins/starlight-queen) coordinates scoped agent evidence, decisions and prepared work packets. Each packages one canonical skill, with no duplicate skill names between packages. They use GitHub, Vercel and other tools already provided by the host; they declare no live MCP server and do not activate an agent runtime.
+
+Build with `python3 scripts/build_operator_plugins.py`; validate with `python3 scripts/validate_operator_plugins.py` and the offline boundary tests. The Queen helper emits review artifacts to stdout and never writes a live queue. A reviewed packet still needs the existing runtime's admission and verification.
+
+See [operator execution plan](docs/OPERATOR_EXECUTION_PLAN.md) for repository ownership, runtime dependencies and the next integration slices. Native host installation/publication is a separate smoke test; package validation alone does not establish it.
+
 ## Skill format (rich-portable)
 
 ```
@@ -186,3 +194,4 @@ refuses to port any skill whose footer is missing. Ledger: [`ATTESTATION.md`](AT
 
 [MIT](LICENSE). Arcanea canon, where invoked inside the two mythic-overlay skills, is attributed
 CC-BY-NC.
+

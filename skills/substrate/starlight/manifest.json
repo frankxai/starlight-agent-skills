@@ -1,0 +1,55 @@
+{
+  "id": "substrate/starlight",
+  "name": "starlight",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "Execute bounded Starlight work across existing GitHub repositories and Vercel projects with current ownership, exact-revision checks, and reviewable results. Use for Starlight implementation, repository changes, release preparation, plugin work, or deployment verification.",
+  "inputs": [
+    {
+      "name": "authorized_task",
+      "type": "object",
+      "required": true
+    },
+    {
+      "name": "current_evidence",
+      "type": "array",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "owner",
+      "type": "string"
+    },
+    {
+      "name": "state",
+      "type": "string"
+    },
+    {
+      "name": "evidence",
+      "type": "object"
+    },
+    {
+      "name": "next_action",
+      "type": "string"
+    }
+  ],
+  "tools": [
+    "Read",
+    "Write",
+    "Bash",
+    "Web"
+  ],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "codex",
+    "claude",
+    "opencode",
+    "hermes"
+  ],
+  "tags": [
+    "starlight",
+    "operations"
+  ],
+  "attestation": "Built on SIP \u2014 starlightintelligence.org/protocol v1.1.0"
+}

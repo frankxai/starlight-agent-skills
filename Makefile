@@ -1,7 +1,7 @@
-.PHONY: check validate validate-examples catalog catalog-check rules plugin release-check
+.PHONY: check validate validate-examples catalog catalog-check rules plugin operator-plugins queen-tests release-check
 
 # Run the full quality gate (what CI runs).
-check: validate validate-examples catalog-check rules plugin release-check
+check: validate validate-examples catalog-check rules plugin operator-plugins queen-tests release-check
 
 # Frontmatter + attestation + manifest↔SKILL.md↔folder integrity.
 validate:
@@ -29,6 +29,14 @@ rules:
 plugin:
 	python3 scripts/validate_plugin.py
 
+operator-plugins:
+	python3 scripts/validate_operator_plugins.py
+	python3 scripts/test_operator_plugins.py
+
+queen-tests:
+	python3 scripts/test_queen_intake.py
+
 # Repository release history, attestation, receipts, and publication safety.
 release-check:
 	python3 scripts/validate_release.py
+

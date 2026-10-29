@@ -1,0 +1,23 @@
+{
+  "id": "substrate/capability-foundry",
+  "name": "capability-foundry",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "Author and evaluate portable capability drafts from concrete outcomes.",
+  "inputs": [
+    {"name": "outcome", "type": "string", "required": true},
+    {"name": "targets", "type": "array", "required": true},
+    {"name": "context", "type": "string", "required": false}
+  ],
+  "outputs": [
+    {"name": "outcome", "type": "string"},
+    {"name": "artifact", "type": "string"},
+    {"name": "evidence", "type": "array"},
+    {"name": "next_steps", "type": "array"}
+  ],
+  "tools": ["Read", "WebFetch"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["skills", "plugins", "capability-foundry", "portability", "learning"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

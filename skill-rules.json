@@ -1,7 +1,7 @@
 {
   "_description": "Starlight Agent Skills auto-activation rules. Same schema as ACOS .claude/skill-rules.json and SIS skills/skill-rules.json. A consuming system fires a skill when context matches its triggers. Every 'skill' id resolves to skills/<domain>/<name>/SKILL.md (enforced by scripts/check-rules.mjs).",
   "_version": "0.1.0",
-  "_attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0",
+  "_attestation": "Built on SIP \u2014 starlightintelligence.org/protocol v1.1.0",
   "activation_rules": [
     {
       "skill": "apod-to-short",
@@ -924,6 +924,23 @@
       },
       "priority": "high",
       "load_level": "core"
+    },
+    {
+      "skill": "capability-foundry",
+      "triggers": {
+        "keywords": [
+          "capability foundry",
+          "create a portable skill",
+          "compile a plugin",
+          "export an agent skill",
+          "cross-host capability"
+        ],
+        "file_patterns": [],
+        "commands": [
+          "/capability-foundry"
+        ]
+      },
+      "priority": "high"
     }
   ]
 }

@@ -16,7 +16,7 @@ Starlight voice, coding, cosmos, research, media, education, and substrate ops t
 - `cosmic-code-lab`
 - cosmos: `apod-to-short`, `arxiv-space-paper-to-brief`, `cosmic-mythic-overlay`, `nasa-image-to-atlas-page`, `rights-check-nasa-esa`, `rocket-launch-to-reel`, `space-social-repurposer`
 - research / media / education in `skills/`
-- substrate: `swarm-queen-coordination`, `payments-mandate`, `notion-operating-system`
+- substrate: `capability-foundry`, `swarm-queen-coordination`, `payments-mandate`, `notion-operating-system`
 
 ## Exclude (other brands own these)
 

@@ -1,0 +1,30 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "starlight-second-brain",
+  "version": "0.1.0",
+  "description": "Source-backed knowledge workflows: recover context, distill selected sources, trace decisions, verify synthesis and build offline knowledge explorers. Uses existing authorized tools; no hosted memory service.",
+  "author": {
+    "name": "Frank Riemer"
+  },
+  "repository": "https://github.com/frankxai/starlight-agent-skills",
+  "license": "MIT",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Starlight Second Brain",
+        "shortDescription": "Knowledge you can build on",
+        "longDescription": "Six focused workflows connect source discovery, atomic notes, decision history, verified reflection, context handoffs and a searchable offline graph/timeline explorer. Preserves existing GitHub, Drive, Notion and sovereign-vault ownership. Includes a validated deterministic packet compiler. Requires source connectors or supplied files; does not capture unseen chats or activate a hosted memory service.",
+        "developerName": "Frank Riemer",
+        "category": "Productivity",
+        "capabilities": [],
+        "logo": "./assets/icon.svg",
+        "composerIcon": "./assets/icon.svg",
+        "defaultPrompt": [
+          "Resume this project from its latest source-backed context.",
+          "Map my knowledge sources and trace the decisions that matter.",
+          "Turn these selected sources into an interactive knowledge map."
+        ]
+      }
+    }
+  }
+}

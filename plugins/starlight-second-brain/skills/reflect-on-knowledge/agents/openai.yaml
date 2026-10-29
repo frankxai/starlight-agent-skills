@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reflect on Knowledge"
+  short_description: "A small set of evidence-backed hypotheses that can change a decision or produce a useful a"
+  default_prompt: "Find the strongest useful connection in this project\u2019s recent evidence."

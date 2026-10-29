@@ -1,0 +1,4 @@
+interface:
+  display_name: "Run Second Brain"
+  short_description: "A source-backed answer and one useful next action, using the existing memory and knowledge"
+  default_prompt: "Map this project\u2019s sources and resume its latest accepted work."

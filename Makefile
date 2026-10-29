@@ -1,7 +1,7 @@
 .PHONY: check validate validate-examples catalog catalog-check rules plugin release-check
 
 # Run the full quality gate (what CI runs).
-check: validate validate-examples catalog-check rules plugin release-check
+check: validate validate-examples catalog-check rules plugin release-check second-brain
 
 # Frontmatter + attestation + manifest↔SKILL.md↔folder integrity.
 validate:
@@ -32,3 +32,8 @@ plugin:
 # Repository release history, attestation, receipts, and publication safety.
 release-check:
 	python3 scripts/validate_release.py
+
+.PHONY: second-brain
+second-brain:
+	python3 scripts/build_second_brain_plugin.py --check
+	python3 -m unittest discover -s skills/substrate/visualize-knowledge/tests -v

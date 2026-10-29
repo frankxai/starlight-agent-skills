@@ -1,0 +1,4 @@
+interface:
+  display_name: "Compile Context"
+  short_description: "A bounded handoff with provenance and explicit authority, avoiding silent context loss."
+  default_prompt: "Compile the current project context for a fresh agent session."

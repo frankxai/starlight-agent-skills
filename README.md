@@ -125,6 +125,13 @@ canonical studio skills plus the Product Studio Director—never a second author
 `python3 scripts/validate_plugin.py` rejects source drift, invented MCP/app endpoints or an
 invalid plugin manifest before release.
 
+### Starlight Second Brain plugin
+
+[`plugins/starlight-second-brain`](plugins/starlight-second-brain) packages six canonical
+knowledge workflows with an offline graph, timeline, source explorer and context compiler.
+It uses existing authorized tools and source owners; it creates no memory service.
+[Scope, commands and verification](docs/SECOND_BRAIN_PLUGIN.md).
+
 ## Skill format (rich-portable)
 
 ```

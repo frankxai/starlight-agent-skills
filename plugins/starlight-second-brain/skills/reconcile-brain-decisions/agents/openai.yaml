@@ -1,0 +1,4 @@
+interface:
+  display_name: "Trace Decisions"
+  short_description: "An inspectable decision history that preserves accepted constraints and unresolved conflic"
+  default_prompt: "Trace the decisions behind this architecture and show what still conflicts."

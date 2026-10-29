@@ -1,0 +1,44 @@
+{
+  "id": "substrate/visualize-knowledge",
+  "name": "visualize-knowledge",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "A navigable, inspectable projection over source-backed claims; every visual relationship has meaning.",
+  "inputs": [
+    {
+      "name": "task",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "artifact",
+      "type": "object"
+    },
+    {
+      "name": "coverage",
+      "type": "array"
+    },
+    {
+      "name": "evidence",
+      "type": "array"
+    }
+  ],
+  "tools": [],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "claude",
+    "codex",
+    "cursor",
+    "gemini",
+    "opencode",
+    "sis"
+  ],
+  "tags": [
+    "second-brain",
+    "knowledge",
+    "provenance"
+  ],
+  "attestation": "Built on SIP"
+}

@@ -1,0 +1,48 @@
+{
+  "id": "substrate/compile-brain-context",
+  "name": "compile-brain-context",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "A bounded handoff with provenance and explicit authority, avoiding silent context loss.",
+  "inputs": [
+    {
+      "name": "task",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "context_pack",
+      "type": "object"
+    },
+    {
+      "name": "coverage",
+      "type": "array"
+    },
+    {
+      "name": "next_action",
+      "type": "object"
+    },
+    {
+      "name": "evidence",
+      "type": "array"
+    }
+  ],
+  "tools": [],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "claude",
+    "codex",
+    "cursor",
+    "gemini",
+    "opencode",
+    "sis"
+  ],
+  "tags": [
+    "second-brain",
+    "knowledge",
+    "provenance"
+  ],
+  "attestation": "Built on SIP"
+}

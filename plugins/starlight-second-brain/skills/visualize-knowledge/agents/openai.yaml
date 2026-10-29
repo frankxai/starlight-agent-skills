@@ -1,0 +1,4 @@
+interface:
+  display_name: "Explore Knowledge"
+  short_description: "A navigable, inspectable projection over source-backed claims; every visual relationship h"
+  default_prompt: "Build an interactive map of these source-backed project decisions."

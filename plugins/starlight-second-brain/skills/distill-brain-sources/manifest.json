@@ -1,0 +1,48 @@
+{
+  "id": "substrate/distill-brain-sources",
+  "name": "distill-brain-sources",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "Convert selected source material into traceable knowledge proposals without erasing branches, revisions or privacy boundaries.",
+  "inputs": [
+    {
+      "name": "task",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "claims",
+      "type": "array"
+    },
+    {
+      "name": "sources",
+      "type": "array"
+    },
+    {
+      "name": "unresolved_questions",
+      "type": "array"
+    },
+    {
+      "name": "evidence",
+      "type": "array"
+    }
+  ],
+  "tools": [],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "claude",
+    "codex",
+    "cursor",
+    "gemini",
+    "opencode",
+    "sis"
+  ],
+  "tags": [
+    "second-brain",
+    "knowledge",
+    "provenance"
+  ],
+  "attestation": "Built on SIP"
+}

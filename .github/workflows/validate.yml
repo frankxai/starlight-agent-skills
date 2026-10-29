@@ -53,3 +53,8 @@ jobs:
 
       - name: Validate release truth
         run: python3 scripts/validate_release.py
+
+      - name: Validate Second Brain projection and boundary tests
+        run: |
+          python3 scripts/build_second_brain_plugin.py --check
+          python3 -m unittest discover -s skills/substrate/visualize-knowledge/tests -v

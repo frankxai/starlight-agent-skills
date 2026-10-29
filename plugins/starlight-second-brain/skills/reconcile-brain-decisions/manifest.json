@@ -1,0 +1,48 @@
+{
+  "id": "substrate/reconcile-brain-decisions",
+  "name": "reconcile-brain-decisions",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "An inspectable decision history that preserves accepted constraints and unresolved conflicts.",
+  "inputs": [
+    {
+      "name": "task",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "decision_timeline",
+      "type": "array"
+    },
+    {
+      "name": "conflicts",
+      "type": "array"
+    },
+    {
+      "name": "proposed_changes",
+      "type": "array"
+    },
+    {
+      "name": "evidence",
+      "type": "array"
+    }
+  ],
+  "tools": [],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "claude",
+    "codex",
+    "cursor",
+    "gemini",
+    "opencode",
+    "sis"
+  ],
+  "tags": [
+    "second-brain",
+    "knowledge",
+    "provenance"
+  ],
+  "attestation": "Built on SIP"
+}

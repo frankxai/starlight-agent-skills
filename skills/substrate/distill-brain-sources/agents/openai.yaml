@@ -1,0 +1,4 @@
+interface:
+  display_name: "Distill Sources"
+  short_description: "Convert selected source material into traceable knowledge proposals without erasing branch"
+  default_prompt: "Distill these selected conversations into atomic notes with source anchors."

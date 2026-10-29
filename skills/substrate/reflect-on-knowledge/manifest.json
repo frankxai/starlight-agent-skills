@@ -1,0 +1,48 @@
+{
+  "id": "substrate/reflect-on-knowledge",
+  "name": "reflect-on-knowledge",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "A small set of evidence-backed hypotheses that can change a decision or produce a useful artifact.",
+  "inputs": [
+    {
+      "name": "task",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "hypotheses",
+      "type": "array"
+    },
+    {
+      "name": "counterevidence",
+      "type": "array"
+    },
+    {
+      "name": "recommended_action",
+      "type": "object"
+    },
+    {
+      "name": "evidence",
+      "type": "array"
+    }
+  ],
+  "tools": [],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "claude",
+    "codex",
+    "cursor",
+    "gemini",
+    "opencode",
+    "sis"
+  ],
+  "tags": [
+    "second-brain",
+    "knowledge",
+    "provenance"
+  ],
+  "attestation": "Built on SIP"
+}

@@ -1,0 +1,278 @@
+{
+  "schema": "starlight.brain.v1",
+  "title": "A studio that remembers why.",
+  "scope": {
+    "tenant": "synthetic-studio",
+    "project": "observatory"
+  },
+  "generated_at": "2026-10-29T12:00:00+01:00",
+  "coverage": {
+    "summary": "Synthetic product study: trace the sources behind a decision, inspect what changed, and carry useful context forward. No personal data or live connector results.",
+    "omitted_count": 0,
+    "access_gaps": [
+      "Demonstration data only; no live source synchronization."
+    ]
+  },
+  "sources": [
+    {
+      "id": "s1",
+      "title": "Synthetic owner decisions",
+      "uri": "urn:synthetic:owner-decisions",
+      "revision": "r2",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "role": "authority",
+      "access_state": "provided",
+      "owner": "Synthetic studio"
+    },
+    {
+      "id": "s2",
+      "title": "Synthetic implementation inspection",
+      "uri": "urn:synthetic:implementation",
+      "revision": "r1",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "role": "evidence",
+      "access_state": "provided",
+      "owner": "Synthetic studio"
+    },
+    {
+      "id": "s3",
+      "title": "Synthetic research note",
+      "uri": "urn:synthetic:research",
+      "revision": "r1",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "role": "projection",
+      "access_state": "provided",
+      "owner": "Synthetic studio"
+    }
+  ],
+  "claims": [
+    {
+      "id": "c1",
+      "title": "Keep source ownership",
+      "text": "The original source retains authority; the explorer is a projection.",
+      "kind": "constraint",
+      "status": "accepted",
+      "privacy": "synthetic",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "event_at": "2026-10-20T12:00:00+01:00",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "citations": [
+        {
+          "source_id": "s1",
+          "anchor": "Synthetic section c1",
+          "evidence_type": "owner_acceptance"
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "A useful first view",
+      "text": "The launch uses a source list and a small relationship graph.",
+      "kind": "decision",
+      "status": "accepted",
+      "privacy": "synthetic",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "event_at": "2026-10-21T12:00:00+01:00",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "citations": [
+        {
+          "source_id": "s1",
+          "anchor": "Synthetic section c2",
+          "evidence_type": "owner_acceptance"
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "Source fidelity before scale",
+      "text": "A larger graph is useful only when source locators resolve.",
+      "kind": "idea",
+      "status": "inferred",
+      "privacy": "synthetic",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "event_at": "2026-10-22T12:00:00+01:00",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "citations": [
+        {
+          "source_id": "s3",
+          "anchor": "Synthetic section c3",
+          "evidence_type": "source_claim"
+        }
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Explore decision history",
+      "text": "A timeline preserves event time separately from observation time.",
+      "kind": "artifact",
+      "status": "draft",
+      "privacy": "synthetic",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "event_at": "2026-10-23T12:00:00+01:00",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "citations": [
+        {
+          "source_id": "s2",
+          "anchor": "Synthetic section c4",
+          "evidence_type": "code_inspection"
+        }
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "Old dashboard direction",
+      "text": "Earlier direction favored a single dashboard for every job.",
+      "kind": "decision",
+      "status": "superseded",
+      "privacy": "synthetic",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "event_at": "2026-10-24T12:00:00+01:00",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "citations": [
+        {
+          "source_id": "s1",
+          "anchor": "Synthetic section c5",
+          "evidence_type": "source_claim"
+        }
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Resolve the import boundary",
+      "text": "Two notes disagree about which summaries may leave the device.",
+      "kind": "question",
+      "status": "disputed",
+      "privacy": "synthetic",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "event_at": "2026-10-25T12:00:00+01:00",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "citations": [
+        {
+          "source_id": "s3",
+          "anchor": "Synthetic section c6",
+          "evidence_type": "source_claim"
+        }
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "Test the handoff",
+      "text": "A fresh session should identify the next task from the context packet.",
+      "kind": "idea",
+      "status": "draft",
+      "privacy": "synthetic",
+      "scope": {
+        "tenant": "synthetic-studio",
+        "project": "observatory"
+      },
+      "event_at": "2026-10-26T12:00:00+01:00",
+      "observed_at": "2026-10-29T12:00:00+01:00",
+      "citations": [
+        {
+          "source_id": "s2",
+          "anchor": "Synthetic section c7",
+          "evidence_type": "source_claim"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "from": "c2",
+      "to": "c1",
+      "relation": "depends_on",
+      "status": "evidenced",
+      "citations": [
+        {
+          "source_id": "s1",
+          "anchor": "Synthetic relation depends_on"
+        }
+      ]
+    },
+    {
+      "from": "c2",
+      "to": "c5",
+      "relation": "supersedes",
+      "status": "evidenced",
+      "citations": [
+        {
+          "source_id": "s1",
+          "anchor": "Synthetic relation supersedes"
+        }
+      ]
+    },
+    {
+      "from": "c4",
+      "to": "c2",
+      "relation": "supports",
+      "status": "evidenced",
+      "citations": [
+        {
+          "source_id": "s1",
+          "anchor": "Synthetic relation supports"
+        }
+      ]
+    },
+    {
+      "from": "c6",
+      "to": "c1",
+      "relation": "related_to",
+      "status": "evidenced",
+      "citations": [
+        {
+          "source_id": "s1",
+          "anchor": "Synthetic relation related_to"
+        }
+      ]
+    },
+    {
+      "from": "c7",
+      "to": "c4",
+      "relation": "depends_on",
+      "status": "evidenced",
+      "citations": [
+        {
+          "source_id": "s1",
+          "anchor": "Synthetic relation depends_on"
+        }
+      ]
+    },
+    {
+      "from": "c3",
+      "to": "c2",
+      "relation": "supports",
+      "status": "inferred",
+      "citations": []
+    }
+  ]
+}

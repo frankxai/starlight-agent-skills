@@ -1,0 +1,52 @@
+{
+  "id": "substrate/run-second-brain",
+  "name": "run-second-brain",
+  "version": "0.1.0",
+  "domain": "substrate",
+  "summary": "A source-backed answer and one useful next action, using the existing memory and knowledge owners.",
+  "inputs": [
+    {
+      "name": "task",
+      "type": "string",
+      "required": true
+    }
+  ],
+  "outputs": [
+    {
+      "name": "source_inventory",
+      "type": "array"
+    },
+    {
+      "name": "verified_context",
+      "type": "array"
+    },
+    {
+      "name": "unresolved_questions",
+      "type": "array"
+    },
+    {
+      "name": "next_action",
+      "type": "object"
+    },
+    {
+      "name": "evidence",
+      "type": "array"
+    }
+  ],
+  "tools": [],
+  "mcp_dependencies": [],
+  "runtimes": [
+    "claude",
+    "codex",
+    "cursor",
+    "gemini",
+    "opencode",
+    "sis"
+  ],
+  "tags": [
+    "second-brain",
+    "knowledge",
+    "provenance"
+  ],
+  "attestation": "Built on SIP"
+}

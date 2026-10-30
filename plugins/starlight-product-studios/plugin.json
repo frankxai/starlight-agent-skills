@@ -1,0 +1,50 @@
+{
+  "name": "starlight-product-studios",
+  "version": "0.1.1",
+  "description": "Five governed product studios for publishing, templates, software, media, and Arcanea experiences.",
+  "author": {
+    "name": "FrankX / Starlight Intelligence",
+    "url": "https://github.com/frankxai"
+  },
+  "homepage": "https://github.com/frankxai/starlight-agent-skills/tree/main/plugins/starlight-product-studios",
+  "repository": "https://github.com/frankxai/starlight-agent-skills",
+  "license": "MIT",
+  "keywords": [
+    "product-studio",
+    "publishing",
+    "templates",
+    "software",
+    "media",
+    "worldbuilding",
+    "agents"
+  ],
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "Starlight Product Studios",
+        "shortDescription": "Create complete products",
+        "longDescription": "Choose a specialist studio, create a complete product artifact and prepare its release evidence. Covers publishing, editable templates, software, media and world experiences, coordinated by a product director. Uses the tools available in your host. This skills-only package does not create a hosted service, run background agents, take payments or publish without authorization.",
+        "developerName": "FrankX / Starlight Intelligence",
+        "category": "Productivity",
+        "capabilities": [
+          "Write",
+          "Create",
+          "Code"
+        ],
+        "websiteURL": "https://github.com/frankxai/starlight-agent-skills",
+        "defaultPrompt": [
+          "Route this product through the right specialist studio.",
+          "Build a release-ready product and its channel package.",
+          "Audit this product against studio quality gates."
+        ],
+        "brandColor": "#9C5135",
+        "logo": "./assets/logo-light.png",
+        "logoDark": "./assets/logo-dark.png",
+        "composerIcon": "./assets/composer-light.png",
+        "composerIconDark": "./assets/composer-dark.png",
+        "brandColorDark": "#FFC19A"
+      }
+    }
+  }
+}

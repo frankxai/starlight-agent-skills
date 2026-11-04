@@ -1,0 +1,27 @@
+{
+  "id": "coding/site-qa-receipt",
+  "name": "site-qa-receipt",
+  "version": "0.1.0",
+  "domain": "coding",
+  "summary": "A contracted browser check of one page with verifiable evidence, judged by another vendor and signed by the Starlight Kernel.",
+  "inputs": [
+    { "name": "url", "type": "string", "required": true, "description": "The page to check." },
+    { "name": "assertions", "type": "array", "required": true, "description": "Contracted checks, each true or false." },
+    { "name": "allowed_hosts", "type": "array", "required": true, "description": "Hosts the check may visit." },
+    { "name": "viewports", "type": "array", "required": false, "description": "Default 1440x900 and 390x844." }
+  ],
+  "outputs": [
+    { "name": "url", "type": "string" },
+    { "name": "verdict", "type": "string" },
+    { "name": "assertions", "type": "array" },
+    { "name": "evidence_folder", "type": "string" },
+    { "name": "evidence_files", "type": "array" },
+    { "name": "grader", "type": "string" },
+    { "name": "receipt_id", "type": "string", "nullable": true }
+  ],
+  "tools": ["Bash", "Read", "Write"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["qa", "browser", "receipt", "verification", "deploy", "evidence"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

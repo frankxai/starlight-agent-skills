@@ -391,6 +391,42 @@
       "priority": "medium"
     },
     {
+      "skill": "site-qa-receipt",
+      "triggers": {
+        "keywords": [
+          "qa this page",
+          "verify the deploy",
+          "prove it works",
+          "browser receipt",
+          "check on mobile",
+          "site check"
+        ],
+        "file_patterns": [],
+        "commands": [
+          "/site-qa-receipt"
+        ]
+      },
+      "priority": "medium"
+    },
+    {
+      "skill": "waitlist-door-check",
+      "triggers": {
+        "keywords": [
+          "broken cta",
+          "dead button",
+          "audit the landing page",
+          "check the waitlist",
+          "does signup work",
+          "404 on the button"
+        ],
+        "file_patterns": [],
+        "commands": [
+          "/waitlist-door-check"
+        ]
+      },
+      "priority": "medium"
+    },
+    {
       "skill": "starlight-autoplan",
       "triggers": {
         "keywords": [

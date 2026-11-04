@@ -1,0 +1,22 @@
+{
+  "id": "coding/waitlist-door-check",
+  "name": "waitlist-door-check",
+  "version": "0.1.0",
+  "domain": "coding",
+  "summary": "A ranked list of dead calls to action, broken signup forms and premature checkout buttons on a product page.",
+  "inputs": [
+    { "name": "url", "type": "string", "required": true, "description": "The product or launch page." },
+    { "name": "test_email", "type": "string", "required": false, "description": "Owner-provided address for one test signup." }
+  ],
+  "outputs": [
+    { "name": "page", "type": "string" },
+    { "name": "doors", "type": "array" },
+    { "name": "p0_count", "type": "number" },
+    { "name": "not_opened", "type": "array" }
+  ],
+  "tools": ["Bash", "Read", "Write"],
+  "mcp_dependencies": [],
+  "runtimes": ["claude", "codex", "cursor", "gemini", "opencode", "sis"],
+  "tags": ["qa", "waitlist", "cta", "landing-page", "conversion", "audit"],
+  "attestation": "Built on SIP — starlightintelligence.org/protocol v1.1.0"
+}

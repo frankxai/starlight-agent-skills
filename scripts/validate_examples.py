@@ -249,6 +249,59 @@ def _check_cosmic_code_lab(data: dict, path: str, errors: list[str]) -> None:
             errors.append(f"{path}: {field} is empty")
 
 
+def _check_community_studio(data: dict, path: str, errors: list[str]) -> None:
+    # every lesson uses one id across the room, the app route and the MCP tool
+    lessons = data.get("contract_valid_curriculum")
+    if isinstance(lessons, list):
+        if len(lessons) < 1:
+            errors.append(f"{path}: contract_valid_curriculum must have >= 1 lesson")
+        for i, lesson in enumerate(lessons):
+            if not isinstance(lesson, dict):
+                errors.append(f"{path}: contract_valid_curriculum[{i}] is not an object")
+                continue
+            lesson_id = lesson.get("id")
+            if not (isinstance(lesson_id, str) and SLUG_RE.match(lesson_id)):
+                errors.append(f"{path}: contract_valid_curriculum[{i}].id is not kebab-case")
+                continue
+            proj = lesson.get("projections")
+            proj = proj if isinstance(proj, dict) else {}
+            if not str(proj.get("appRoute", "")).endswith("/" + lesson_id):
+                errors.append(f"{path}: lesson {lesson_id!r} appRoute does not end in its id")
+            if proj.get("mcpTool") != "lesson_" + lesson_id.replace("-", "_"):
+                errors.append(f"{path}: lesson {lesson_id!r} mcpTool does not derive from its id")
+    # staged agents hold no tools or MCP servers, and every fixture passes
+    agents = data.get("staged_agents")
+    if isinstance(agents, dict):
+        if not agents:
+            errors.append(f"{path}: staged_agents must name at least one agent")
+        for name, agent in agents.items():
+            if not isinstance(agent, dict):
+                errors.append(f"{path}: staged_agents[{name!r}] is not an object")
+                continue
+            if agent.get("tools") != [] or agent.get("mcp_servers") != []:
+                errors.append(f"{path}: staged agent {name!r} must declare empty tools and mcp_servers")
+            passed, total = agent.get("fixtures_passed"), agent.get("fixtures_total")
+            if not (isinstance(passed, int) and isinstance(total, int) and total >= 1 and passed == total):
+                errors.append(f"{path}: staged agent {name!r} fixtures must all pass (passed={passed!r}, total={total!r})")
+    # the walkthrough covers desktop and 390 px and reaches a posted receipt
+    walk = data.get("walkthrough_evidence")
+    if isinstance(walk, dict):
+        viewports = walk.get("viewports")
+        widths = [v for v in viewports if isinstance(v, int) and not isinstance(v, bool)] if isinstance(viewports, list) else []
+        if 390 not in widths:
+            errors.append(f"{path}: walkthrough_evidence.viewports must include 390")
+        if not any(w >= 1024 for w in widths):
+            errors.append(f"{path}: walkthrough_evidence.viewports must include a desktop width (>= 1024)")
+        steps = walk.get("steps_reached")
+        for step in ("invite", "onboarding", "first lesson", "first receipt"):
+            if not (isinstance(steps, list) and step in steps):
+                errors.append(f"{path}: walkthrough_evidence.steps_reached must include {step!r}")
+    # publication, invites, prices and access grants stay with the operator
+    decision = data.get("release_decision")
+    if isinstance(decision, str) and "operator" not in decision.lower():
+        errors.append(f"{path}: release_decision must leave the decision to the operator")
+
+
 CONTRACT_CHECKS = {
     "cosmos/apod-to-short": _check_apod_to_short,
     "cosmos/nasa-image-to-atlas-page": _check_nasa_image_to_atlas_page,
@@ -256,6 +309,7 @@ CONTRACT_CHECKS = {
     "research/arxiv-paper-to-brief": _check_arxiv_paper_to_brief,
     "media/social-repurposer": _check_social_repurposer,
     "coding/cosmic-code-lab": _check_cosmic_code_lab,
+    "studios/community-studio": _check_community_studio,
 }
 
 

@@ -3,7 +3,7 @@
   "name": "community-studio",
   "version": "0.1.0",
   "domain": "studios",
-  "summary": "Build a working community or academy from one curriculum contract, with member-owned receipts and read-only operating agents.",
+  "summary": "Build a working community or academy from one curriculum contract, with member-owned receipts and operating agents that hold no room credentials.",
   "inputs": [
     {"name": "task_envelope", "type": "object", "required": true},
     {"name": "product_manifest", "type": "object", "required": true},

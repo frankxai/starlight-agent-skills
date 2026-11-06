@@ -49,6 +49,10 @@ Use GitHub for the curriculum and contract; Circle MCP read tools for room state
 - Every claim in member copy is true on the day it is published.
 - Publication, invites, pricing and access remain separate human-authorized gates.
 
+## Example
+
+A four-week operator lab with a named operator and a dated cadence: see [`examples/example-01.md`](examples/example-01.md) for the input and the structured output (curriculum, space plan, staged agents, walkthrough evidence, receipt, release decision). `scripts/validate_examples.py` checks that output against `manifest.json` and the mechanical items in `tests/contract.md`.
+
 ---
 
 Built on SIP — Starlight Intelligence Protocol

@@ -12,6 +12,9 @@ changelog heading is not, by itself, proof of a tag or GitHub release.
 ## [Unreleased]
 
 ### Added
+- `substrate/capability-foundry` — outcome-based portable skill, agent-instruction
+  and plugin authoring through the Starlight registry, compiler and MCP tools,
+  with startup learning examples and explicit export, host-test and publication states.
 - A validated skills-only Codex plugin compiling byte-matched projections of
   the five studios and Product Studio Director without creating another
   authoring surface or claiming undeployed MCP/app capabilities.
